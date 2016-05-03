@@ -1,0 +1,75 @@
+/*************************************
+ * generic styling for ALS elements
+ ************************************/
+
+.als-container {
+    position: relative;
+    width: 100%;
+    margin: 0px auto;
+    z-index: 0;
+}
+
+.als-viewport {
+    position: relative;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.als-wrapper {
+    position: relative;
+    list-style: none;
+}
+
+.als-item {
+    position: relative;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+}
+
+.als-prev, .als-next {
+    position: absolute;
+    cursor: pointer;
+    clear: both;
+}
+/*************************************
+ * specific styling for #demo3
+ ************************************/
+
+#demo3 {
+    margin: 40px auto;
+    border:1px solid red;
+}
+
+#demo3 .als-item {
+    margin: 0px 5px;
+    padding: 4px 0px;
+    min-height: 120px;
+    min-width: 100px;
+    text-align: center;
+     border: 1px solid red;
+}
+
+#demo3 .als-item p {
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+    border: 1px solid #777;
+    padding: 40%;
+    height: 180px;
+    width: 180px;
+    text-align: center;
+}
+
+#demo3 .als-prev, #demo3 .als-next {
+    top: 40px;
+}
+
+#demo3 .als-prev {
+    left: 200px;
+}
+
+#demo3 .als-next {
+    right: 200px;
+}
