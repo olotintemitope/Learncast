@@ -27,11 +27,11 @@ class VideoTest extends TestCase
             ]);
 
         $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
+            "category_id"    => $category->id,
+            "title"          => "Regular expression in Javascript",
+            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
+            "description"    => "It is the language of the web",
+            "user_id"        => $user->id,
         ]);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
@@ -58,7 +58,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -86,7 +86,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -113,7 +113,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -140,7 +140,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -167,7 +167,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -194,7 +194,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -220,7 +220,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -246,7 +246,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -272,7 +272,7 @@ class VideoTest extends TestCase
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -298,7 +298,7 @@ class VideoTest extends TestCase
        $video = factory('App\Video')->create([
             'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
-            'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description'    => 'It is the language of the web',
             'user_id'        => $user->id,
         ]);
@@ -344,10 +344,10 @@ class VideoTest extends TestCase
 
         $videos = factory('App\Video')->create([
             'title'       => 'Regular expression in Javascript',
-            'url'         => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
+             "url"        => "https://www.youtube.com/watch?v=9vN2IdeALaI",
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
-            'category_id'  => $category->id,
+            'category_id' => $category->id,
         ]);
 
         $this->actingAs($user)->visit('/dashboard/video/view')
