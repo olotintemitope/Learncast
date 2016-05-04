@@ -13,9 +13,9 @@ class AddForeignKeyToCommentsTable extends Migration
     public function up()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->default(1);
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('video_id')->unsigned();
+            $table->integer('video_id')->unsigned()->default(1);
             $table->foreign('video_id')->references('id')->on('videos');
         });
     }
