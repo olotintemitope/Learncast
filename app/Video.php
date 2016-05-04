@@ -11,7 +11,7 @@ class Video extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable  = ['title', 'url', 'description', 'category_id', 'user_id'];
+    protected $fillable = ['title', 'url', 'description', 'category_id', 'user_id'];
 
     public function category()
     {
@@ -25,13 +25,13 @@ class Video extends Model
 
     public function scopeGetVideosByUserId($query, $id)
     {
-        return $query 
+        return $query
         ->where('videos.user_id', '=', $id);
     }
 
     public function scopeAllTrashedVideos($query, $id)
     {
-        return $query 
+        return $query
         ->where('videos.user_id', '=', $id)
         ->onlyTrashed();
     }

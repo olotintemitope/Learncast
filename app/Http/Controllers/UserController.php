@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\User;
-use Storage;
-use Cloudder;
-use Validator;
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\UserSignupRequest;
-use App\Http\Controllers\Auth\AuthController;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use App\User;
+use Auth;
+use Cloudder;
+use Illuminate\Http\Request;
+use Validator;
 
 class UserController extends Controller
 {
@@ -25,24 +20,24 @@ class UserController extends Controller
             'profile_bio' => $request->input('profile_bio'),
         ]);
 
-        if (! is_null($user)) {
+        if (!is_null($user)) {
             return redirect('/dashboard/profile')->with(
-                'status', 
+                'status',
                 'Sucessfully updated!'
             );
         }
 
         return redirect('/dashboard/profile')->with(
-            'status', 
+            'status',
             'Oops! Something went wrong!'
         );
     }
 
     /**
-     * This method upload profile picture to cloudinary
-     * 
+     * This method upload profile picture to cloudinary.
+     *
      * @param  $request
-     * 
+     *
      * @return response
      */
     public function updateAvatar(Request $request)
@@ -58,35 +53,35 @@ class UserController extends Controller
 
         $imageUrl = $this->handleCloudinaryFileUpload($request);
 
-         if (filter_var($imageUrl, FILTER_VALIDATE_URL)) {
+        if (filter_var($imageUrl, FILTER_VALIDATE_URL)) {
             $user = User::where('id', '=', Auth::user()->id)
-            ->update(['picture_url' => $imageUrl,]);
+            ->update(['picture_url' => $imageUrl]);
 
             return redirect('/dashboard/profile')
             ->with('status', 'Profile picture update successfully!');
-         }
+        }
 
-         return redirect('/dashboard/profile')->with(
-            'status', 
+        return redirect('/dashboard/profile')->with(
+            'status',
             'Oops! Something went wrong!'
         );
-
     }
+
     /**
-     * This method upload image to cloudinary
-     * 
+     * This method upload image to cloudinary.
+     *
      * @param $request
-     * 
+     *
      * @return picture url
      */
     public function handleCloudinaryFileUpload($request)
     {
         $avatar = $request->file('picture_url');
         $avatar = Cloudder::upload($avatar, null, [
-            "format" => "jpg",
-            "crop" => "fill",
-            "width" => 250,
-            "height" => 250
+            'format' => 'jpg',
+            'crop'   => 'fill',
+            'width'  => 250,
+            'height' => 250,
         ]);
 
         return  Cloudder::getResult()['url'];

@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Category;
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Validator;
+use Auth;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -21,15 +17,15 @@ class CategoryController extends Controller
             'user_id'     => Auth::user()->id,
             ]);
 
-        if (! is_null($category)) {
+        if (!is_null($category)) {
             return redirect('/dashboard/category/add')->with(
-                'status', 
+                'status',
                 'Sucessfully created!'
                 );
-        } 
+        }
 
         return redirect('/dashboard/category/add')->with(
-            'status', 
+            'status',
             'Oops! Something went wrong!'
             );
     }
@@ -42,12 +38,12 @@ class CategoryController extends Controller
             'description' => $request->input('description'),
             ]);
 
-        if (! is_null($category)) {
+        if (!is_null($category)) {
             return redirect('/dashboard/category/view');
-        } 
+        }
 
         return redirect('/dashboard/category/edit'.$id)->with(
-            'status', 
+            'status',
             'Oops! Something went wrong!'
         );
     }
@@ -60,7 +56,7 @@ class CategoryController extends Controller
 
         if (is_null($category)) {
             return redirect('/dashboard/category/add')->with(
-                'status', 
+                'status',
                 'Oops! Category does not exist!'
                 );
         }
@@ -80,35 +76,33 @@ class CategoryController extends Controller
         ->paginate(10);
 
         return view('dashboard.pages.list_video_categories', compact(
-            'categories', 
+            'categories',
             'pendingCategories'
         ));
-
     }
 
-    public function changeCategoryStatus(Request $request, $id) {
+    public function changeCategoryStatus(Request $request, $id)
+    {
         $category = null;
 
         if ($request->input('status') == 0) {
             $category = Category::setCategoryStatus($id)
             ->delete();
-            
         } else {
             $category = Category::setCategoryStatus($id)
             ->restore();
         }
-        
-        if (! is_null($category)) {
+
+        if (!is_null($category)) {
             return [
-            'statuscode' => 200, 
-            'message' => 'Operation Successfully'
+            'statuscode' => 200,
+            'message'    => 'Operation Successfully',
             ];
         }
 
         return [
-        'statuscode' => 404, 
-        'message' => 'Invalid Category ID!'
+        'statuscode' => 404,
+        'message'    => 'Invalid Category ID!',
         ];
     }
-
 }

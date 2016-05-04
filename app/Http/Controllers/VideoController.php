@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\Video;
 use App\Category;
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\VideoRequest;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Validator;
+use App\Video;
+use Auth;
+use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
@@ -33,22 +29,22 @@ class VideoController extends Controller
             'description'  => $request->input('description'),
             ]);
 
-        if (! is_null($category)) {
+        if (!is_null($category)) {
             return redirect('/dashboard/video/add')->with(
-                'status', 
+                'status',
                 'Sucessfully created!'
             );
-        } 
+        }
 
         return redirect('/dashboard/video/add')->with(
-            'status', 
+            'status',
             'Oops! Something went wrong!'
         );
     }
 
     public function viewAllVideos()
     {
-        $user_id = $user_id = Auth::user()->id;;
+        $user_id = $user_id = Auth::user()->id;
 
         $videos = Video::with('category')
         ->getVideosByUserId($user_id)
@@ -59,7 +55,6 @@ class VideoController extends Controller
         ->paginate(10);
 
         return view('dashboard.pages.list_all_videos', compact('videos', 'pendingVideos'));
-
     }
 
     public function getVideo($id)
@@ -72,7 +67,7 @@ class VideoController extends Controller
 
         if (is_null($video)) {
             return redirect('/dashboard/video/add')->with(
-                'status', 
+                'status',
                 'Oops! Video does not exist!'
             );
         }
@@ -90,17 +85,18 @@ class VideoController extends Controller
             'description'  => $request->input('description'),
         ]);
 
-        if (! is_null($video)) {
+        if (!is_null($video)) {
             return redirect('/dashboard/video/view');
-        } 
+        }
 
         return redirect('/dashboard/video/edit'.$id)->with(
-            'status', 
+            'status',
             'Oops! Something went wrong!'
         );
     }
 
-    public function changeVideoStatus(Request $request, $id) {
+    public function changeVideoStatus(Request $request, $id)
+    {
         $video = null;
 
         if ($request->input('status') == 0) {
@@ -112,21 +108,20 @@ class VideoController extends Controller
         }
 
         return $this->returnChangeVideoStatus($video);
-        
     }
 
     public function returnChangeVideoStatus($classObject)
     {
-        if (! is_null($classObject)) {
+        if (!is_null($classObject)) {
             return [
             'statuscode' => 200,
-            'message' => 'Operation Successfully'
+            'message'    => 'Operation Successfully',
             ];
         }
 
         return [
         'statuscode' => 404,
-        'message' => 'Invalid Video ID!'
+        'message'    => 'Invalid Video ID!',
         ];
     }
 }
