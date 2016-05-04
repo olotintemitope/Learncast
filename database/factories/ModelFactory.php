@@ -11,6 +11,13 @@
 |
 */
 
+$factory->define(App\Role::class, function (Faker\Generator $faker) {
+    return [
+        'name'       => $faker->name,
+        'role'       => 1,
+    ];
+});
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'username'       => $faker->name,
@@ -39,9 +46,3 @@ $factory->define(App\Video::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Role::class, function (Faker\Generator $faker) {
-    return [
-        'name'       => $faker->name,
-        'role'       => 1,
-    ];
-});

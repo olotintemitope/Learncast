@@ -16,7 +16,7 @@ class AddForeignKeyToVideosTable extends Migration
             $table->softDeletes();
             $table->integer('category_id')->unsigned()->default(1);
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->default(1);
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

@@ -20,7 +20,11 @@ class VideoTest extends TestCase
     {
         $user = factory('App\User')->create();
 
-        $category = factory('App\Category')->create();
+        $category = factory('App\Category')->create([
+            'user_id' => $user->id,
+            'name'    => 'Erlang',
+            'description' => 'I have made you too small in my heart'
+            ]);
 
         $video = factory('App\Video')->create([
             'category_id'    => $category->id,
