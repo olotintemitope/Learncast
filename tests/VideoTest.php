@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class VideoTest extends TestCase
@@ -18,8 +20,10 @@ class VideoTest extends TestCase
     {
         $user = factory('App\User')->create();
 
-        $category = factory('App\Video')->create([
-            'category_id'    => 1,
+        $category = factory('App\Category')->create();
+
+        $video = factory('App\Video')->create([
+            'category_id'    => $category->id,
             'title'          => 'Regular expression in Javascript',
             'url'            => 'https://www.youtube.com/watch?v=9vN2IdeALaI',
             'description'    => 'It is the language of the web',
@@ -33,10 +37,12 @@ class VideoTest extends TestCase
              ->type('It is the language of the web', 'description')
              ->press('Create')
              ->see('The title has already been taken.');
+
     }
 
     public function testThatCreateVideoWasSuccessful()
     {
+
         $user = factory('App\User')->create();
 
         $category = factory('App\Video')->create([
@@ -54,6 +60,7 @@ class VideoTest extends TestCase
              ->type('Asynchronous Task of the web', 'description')
              ->press('Create')
              ->see('Sucessfully created!');
+
     }
 
     public function testThatAllFieldsAreMissingExceptDescription()
@@ -74,6 +81,7 @@ class VideoTest extends TestCase
              ->see('The title field is required.')
              ->see('The category field is required.')
              ->see('The url field is required.');
+
     }
 
     public function testThatAllFieldsAreMissingExceptTitle()
@@ -94,6 +102,7 @@ class VideoTest extends TestCase
              ->see('The description field is required.')
              ->see('The category field is required.')
              ->see('The url field is required.');
+
     }
 
     public function testThatAllFieldsAreMissingExceptUrl()
@@ -114,6 +123,7 @@ class VideoTest extends TestCase
              ->see('The title field is required.')
              ->see('The category field is required.')
              ->see('The description field is required.');
+
     }
 
     public function testThatAllFieldsAreMissingExceptCategory()
@@ -134,6 +144,7 @@ class VideoTest extends TestCase
              ->see('The title field is required.')
              ->see('The url field is required.')
              ->see('The description field is required.');
+
     }
 
     public function testThatUrlAndDescriptionFieldsAreMissing()
@@ -217,7 +228,7 @@ class VideoTest extends TestCase
 
     public function testThatVideoWasUpdated()
     {
-        $user = factory('App\User')->create();
+       $user = factory('App\User')->create();
 
         $video = factory('App\Video')->create([
             'category_id'    => 1,
@@ -227,7 +238,7 @@ class VideoTest extends TestCase
             'user_id'        => $user->id,
         ]);
 
-        $this->actingAs($user)->visit('/dashboard/video/edit/'.$video->id)
+       $this->actingAs($user)->visit('/dashboard/video/edit/'.$video->id)
           ->type('Javascript', 'title')
           ->type('It is the language of the Html', 'description')
           ->press('Update')
@@ -264,19 +275,22 @@ class VideoTest extends TestCase
         ->see($videos->title)
         ->see($videos->url)
         ->see($videos->category->name);
+
     }
 
     public function testchangeVideoStatus()
     {
-        $user = factory('App\User')->create();
+       $user = factory('App\User')->create();
 
-        $video = factory('App\Video')->create([
+       $video = factory('App\Video')->create([
           'title'        => 'Javascript',
           'description'  => 'It is the language of the web',
           'user_id'      => $user->id,
         ]);
 
-        $this->actingAs($user)->visit('/dashboard/video/delete/'.$video->id)
+       $this->actingAs($user)->visit('/dashboard/video/delete/'.$video->id)
        ->see('Operation Successfully');
+        
     }
+
 }

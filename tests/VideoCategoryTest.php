@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class VideoCategoryTest extends TestCase
@@ -8,9 +10,9 @@ class VideoCategoryTest extends TestCase
 
     public function testVideoCategoryWasVisited()
     {
-        $user = factory('App\User')->create();
+      $user = factory('App\User')->create();
 
-        $this->actingAs($user)->visit('/dashboard/category/add')
+      $this->actingAs($user)->visit('/dashboard/category/add')
        ->see('/dashboard/category/create');
     }
 
@@ -29,6 +31,7 @@ class VideoCategoryTest extends TestCase
              ->type('It is the language of the web', 'description')
              ->press('Create')
              ->see('The name has already been taken.');
+
     }
 
     public function testThatVideoCategoryWasSuccessful()
@@ -46,6 +49,7 @@ class VideoCategoryTest extends TestCase
              ->type('Python is a widely used high-level, general-purpose, interpreted, dynamic programming language.', 'description')
              ->press('Create')
              ->see('Sucessfully created!');
+
     }
 
     public function testThatVideoCategoryNameFieldIsMissing()
@@ -62,8 +66,8 @@ class VideoCategoryTest extends TestCase
              ->type('Python is a widely used high-level language.', 'description')
              ->press('Create')
              ->see('The name field is required.');
-    }
 
+    }
     public function testThatVideoCategoryDescriptionFieldIsMissing()
     {
         $user = factory('App\User')->create();
@@ -78,6 +82,7 @@ class VideoCategoryTest extends TestCase
              ->type('Java', 'name')
              ->press('Create')
              ->see('The description field is required.');
+
     }
 
     public function testThatVideoCategoryFieldsAreMissing()
@@ -98,7 +103,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatVideoCategoryWasUpdated()
     {
-        $user = factory('App\User')->create();
+       $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -106,7 +111,7 @@ class VideoCategoryTest extends TestCase
             'user_id'     => $user->id,
         ]);
 
-        $this->actingAs($user)->visit('/dashboard/category/edit/'.$category->id)
+       $this->actingAs($user)->visit('/dashboard/category/edit/'.$category->id)
           ->type('Javascript 2.0', 'name')
           ->type('It is the language of the Html', 'description')
           ->press('Update')
@@ -149,7 +154,7 @@ class VideoCategoryTest extends TestCase
 
     public function testchangeCategoryStatus()
     {
-        $user = factory('App\User')->create();
+       $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -157,7 +162,9 @@ class VideoCategoryTest extends TestCase
             'user_id'     => $user->id,
         ]);
 
-        $this->actingAs($user)->visit('/dashboard/category/delete/1')
+       $this->actingAs($user)->visit('/dashboard/category/delete/1')
        ->see('Operation Successfully');
+        
     }
+
 }
