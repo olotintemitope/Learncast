@@ -15,10 +15,10 @@ Route::get('/welcome', function () {
     return view('main.pages.single_video');
 });
 
-/**
+/*
  * This route belongs to dashboard
  */
-Route::group(['prefix' => '/dashboard','middleware' => ['web','auth']], function () {
+Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], function () {
 
     Route::auth();
 
@@ -32,8 +32,8 @@ Route::group(['prefix' => '/dashboard','middleware' => ['web','auth']], function
         return view('dashboard.pages.video_category');
     });
 
-    Route::get('/category/view',  [
-        'uses' => 'CategoryController@viewAllCategories', 
+    Route::get('/category/view', [
+        'uses' => 'CategoryController@viewAllCategories',
     ]);
 
     Route::get('/profile', function () {
@@ -41,51 +41,51 @@ Route::group(['prefix' => '/dashboard','middleware' => ['web','auth']], function
     });
 
     Route::post('/category/create', [
-        'uses' => 'CategoryController@store', 
+        'uses' => 'CategoryController@store',
     ]);
 
-    Route::get('/category/edit/{id}',  [
-        'uses' => 'CategoryController@getCategory', 
+    Route::get('/category/edit/{id}', [
+        'uses' => 'CategoryController@getCategory',
     ]);
 
-    Route::post('/category/update/{id}',  [
-        'uses' => 'CategoryController@updateCategory', 
+    Route::post('/category/update/{id}', [
+        'uses' => 'CategoryController@updateCategory',
     ]);
 
-    Route::get('/category/delete/{id}',  [
-        'uses' => 'CategoryController@changeCategoryStatus', 
+    Route::get('/category/delete/{id}', [
+        'uses' => 'CategoryController@changeCategoryStatus',
     ]);
 
     Route::get('/video/add', [
-        'uses' => 'VideoController@index', 
+        'uses' => 'VideoController@index',
     ]);
 
     Route::post('/video/create', [
-        'uses' => 'VideoController@store', 
+        'uses' => 'VideoController@store',
     ]);
 
     Route::get('/video/view', [
-        'uses' => 'VideoController@viewAllVideos', 
+        'uses' => 'VideoController@viewAllVideos',
     ]);
 
-    Route::get('/video/edit/{id}',  [
-        'uses' => 'VideoController@getVideo', 
+    Route::get('/video/edit/{id}', [
+        'uses' => 'VideoController@getVideo',
     ]);
 
-    Route::post('/video/update/{id}',  [
-        'uses' => 'VideoController@updateVideo', 
+    Route::post('/video/update/{id}', [
+        'uses' => 'VideoController@updateVideo',
     ]);
 
-    Route::get('/video/delete/{id}',  [
-        'uses' => 'VideoController@changeVideoStatus', 
+    Route::get('/video/delete/{id}', [
+        'uses' => 'VideoController@changeVideoStatus',
     ]);
 
-    Route::post('/profile/update',  [
-        'uses' => 'UserController@updateProfile', 
+    Route::post('/profile/update', [
+        'uses' => 'UserController@updateProfile',
     ]);
 
-    Route::post('/picture/update',  [
-        'uses' => 'UserController@updateAvatar', 
+    Route::post('/picture/update', [
+        'uses' => 'UserController@updateAvatar',
     ]);
 
 });

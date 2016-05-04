@@ -13,6 +13,5 @@ class UsersTableSeeder extends Seeder
     {
         factory(App\Role::class, 1)->create();
         factory(App\User::class, 1)->create();
-        
     }
 }

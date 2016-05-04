@@ -36,9 +36,9 @@ return [
     ],
 
     'github' => [
-    'client_id' => env('CLIENT_ID'),
+    'client_id'     => env('CLIENT_ID'),
     'client_secret' => env('CLIENT_SECRET'),
-    'redirect' => env('CALLBACK_URL'),
+    'redirect'      => env('CALLBACK_URL'),
     ],
 
 ];
