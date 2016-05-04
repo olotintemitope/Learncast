@@ -15,6 +15,9 @@ Route::get('/welcome', function () {
     return view('main.pages.single_video');
 });
 
+/**
+ * This route belongs to dashboard
+ */
 Route::group(['prefix' => '/dashboard','middleware' => ['web','auth']], function () {
 
     Route::auth();
