@@ -24,15 +24,9 @@ class VideoTest extends TestCase
             'user_id' => $user->id,
             'name'    => 'Erlang',
             'description' => 'I have made you too small in my heart'
-            ]);
-
-        $video = factory('App\Video')->create([
-            "category_id"    => $category->id,
-            "title"          => "Regular expression in Javascript",
-            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            "description"    => "It is the language of the web",
-            "user_id"        => $user->id,
         ]);
+
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->select($category->id, 'category')
@@ -40,7 +34,7 @@ class VideoTest extends TestCase
              ->type('https://www.youtube.com/watch?v=9vN2IdeALaI', 'url')
              ->type('It is the language of the web', 'description')
              ->press('Create')
-             ->see('The title has already been taken.');
+             ->see('Sucessfully created!');
 
     }
 
@@ -55,13 +49,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->select($category->id, 'category')
@@ -83,13 +71,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type('Asynchronous Task in Javascrip', 'description')
@@ -110,13 +92,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type('Asynchronous Task in Javascript', 'title')
@@ -137,13 +113,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type('https://www.youtube.com/watch?v=eUJUOxPpiQc', 'url')
@@ -164,13 +134,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type($category->id, 'category')
@@ -191,13 +155,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type($category->id, 'category')
@@ -217,13 +175,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type('https://www.youtube.com/watch?v=eUJUOxPpiQc', 'url')
@@ -243,13 +195,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type($category->id, 'category')
@@ -269,13 +215,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-            "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/add')
              ->type('Promises in Javascript', 'title')
@@ -295,16 +235,10 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-       $video = factory('App\Video')->create([
-            'category_id'    => $category->id,
-            'title'          => 'Regular expression in Javascript',
-             "url"            => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description'    => 'It is the language of the web',
-            'user_id'        => $user->id,
-        ]);
+       $video = $this->createVideo($user, $category);
 
        $this->actingAs($user)->visit('/dashboard/video/edit/'.$video->id)
-          ->type('Javascript', 'title')
+          ->type('I have made you too small in my heart', 'title')
           ->type('It is the language of the Html', 'description')
           ->press('Update')
           ->seePageIs('/dashboard/video/view')
@@ -321,12 +255,7 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $video = factory('App\Video')->create([
-            'title'        => 'Javascript',
-            'description'  => 'It is the language of the web',
-            'user_id'      => $user->id,
-            'category_id'  => $category->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/edit/'.$video->id)
          ->see($video->title);
@@ -342,18 +271,12 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-        $videos = factory('App\Video')->create([
-            'title'       => 'Regular expression in Javascript',
-             "url"        => "https://www.youtube.com/watch?v=9vN2IdeALaI",
-            'description' => 'It is the language of the web',
-            'user_id'     => $user->id,
-            'category_id' => $category->id,
-        ]);
+        $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/view')
-        ->see($videos->title)
-        ->see($videos->url)
-        ->see($videos->category->name);
+        ->see($video->title)
+        ->see($video->url)
+        ->see($video->category->name);
 
     }
 
@@ -376,12 +299,14 @@ class VideoTest extends TestCase
 
     public function createVideo($user, $category)
     {
-        return $video = factory('App\Video')->create([
+        $video = factory('App\Video')->create([
           'title'        => 'Javascript',
           'description'  => 'It is the language of the web',
           'user_id'      => $user->id,
           'category_id'  => $category->id,
         ]);
+
+        return $video;
     }
 
 }
