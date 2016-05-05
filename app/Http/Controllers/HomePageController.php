@@ -35,6 +35,9 @@ class HomePageController extends Controller
             return abort(404, 'Page not found.');
         }
 
+        // Update the number of views on this page 
+        Video::where('id', '=', $video_id)->increment('views');
+
         return view('main.pages.single_video', compact('video'));
     }
 }
