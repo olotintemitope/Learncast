@@ -233,7 +233,7 @@ class VideoTest extends TestCase
           ->type('It is the language of the Html', 'description')
           ->press('Update')
           ->seePageIs('/dashboard/video/view')
-          ->see('Javascript');
+          ->see('I have made you too small in my heart');
     }
 
     public function testThatASingleVideoWasRetrived()

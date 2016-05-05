@@ -37,7 +37,7 @@ class VideoController extends Controller
 
         $category = Video::create([
             'title'        => $request->input('title'),
-            'url'          => $this->parseYoutubeUrl($request->input('url')),
+            'url'          => $request->input('url'),
             'category_id'  => $request->input('category'),
             'user_id'      => $user_id,
             'description'  => $request->input('description'),
@@ -118,7 +118,7 @@ class VideoController extends Controller
         $video = Video::getVideoById($id)
         ->update([
             'title'        => $request->input('title'),
-            'url'          => $this->parseYoutubeUrl($request->input('url')),
+            'url'          => $request->input('url'),
             'category_id'  => $request->input('category'),
             'description'  => $request->input('description'),
         ]);
