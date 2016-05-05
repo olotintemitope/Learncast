@@ -2,7 +2,7 @@
 <style type="text/css">
 body,html {
   background-image: none !important;
-  background: #ccc;
+  background: #f8f8f8;
 }
 
 </style>
