@@ -367,16 +367,21 @@ class VideoTest extends TestCase
             'description' => 'I have made you too small in my heart'
         ]);
 
-       $video = factory('App\Video')->create([
+       $video = $this->createVideo($user, $category);
+
+       $this->actingAs($user)->visit('/dashboard/video/delete/'.$video->id)
+       ->see('Operation Successfully');
+        
+    }
+
+    public function createVideo($user, $category)
+    {
+        return $video = factory('App\Video')->create([
           'title'        => 'Javascript',
           'description'  => 'It is the language of the web',
           'user_id'      => $user->id,
           'category_id'  => $category->id,
         ]);
-
-       $this->actingAs($user)->visit('/dashboard/video/delete/'.$video->id)
-       ->see('Operation Successfully');
-        
     }
 
 }
