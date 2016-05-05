@@ -12,12 +12,7 @@ class UserSignUpTest extends TestCase
     {
         $this->WithoutMiddleware();
 
-        $user = factory('App\User')->create([
-            'username' => 'lytopze',
-            'email'    => 'lytopze@gmail.com',
-            'password' => 'tope0852',
-            'role_id'  => 1,
-        ]);
+        $user = factory('App\User')->create();
 
         $response = $this->actingAs($user)
            ->call('POST', 'auth/register', [
