@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class VideoTest extends TestCase
@@ -21,9 +19,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -35,18 +33,16 @@ class VideoTest extends TestCase
              ->type('It is the language of the web', 'description')
              ->press('Create')
              ->see('Sucessfully created!');
-
     }
 
     public function testThatCreateVideoWasSuccessful()
     {
-
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -58,7 +54,6 @@ class VideoTest extends TestCase
              ->type('Asynchronous Task of the web', 'description')
              ->press('Create')
              ->see('Sucessfully created!');
-
     }
 
     public function testThatAllFieldsAreMissingExceptDescription()
@@ -66,9 +61,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -79,7 +74,6 @@ class VideoTest extends TestCase
              ->see('The title field is required.')
              ->see('The category field is required.')
              ->see('The url field is required.');
-
     }
 
     public function testThatAllFieldsAreMissingExceptTitle()
@@ -87,9 +81,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -100,7 +94,6 @@ class VideoTest extends TestCase
              ->see('The description field is required.')
              ->see('The category field is required.')
              ->see('The url field is required.');
-
     }
 
     public function testThatAllFieldsAreMissingExceptUrl()
@@ -108,9 +101,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -121,7 +114,6 @@ class VideoTest extends TestCase
              ->see('The title field is required.')
              ->see('The category field is required.')
              ->see('The description field is required.');
-
     }
 
     public function testThatAllFieldsAreMissingExceptCategory()
@@ -129,9 +121,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -142,7 +134,6 @@ class VideoTest extends TestCase
              ->see('The title field is required.')
              ->see('The url field is required.')
              ->see('The description field is required.');
-
     }
 
     public function testThatUrlAndDescriptionFieldsAreMissing()
@@ -150,9 +141,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -170,9 +161,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -190,9 +181,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -210,9 +201,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -227,17 +218,17 @@ class VideoTest extends TestCase
 
     public function testThatVideoWasUpdated()
     {
-       $user = factory('App\User')->create();
+        $user = factory('App\User')->create();
 
-       $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+        $category = factory('App\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
-       $video = $this->createVideo($user, $category);
+        $video = $this->createVideo($user, $category);
 
-       $this->actingAs($user)->visit('/dashboard/video/edit/'.$video->id)
+        $this->actingAs($user)->visit('/dashboard/video/edit/'.$video->id)
           ->type('I have made you too small in my heart', 'title')
           ->type('It is the language of the Html', 'description')
           ->press('Update')
@@ -250,9 +241,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -266,9 +257,9 @@ class VideoTest extends TestCase
         $user = factory('App\User')->create();
 
         $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
         $video = $this->createVideo($user, $category);
@@ -277,24 +268,22 @@ class VideoTest extends TestCase
         ->see($video->title)
         ->see($video->url)
         ->see($video->category->name);
-
     }
 
     public function testchangeVideoStatus()
     {
-       $user = factory('App\User')->create();
+        $user = factory('App\User')->create();
 
-       $category = factory('App\Category')->create([
-            'user_id' => $user->id,
-            'name'    => 'Erlang',
-            'description' => 'I have made you too small in my heart'
+        $category = factory('App\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
         ]);
 
-       $video = $this->createVideo($user, $category);
+        $video = $this->createVideo($user, $category);
 
-       $this->actingAs($user)->visit('/dashboard/video/delete/'.$video->id)
+        $this->actingAs($user)->visit('/dashboard/video/delete/'.$video->id)
        ->see('Operation Successfully');
-        
     }
 
     public function createVideo($user, $category)
@@ -310,5 +299,4 @@ class VideoTest extends TestCase
 
         return $video;
     }
-
 }

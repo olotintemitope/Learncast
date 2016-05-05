@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class AddUserIdToVideoCategory extends Migration
 {
@@ -26,7 +26,7 @@ class AddUserIdToVideoCategory extends Migration
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-            
+
         });
     }
 }

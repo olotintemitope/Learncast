@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
     /**
-     * This Method change the video status
+     * This Method change the video status.
      *
      * @param void
      *
@@ -25,7 +25,7 @@ class VideoController extends Controller
     }
 
     /**
-     * This Method change the video status
+     * This Method change the video status.
      *
      * @param $request
      *
@@ -59,7 +59,7 @@ class VideoController extends Controller
     }
 
     /**
-     * This Method gets all videos
+     * This Method gets all videos.
      *
      * @param void
      *
@@ -81,7 +81,7 @@ class VideoController extends Controller
     }
 
     /**
-     * This Method get all videos
+     * This Method get all videos.
      *
      * @param $id
      *
@@ -106,10 +106,9 @@ class VideoController extends Controller
     }
 
     /**
-     * This Method update the video
+     * This Method update the video.
      *
      * @param $id
-     * 
      * @param $request
      *
      * @return $response
@@ -135,10 +134,9 @@ class VideoController extends Controller
     }
 
     /**
-     * This Method change the video status
+     * This Method change the video status.
      *
      * @param $id
-     * 
      * @param $request
      *
      * @return $videostatus
@@ -159,7 +157,7 @@ class VideoController extends Controller
     }
 
     /**
-     * This Method return the video status
+     * This Method return the video status.
      *
      * @param $classObject
      *
@@ -181,11 +179,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method parse youtube url
+     * This method parse youtube url.
      */
     public function parseYoutubeUrl($url)
     {
-        parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+        parse_str(parse_url($url, PHP_URL_QUERY), $my_array_of_vars);
 
         return $my_array_of_vars['v'];
     }
