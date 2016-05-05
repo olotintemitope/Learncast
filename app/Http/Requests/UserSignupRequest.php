@@ -24,7 +24,7 @@ class UserSignupRequest extends Request
     public function rules()
     {
         return [
-            'username'    => 'required|max:20|unique:users,username,'.Auth::user()->id,
+            'username'    => 'required|max:50|unique:users,username,'.Auth::user()->id,
             'email'       => 'required|email|max:50|unique:users,email,'.Auth::user()->id,
             'profile_bio' => 'required|min:5',
         ];
