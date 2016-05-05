@@ -11,7 +11,6 @@
 |
 */
 
-
 /*
  * This route belongs to dashboard
  */
@@ -112,5 +111,5 @@ Route::group(['middleware' => ['web']], function () {
         return view('main.pages.auth.userlogin_form');
     });
 
-    Route::get('/view/video/{video_id}','HomePageController@viewCurrentVideo');
+    Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
 });

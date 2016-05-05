@@ -3,10 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Video;
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Controllers\VideoController;
-
 class HomePageController extends Controller
 {
     public function index()
