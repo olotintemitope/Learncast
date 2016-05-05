@@ -1,33 +1,33 @@
 TAP version 13
-ok 1 - ProfileUpdateTest::testThatUserBackgroundDetailsWasUpdated
-ok 2 - ProfileUpdateTest::testThatUserBackgroundDetailsIsMissing
-ok 3 - ProfileUpdateTest::testThatSomeFieldsAreMissing
-ok 4 - ProfileUpdateTest::testThatImageWasNotSelected
-ok 5 - ProfileUpdateTest::testThatTheUserUploadProfilePicture
-ok 6 - UserSignUpTest::testCheckAllFieldsEmpty
-ok 7 - VideoCategoryTest::testVideoCategoryWasVisited
-ok 8 - VideoCategoryTest::testThatVideoCategoryWasAddedEalier
-ok 9 - VideoCategoryTest::testThatVideoCategoryWasSuccessful
-ok 10 - VideoCategoryTest::testThatVideoCategoryNameFieldIsMissing
-ok 11 - VideoCategoryTest::testThatVideoCategoryDescriptionFieldIsMissing
-ok 12 - VideoCategoryTest::testThatVideoCategoryFieldsAreMissing
-ok 13 - VideoCategoryTest::testThatVideoCategoryWasUpdated
-ok 14 - VideoCategoryTest::testThatASingleCategoryWasRetrived
-ok 15 - VideoCategoryTest::testgetAllCategories
-ok 16 - VideoCategoryTest::testchangeCategoryStatus
-ok 17 - VideoTest::testVideoWasVisited
-ok 18 - VideoTest::testThatVideoWasAddedEalier
-ok 19 - VideoTest::testThatCreateVideoWasSuccessful
-ok 20 - VideoTest::testThatAllFieldsAreMissingExceptDescription
-ok 21 - VideoTest::testThatAllFieldsAreMissingExceptTitle
-ok 22 - VideoTest::testThatAllFieldsAreMissingExceptUrl
-ok 23 - VideoTest::testThatAllFieldsAreMissingExceptCategory
-ok 24 - VideoTest::testThatUrlAndDescriptionFieldsAreMissing
-ok 25 - VideoTest::testThatCategoryAndTitleFieldsAreMissing
-ok 26 - VideoTest::testThatTitleAndDescriptionFieldsAreMissing
-ok 27 - VideoTest::testThatCategoryAndUrlFieldsAreMissing
-ok 28 - VideoTest::testThatVideoWasUpdated
-ok 29 - VideoTest::testThatASingleVideoWasRetrived
-ok 30 - VideoTest::testgetAllVideos
-ok 31 - VideoTest::testchangeVideoStatus
+not ok 1 - Error: ProfileUpdateTest::testThatUserBackgroundDetailsWasUpdated
+not ok 2 - Error: ProfileUpdateTest::testThatUserBackgroundDetailsIsMissing
+not ok 3 - Error: ProfileUpdateTest::testThatSomeFieldsAreMissing
+not ok 4 - Error: ProfileUpdateTest::testThatImageWasNotSelected
+not ok 5 - Error: ProfileUpdateTest::testThatTheUserUploadProfilePicture
+not ok 6 - Error: UserSignUpTest::testCheckAllFieldsEmpty
+not ok 7 - Error: VideoCategoryTest::testVideoCategoryWasVisited
+not ok 8 - Error: VideoCategoryTest::testThatVideoCategoryWasAddedEalier
+not ok 9 - Error: VideoCategoryTest::testThatVideoCategoryWasSuccessful
+not ok 10 - Error: VideoCategoryTest::testThatVideoCategoryNameFieldIsMissing
+not ok 11 - Error: VideoCategoryTest::testThatVideoCategoryDescriptionFieldIsMissing
+not ok 12 - Error: VideoCategoryTest::testThatVideoCategoryFieldsAreMissing
+not ok 13 - Error: VideoCategoryTest::testThatVideoCategoryWasUpdated
+not ok 14 - Error: VideoCategoryTest::testThatASingleCategoryWasRetrived
+not ok 15 - Error: VideoCategoryTest::testgetAllCategories
+not ok 16 - Error: VideoCategoryTest::testchangeCategoryStatus
+not ok 17 - Error: VideoTest::testVideoWasVisited
+not ok 18 - Error: VideoTest::testThatVideoWasAddedEalier
+not ok 19 - Error: VideoTest::testThatCreateVideoWasSuccessful
+not ok 20 - Error: VideoTest::testThatAllFieldsAreMissingExceptDescription
+not ok 21 - Error: VideoTest::testThatAllFieldsAreMissingExceptTitle
+not ok 22 - Error: VideoTest::testThatAllFieldsAreMissingExceptUrl
+not ok 23 - Error: VideoTest::testThatAllFieldsAreMissingExceptCategory
+not ok 24 - Error: VideoTest::testThatUrlAndDescriptionFieldsAreMissing
+not ok 25 - Error: VideoTest::testThatCategoryAndTitleFieldsAreMissing
+not ok 26 - Error: VideoTest::testThatTitleAndDescriptionFieldsAreMissing
+not ok 27 - Error: VideoTest::testThatCategoryAndUrlFieldsAreMissing
+not ok 28 - Error: VideoTest::testThatVideoWasUpdated
+not ok 29 - Error: VideoTest::testThatASingleVideoWasRetrived
+not ok 30 - Error: VideoTest::testgetAllVideos
+not ok 31 - Error: VideoTest::testchangeVideoStatus
 1..31
