@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Auth;
+
 class VideoRequest extends Request
 {
     /**
@@ -22,10 +24,10 @@ class VideoRequest extends Request
     public function rules()
     {
         return [
-           'title'        => 'required|unique:videos|max:50',
+           'title'        => 'required|max:50|unique:videos',
            'description'  => 'required|max:256',
            'category'     => 'required|max:5',
-           'url'          => 'required',
+           'url'          => 'required|min:10,url,'.Auth::user()->id,
         ];
     }
 }

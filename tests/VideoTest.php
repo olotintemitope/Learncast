@@ -229,6 +229,7 @@ class VideoTest extends TestCase
         $video = $this->createVideo($user, $category);
 
         $this->actingAs($user)->visit('/dashboard/video/edit/'.$video->id)
+          ->select($category->id, 'category')
           ->type('I have made you too small in my heart', 'title')
           ->type('It is the language of the Html', 'description')
           ->press('Update')

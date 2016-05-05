@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="tests" tests="31" assertions="127" failures="0" errors="0" time="43.696846">
-    <testsuite name="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" tests="5" assertions="20" failures="0" errors="0" time="23.614323">
-      <testcase name="testThatUserBackgroundDetailsWasUpdated" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="9" assertions="4" time="12.459559"/>
-      <testcase name="testThatUserBackgroundDetailsIsMissing" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="20" assertions="4" time="1.474503"/>
-      <testcase name="testThatSomeFieldsAreMissing" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="33" assertions="4" time="0.747212"/>
-      <testcase name="testThatImageWasNotSelected" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="46" assertions="4" time="0.809450"/>
-      <testcase name="testThatTheUserUploadProfilePicture" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="56" assertions="4" time="8.123599"/>
+  <testsuite name="tests" tests="31" assertions="127" failures="0" errors="0" time="29.387601">
+    <testsuite name="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" tests="5" assertions="20" failures="0" errors="0" time="9.591938">
+      <testcase name="testThatUserBackgroundDetailsWasUpdated" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="9" assertions="4" time="3.394740"/>
+      <testcase name="testThatUserBackgroundDetailsIsMissing" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="20" assertions="4" time="1.232843"/>
+      <testcase name="testThatSomeFieldsAreMissing" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="33" assertions="4" time="0.728649"/>
+      <testcase name="testThatImageWasNotSelected" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="46" assertions="4" time="0.814954"/>
+      <testcase name="testThatTheUserUploadProfilePicture" class="ProfileUpdateTest" file="/Users/andeladev/Code/learnanytime/tests/ProfileUpdateTest.php" line="56" assertions="4" time="3.420752"/>
     </testsuite>
-    <testsuite name="UserSignUpTest" file="/Users/andeladev/Code/learnanytime/tests/UserSignUpTest.php" tests="1" assertions="0" failures="0" errors="0" time="0.746490">
-      <testcase name="testCheckAllFieldsEmpty" class="UserSignUpTest" file="/Users/andeladev/Code/learnanytime/tests/UserSignUpTest.php" line="11" assertions="0" time="0.746490"/>
+    <testsuite name="UserSignUpTest" file="/Users/andeladev/Code/learnanytime/tests/UserSignUpTest.php" tests="1" assertions="0" failures="0" errors="0" time="0.833094">
+      <testcase name="testCheckAllFieldsEmpty" class="UserSignUpTest" file="/Users/andeladev/Code/learnanytime/tests/UserSignUpTest.php" line="11" assertions="0" time="0.833094"/>
     </testsuite>
-    <testsuite name="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" tests="10" assertions="39" failures="0" errors="0" time="6.669324">
-      <testcase name="testVideoCategoryWasVisited" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="9" assertions="2" time="0.517180"/>
-      <testcase name="testThatVideoCategoryWasAddedEalier" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="17" assertions="4" time="0.779819"/>
-      <testcase name="testThatVideoCategoryWasSuccessful" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="34" assertions="4" time="0.741280"/>
-      <testcase name="testThatVideoCategoryNameFieldIsMissing" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="51" assertions="4" time="0.707923"/>
-      <testcase name="testThatVideoCategoryDescriptionFieldIsMissing" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="67" assertions="4" time="0.698143"/>
-      <testcase name="testThatVideoCategoryFieldsAreMissing" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="83" assertions="5" time="0.673087"/>
-      <testcase name="testThatVideoCategoryWasUpdated" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="99" assertions="6" time="0.919989"/>
-      <testcase name="testThatASingleCategoryWasRetrived" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="117" assertions="2" time="0.503532"/>
-      <testcase name="testgetAllCategories" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="131" assertions="6" time="0.638104"/>
-      <testcase name="testchangeCategoryStatus" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="150" assertions="2" time="0.490267"/>
+    <testsuite name="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" tests="10" assertions="39" failures="0" errors="0" time="6.964612">
+      <testcase name="testVideoCategoryWasVisited" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="9" assertions="2" time="0.572944"/>
+      <testcase name="testThatVideoCategoryWasAddedEalier" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="17" assertions="4" time="0.914150"/>
+      <testcase name="testThatVideoCategoryWasSuccessful" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="34" assertions="4" time="0.740146"/>
+      <testcase name="testThatVideoCategoryNameFieldIsMissing" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="51" assertions="4" time="0.746662"/>
+      <testcase name="testThatVideoCategoryDescriptionFieldIsMissing" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="67" assertions="4" time="0.697591"/>
+      <testcase name="testThatVideoCategoryFieldsAreMissing" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="83" assertions="5" time="0.677754"/>
+      <testcase name="testThatVideoCategoryWasUpdated" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="99" assertions="6" time="0.939745"/>
+      <testcase name="testThatASingleCategoryWasRetrived" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="117" assertions="2" time="0.509632"/>
+      <testcase name="testgetAllCategories" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="131" assertions="6" time="0.637282"/>
+      <testcase name="testchangeCategoryStatus" class="VideoCategoryTest" file="/Users/andeladev/Code/learnanytime/tests/VideoCategoryTest.php" line="150" assertions="2" time="0.528706"/>
     </testsuite>
-    <testsuite name="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" tests="15" assertions="68" failures="0" errors="0" time="12.666709">
-      <testcase name="testVideoWasVisited" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="9" assertions="2" time="0.552993"/>
-      <testcase name="testThatVideoWasAddedEalier" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="17" assertions="4" time="1.012512"/>
-      <testcase name="testThatCreateVideoWasSuccessful" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="38" assertions="4" time="0.854134"/>
-      <testcase name="testThatAllFieldsAreMissingExceptDescription" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="59" assertions="6" time="0.798095"/>
-      <testcase name="testThatAllFieldsAreMissingExceptTitle" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="79" assertions="6" time="0.848899"/>
-      <testcase name="testThatAllFieldsAreMissingExceptUrl" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="99" assertions="6" time="0.960055"/>
-      <testcase name="testThatAllFieldsAreMissingExceptCategory" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="119" assertions="6" time="0.923589"/>
-      <testcase name="testThatUrlAndDescriptionFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="139" assertions="5" time="1.494736"/>
-      <testcase name="testThatCategoryAndTitleFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="159" assertions="5" time="0.862538"/>
-      <testcase name="testThatTitleAndDescriptionFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="179" assertions="5" time="0.805151"/>
-      <testcase name="testThatCategoryAndUrlFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="199" assertions="5" time="0.819115"/>
-      <testcase name="testThatVideoWasUpdated" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="219" assertions="6" time="0.959709"/>
-      <testcase name="testThatASingleVideoWasRetrived" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="239" assertions="2" time="0.568867"/>
-      <testcase name="testgetAllVideos" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="255" assertions="4" time="0.594236"/>
-      <testcase name="testchangeVideoStatus" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="273" assertions="2" time="0.612080"/>
+    <testsuite name="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" tests="15" assertions="68" failures="0" errors="0" time="11.997957">
+      <testcase name="testVideoWasVisited" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="9" assertions="2" time="0.547386"/>
+      <testcase name="testThatVideoWasAddedEalier" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="17" assertions="4" time="0.970071"/>
+      <testcase name="testThatCreateVideoWasSuccessful" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="38" assertions="4" time="0.890414"/>
+      <testcase name="testThatAllFieldsAreMissingExceptDescription" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="59" assertions="6" time="0.827536"/>
+      <testcase name="testThatAllFieldsAreMissingExceptTitle" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="79" assertions="6" time="0.849412"/>
+      <testcase name="testThatAllFieldsAreMissingExceptUrl" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="99" assertions="6" time="0.824146"/>
+      <testcase name="testThatAllFieldsAreMissingExceptCategory" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="119" assertions="6" time="0.868291"/>
+      <testcase name="testThatUrlAndDescriptionFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="139" assertions="5" time="0.970471"/>
+      <testcase name="testThatCategoryAndTitleFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="159" assertions="5" time="0.806213"/>
+      <testcase name="testThatTitleAndDescriptionFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="179" assertions="5" time="0.852517"/>
+      <testcase name="testThatCategoryAndUrlFieldsAreMissing" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="199" assertions="5" time="0.853522"/>
+      <testcase name="testThatVideoWasUpdated" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="219" assertions="6" time="0.999426"/>
+      <testcase name="testThatASingleVideoWasRetrived" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="240" assertions="2" time="0.595857"/>
+      <testcase name="testgetAllVideos" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="256" assertions="4" time="0.593036"/>
+      <testcase name="testchangeVideoStatus" class="VideoTest" file="/Users/andeladev/Code/learnanytime/tests/VideoTest.php" line="274" assertions="2" time="0.549659"/>
     </testsuite>
   </testsuite>
 </testsuites>

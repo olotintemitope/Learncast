@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1462459571">
-  <project timestamp="1462459571">
+<coverage generated="1462465038">
+  <project timestamp="1462465038">
     <package name="App">
       <file name="/Users/andeladev/Code/learnanytime/app/Article.php">
         <class name="Article" namespace="App">
@@ -112,18 +112,18 @@
         <class name="Handler" namespace="App\Exceptions">
           <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
         </class>
-        <line num="35" type="method" name="report" visibility="public" complexity="1" crap="1" count="14"/>
-        <line num="37" type="stmt" count="14"/>
-        <line num="38" type="stmt" count="14"/>
-        <line num="48" type="method" name="render" visibility="public" complexity="1" crap="1" count="14"/>
-        <line num="50" type="stmt" count="14"/>
+        <line num="35" type="method" name="report" visibility="public" complexity="1" crap="1" count="15"/>
+        <line num="37" type="stmt" count="15"/>
+        <line num="38" type="stmt" count="15"/>
+        <line num="48" type="method" name="render" visibility="public" complexity="1" crap="1" count="15"/>
+        <line num="50" type="stmt" count="15"/>
         <metrics loc="52" ncloc="30" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
       </file>
     </package>
     <package name="App\Http\Controllers\Auth">
       <file name="/Users/andeladev/Code/learnanytime/app/Http/Controllers/Auth/AuthController.php">
         <class name="AuthController" namespace="App\Http\Controllers\Auth">
-          <metrics complexity="11" methods="8" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="19" elements="44" coveredelements="21"/>
+          <metrics complexity="11" methods="8" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="16" elements="44" coveredelements="18"/>
         </class>
         <line num="42" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="44" type="stmt" count="1"/>
@@ -139,7 +139,7 @@
         <line num="75" type="stmt" count="1"/>
         <line num="76" type="stmt" count="1"/>
         <line num="77" type="stmt" count="1"/>
-        <line num="81" type="method" name="postRegister" visibility="public" complexity="3" crap="3.04" count="1"/>
+        <line num="81" type="method" name="postRegister" visibility="public" complexity="3" crap="3.65" count="1"/>
         <line num="83" type="stmt" count="1"/>
         <line num="84" type="stmt" count="1"/>
         <line num="86" type="stmt" count="1"/>
@@ -148,9 +148,9 @@
         <line num="90" type="stmt" count="1"/>
         <line num="91" type="stmt" count="0"/>
         <line num="94" type="stmt" count="1"/>
-        <line num="96" type="stmt" count="1"/>
-        <line num="97" type="stmt" count="1"/>
-        <line num="99" type="stmt" count="1"/>
+        <line num="96" type="stmt" count="0"/>
+        <line num="97" type="stmt" count="0"/>
+        <line num="99" type="stmt" count="0"/>
         <line num="101" type="stmt" count="0"/>
         <line num="110" type="method" name="loginUser" visibility="public" complexity="2" crap="6" count="0"/>
         <line num="112" type="stmt" count="0"/>
@@ -169,7 +169,7 @@
         <line num="154" type="method" name="handleProviderCallback" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="156" type="stmt" count="0"/>
         <line num="157" type="stmt" count="0"/>
-        <metrics loc="158" ncloc="102" classes="1" methods="8" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="19" elements="44" coveredelements="21"/>
+        <metrics loc="158" ncloc="102" classes="1" methods="8" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="16" elements="44" coveredelements="18"/>
       </file>
       <file name="/Users/andeladev/Code/learnanytime/app/Http/Controllers/Auth/PasswordController.php">
         <class name="PasswordController" namespace="App\Http\Controllers\Auth">
@@ -397,11 +397,11 @@
         <class name="CategoryRequest" namespace="App\Http\Requests">
           <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
-        <line num="12" type="method" name="authorize" visibility="public" complexity="1" crap="1" count="6"/>
-        <line num="14" type="stmt" count="6"/>
-        <line num="22" type="method" name="rules" visibility="public" complexity="1" crap="1" count="6"/>
-        <line num="25" type="stmt" count="6"/>
-        <metrics loc="29" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        <line num="14" type="method" name="authorize" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="16" type="stmt" count="6"/>
+        <line num="24" type="method" name="rules" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="27" type="stmt" count="6"/>
+        <metrics loc="31" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
       <file name="/Users/andeladev/Code/learnanytime/app/Http/Requests/Request.php">
         <class name="Request" namespace="App\Http\Requests">
@@ -440,13 +440,16 @@
       </file>
       <file name="/Users/andeladev/Code/learnanytime/app/Http/Requests/VideoRequest.php">
         <class name="VideoRequest" namespace="App\Http\Requests">
-          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
         </class>
-        <line num="12" type="method" name="authorize" visibility="public" complexity="1" crap="1" count="11"/>
-        <line num="14" type="stmt" count="11"/>
-        <line num="22" type="method" name="rules" visibility="public" complexity="1" crap="1" count="11"/>
-        <line num="25" type="stmt" count="11"/>
-        <metrics loc="31" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        <line num="14" type="method" name="authorize" visibility="public" complexity="1" crap="1" count="11"/>
+        <line num="16" type="stmt" count="11"/>
+        <line num="24" type="method" name="rules" visibility="public" complexity="1" crap="1" count="11"/>
+        <line num="27" type="stmt" count="11"/>
+        <line num="28" type="stmt" count="11"/>
+        <line num="29" type="stmt" count="11"/>
+        <line num="30" type="stmt" count="11"/>
+        <metrics loc="33" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
       </file>
     </package>
     <file name="/Users/andeladev/Code/learnanytime/app/Http/routes.php">
@@ -546,6 +549,6 @@
         <metrics loc="46" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
       </file>
     </package>
-    <metrics files="32" loc="1482" ncloc="1072" classes="31" methods="63" coveredmethods="39" conditionals="0" coveredconditionals="0" statements="269" coveredstatements="200" elements="332" coveredelements="239"/>
+    <metrics files="32" loc="1486" ncloc="1076" classes="31" methods="63" coveredmethods="39" conditionals="0" coveredconditionals="0" statements="272" coveredstatements="200" elements="335" coveredelements="239"/>
   </project>
 </coverage>

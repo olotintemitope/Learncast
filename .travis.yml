@@ -9,9 +9,6 @@ matrix:
     allow_failures:
         - php: hhvm
 
-before_install:
-  - mysql -e "create database IF NOT EXISTS learnanytime;" -uroot
-
 install: travis_retry composer install --no-interaction --prefer-source
 
 script:
@@ -19,9 +16,6 @@ script:
   - php vendor/bin/phpunit -c phpunit.xml.dist
   - phpunit --coverage-text --coverage-clover=coverage.clover
   - phpunit --coverage-clover build/logs/clover.xml
-
-before_script:
-  - mysql -e "create database IF NOT EXISTS learnanytime;" -uroot
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
