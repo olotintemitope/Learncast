@@ -293,8 +293,8 @@ class VideoTest extends TestCase
           'description'  => 'It is the language of the web',
           'user_id'      => $user->id,
           'category_id'  => $category->id,
-          'views'       => 0,
-          'favourites'  => 0,
+          'views'        => 0,
+          'favourites'   => 0,
         ]);
 
         return $video;
