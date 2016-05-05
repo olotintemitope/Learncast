@@ -8,7 +8,7 @@
    <div class="video_details">
      <ul class="list-inline">
       <li><button type="button" class="btn btn-primary btn-sm views"> <i class="fa fa-eye"> {{ $video->views }}  </i> </button></li>
-      <li><button type="button" class="btn btn-primary btn-sm comments" id="{{ $video->id }}"> <i class="fa fa-comment"> 5</i></li>
+      <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> 5</i></li>
       <li><button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}"> <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> </button></li></li>
     </ul>
     <p> {{ $video->description }} </p>
