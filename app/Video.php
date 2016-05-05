@@ -11,7 +11,7 @@ class Video extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['title', 'url', 'description', 'category_id', 'user_id'];
+    protected $fillable = ['title', 'url', 'description', 'category_id', 'user_id', 'views', 'favourites'];
 
     public function category()
     {
