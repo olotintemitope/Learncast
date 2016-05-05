@@ -25,6 +25,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password'       => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
         'role_id'        => 1,
+        'picture_url'    => $faker->url,
+        'profile_bio'    => $faker->name,
     ];
 });
 
