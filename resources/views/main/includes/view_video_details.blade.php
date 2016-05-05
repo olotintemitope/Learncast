@@ -7,9 +7,9 @@
    <h3> {{ $video->title }} </h3>
    <div class="video_details">
      <ul class="list-inline">
-      <li><i class="fa fa-eye"> {{ $video->views }}  </i></li>
-      <li><i class="fa fa-comment"> 5</i></li>
-      <li><i class="fa fa-thumbs-up"> {{ $video->views }} </i></li>
+      <li><button type="button" class="btn btn-primary btn-sm"> <i class="fa fa-eye"> {{ $video->views }}  </i> </button></li>
+      <li><button type="button" class="btn btn-primary btn-sm"> <i class="fa fa-comment"> 5</i></li>
+      <li><button type="button" class="btn btn-primary btn-sm"> <i class="fa fa-thumbs-up"> {{ $video->views }} </i> </button></li></li>
     </ul>
     <p> {{ $video->description }} </p>
   </div>
