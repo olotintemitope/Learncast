@@ -27,6 +27,9 @@ class HomePageController extends Controller
      */
     public function viewCurrentVideo($video_id)
     {
+        // Update the number of views on this page 
+        Video::where('id', '=', $video_id)->increment('views');
+
         $video = Video::with('category')->getVideoById($video_id)
         ->get()
         ->first();
@@ -34,9 +37,6 @@ class HomePageController extends Controller
         if (is_null($video)) {
             return abort(404, 'Page not found.');
         }
-
-        // Update the number of views on this page 
-        Video::where('id', '=', $video_id)->increment('views');
 
         return view('main.pages.single_video', compact('video'));
     }
