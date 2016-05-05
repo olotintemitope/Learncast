@@ -3,7 +3,7 @@
   <div class="row">
     @foreach ($chunk as $video)
     <div class="col-lg-3">
-      <div class="cuadro_intro_hover" style="background-color:#cccccc;">
+      <div class="cuadro_intro_hover">
        <p>
           <img src="http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg" class="img-responsive" alt="{{ $video->title}}" >
        </p>
