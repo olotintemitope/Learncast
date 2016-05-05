@@ -5,7 +5,7 @@
     <div class="col-lg-3">
       <div class="cuadro_intro_hover">
        <p>
-          <img src="http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg" class="img-responsive" alt="{{ $video->title}}" >
+         <img src="http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg" class="img-responsive" alt="{{ $video->title}}">
        </p>
        <div class="caption">
         <div class="blur"></div>
@@ -21,4 +21,8 @@
     @endforeach
   </div>
   @endforeach
-</div>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 pull-right">
+      {!! $allVideos->render() !!}
+    </div>
+  </div>
