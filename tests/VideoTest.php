@@ -304,7 +304,6 @@ class VideoTest extends TestCase
           'description'  => 'It is the language of the web',
           'user_id'      => $user->id,
           'category_id'  => $category->id,
-          'url'          => 'https://www.youtube.com/watch?v=eUJUOxPpiQc'
         ]);
 
         return $video;
