@@ -25,7 +25,7 @@
   </div>
   <div class="row">
     <div class="input-field col s8 offset-m3">
-    <input id="url" type="text" class="validate" name ="url" value="{{ $video->url }}">
+    <input id="url" type="text" class="validate" name ="url" value="https://www.youtube.com/watch?v={{ $video->url }}">
       <label for="url">Url</label>
     </div>
   </div>
