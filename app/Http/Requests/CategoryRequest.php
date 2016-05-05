@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Auth;
+
 class CategoryRequest extends Request
 {
     /**
@@ -22,7 +24,7 @@ class CategoryRequest extends Request
     public function rules()
     {
         return [
-            'name'         => 'required|unique:categories|max:20',
+            'name'         => 'required|max:20|unique:categories',
             'description'  => 'required|max:256',
         ];
     }
