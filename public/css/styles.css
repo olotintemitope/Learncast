@@ -60,8 +60,9 @@ html,body {
 
 .cuadro_intro_hover p {
   text-align:center; 
-  margin-top:20px;
-
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 40px;
 }
 
 .cuadro_intro_hover .caption{
@@ -93,6 +94,7 @@ html,body {
 .cuadro_intro_hover p img {
   height: 100%;
   width:auto;
+  vertical-align: middle;
 }
 .cuadro_intro_hover .caption-text{
   z-index: 10;
