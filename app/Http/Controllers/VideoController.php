@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
+    /**
+     * This Method change the video status
+     *
+     * @param void
+     *
+     * @return view
+     */
     public function index()
     {
         $categories = Category::all();
@@ -17,13 +24,20 @@ class VideoController extends Controller
         return view('dashboard.pages.add_video', compact('categories'));
     }
 
+    /**
+     * This Method change the video status
+     *
+     * @param $request
+     *
+     * @return $response
+     */
     public function store(VideoRequest $request)
     {
         $user_id = Auth::user()->id;
 
         $category = Video::create([
             'title'        => $request->input('title'),
-            'url'          => $request->input('url'),
+            'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
             'user_id'      => $user_id,
             'description'  => $request->input('description'),
@@ -42,6 +56,13 @@ class VideoController extends Controller
         );
     }
 
+    /**
+     * This Method gets all videos
+     *
+     * @param void
+     *
+     * @return view
+     */
     public function viewAllVideos()
     {
         $user_id = $user_id = Auth::user()->id;
@@ -57,6 +78,13 @@ class VideoController extends Controller
         return view('dashboard.pages.list_all_videos', compact('videos', 'pendingVideos'));
     }
 
+    /**
+     * This Method get all videos
+     *
+     * @param $id
+     *
+     * @return $response
+     */
     public function getVideo($id)
     {
         $video = Video::getVideoById($id)
@@ -75,12 +103,21 @@ class VideoController extends Controller
         return view('dashboard.pages.view_video', compact('categories', 'video'));
     }
 
+    /**
+     * This Method update the video
+     *
+     * @param $id
+     * 
+     * @param $request
+     *
+     * @return $response
+     */
     public function updateVideo(VideoRequest $request, $id)
     {
         $video = Video::getVideoById($id)
         ->update([
             'title'        => $request->input('title'),
-            'url'          => $request->input('url'),
+            'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
             'description'  => $request->input('description'),
         ]);
@@ -95,6 +132,15 @@ class VideoController extends Controller
         );
     }
 
+    /**
+     * This Method change the video status
+     *
+     * @param $id
+     * 
+     * @param $request
+     *
+     * @return $videostatus
+     */
     public function changeVideoStatus(Request $request, $id)
     {
         $video = null;
@@ -110,6 +156,13 @@ class VideoController extends Controller
         return $this->returnChangeVideoStatus($video);
     }
 
+    /**
+     * This Method return the video status
+     *
+     * @param $classObject
+     *
+     * @return $response
+     */
     public function returnChangeVideoStatus($classObject)
     {
         if (!is_null($classObject)) {
@@ -123,5 +176,15 @@ class VideoController extends Controller
         'statuscode' => 404,
         'message'    => 'Invalid Video ID!',
         ];
+    }
+
+    /**
+     * This method parse youtube url
+     */
+    public function parseYoutubeUrl($url)
+    {
+        parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+
+        return $my_array_of_vars['v']);
     }
 }
