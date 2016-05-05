@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\Video;
 use App\Category;
-use Illuminate\Http\Request;
 use App\Http\Requests\VideoRequest;
+use App\Video;
+use Auth;
+use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {

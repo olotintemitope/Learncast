@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Auth;
-
 class CategoryRequest extends Request
 {
     /**
