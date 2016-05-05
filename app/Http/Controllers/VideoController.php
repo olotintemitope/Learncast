@@ -41,8 +41,8 @@ class VideoController extends Controller
             'category_id'  => $request->input('category'),
             'user_id'      => $user_id,
             'description'  => $request->input('description'),
-            'views'       => 0,
-            'favourites'  => 0,
+            'views'        => 0,
+            'favourites'   => 0,
             ]);
 
         if (!is_null($category)) {
