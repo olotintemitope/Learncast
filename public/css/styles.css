@@ -263,15 +263,6 @@ section {
       color:#fff;
     }
 
-    .list_videos {
-      border-bottom:1px solid #ccc;
-      width: 100%;
-      background: #fffff;
-      padding: 2%;
-      clear: both;
-      border-left: 1px solid #ccc;
-    }
-
     .list_videos .video_thumbnail {
       width: 30%;
       float: left;
@@ -279,50 +270,80 @@ section {
       margin-right:4%; 
     }
 
+    .video_thumbnail {
+      margin-top: 5%;
+    }
+    .list_videos {
+      border-bottom:1px dashed #f5f5f5;
+      width: 100%;
+      background: #fffff;
+      padding: 2%;
+      clear: both;
+      -webkit-box-shadow: 0px 6px 21px 0px rgba(204,204,204,1);
+      -moz-box-shadow: 0px 6px 21px 0px rgba(204,204,204,1);
+      box-shadow: 0px 6px 21px 0px rgba(204,204,204,1);
+    }
+
     .list_videos .video_info {
       width: auto;
-      min-height: 100px;
+      min-height: 150px;
+      padding-top: 10%;
     }
 
-    .fa-heart-o {
-      color: #A00;
-    }
-
-    .bg-white {
-      background: white;
-    }
-
-    .video_frame {
-     padding-top: 2%;
+    .video_info {
+     padding-top: -5%;
    }
 
-   .related_videos_wrapper {
-    margin-top: -20px;
+   .fa-heart-o {
+    color: #A00;
   }
 
-  .related_videos_wrapper h3 {
-    padding: 2%;
+  .bg-white {
+    background: white;
   }
 
-  .login_form {
-    margin-top: 15%;
-  }
+  .video_frame {
+   padding-top: 2%;
+ }
 
-  .wrapper {
-    width: 90%;
-    clear: both;
-    margin: auto;
-  }
+ .related_videos_wrapper {
+  margin-top: -20px;
+}
 
-  .error::-webkit-input-placeholder {
-    color: #A00
-  }
+.related_videos_wrapper h3 {
+  padding: 2%;
+}
 
-  .noerror::-webkit-input-placeholder {
-    color: #cccccc
-  }
-  .preloader-wrapper img {
-    width: 60px;
-    height: auto;
-  }
+.login_form {
+  margin-top: 15%;
+}
+
+.wrapper {
+  width: 90%;
+  clear: both;
+  margin: auto;
+}
+
+.error::-webkit-input-placeholder {
+  color: #A00
+}
+
+.noerror::-webkit-input-placeholder {
+  color: #cccccc
+}
+.preloader-wrapper img {
+  width: 60px;
+  height: auto;
+}
+.video_wrapper iframe {
+  width: 100%;
+  height: 500px;
+}
+
+.video_details p {
+  border-top: 1px solid #ccc;
+  padding: 1% 0;
+  font-size: 14px;
+  text-align: justify;
+}
 
