@@ -45,4 +45,9 @@ class Video extends Model
     {
         return $query->find($id);
     }
+
+    public function scopeGetAllVideos($query)
+    {
+        return $query->where('videos.category_id ', '=', 'categories.id');
+    }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests\VideoRequest;
-use App\Video;
 use Auth;
+use App\Video;
+use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -37,7 +37,7 @@ class VideoController extends Controller
 
         $category = Video::create([
             'title'        => $request->input('title'),
-            'url'          => $request->input('url'),
+            'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
             'user_id'      => $user_id,
             'description'  => $request->input('description'),
@@ -118,7 +118,7 @@ class VideoController extends Controller
         $video = Video::getVideoById($id)
         ->update([
             'title'        => $request->input('title'),
-            'url'          => $request->input('url'),
+            'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
             'description'  => $request->input('description'),
         ]);

@@ -109,9 +109,7 @@ Route::group(['prefix' => '/auth', 'middleware' => ['web']], function () {
 });
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', 'HomePageController@index');
 
     Route::get('/login', function () {
         return view('main.pages.auth.userlogin_form');
