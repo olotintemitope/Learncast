@@ -10,7 +10,7 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        $allVideos = Video::orderBy('id', 'desc')->get();
+        $allVideos = Video::paginate(12);
 
         return view('welcome', compact('allVideos'));
     }
