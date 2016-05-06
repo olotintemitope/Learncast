@@ -7,12 +7,23 @@
    <h3> {{ $video->title }} </h3>
    <div class="video_details">
      <ul class="list-inline">
-      <li><i class="fa fa-eye"> {{ $video->views }}  </i></li>
-      <li><i class="fa fa-comment"> 5</i></li>
-      <li><i class="fa fa-thumbs-up"> {{ $video->views }} </i></li>
-    </ul>
-    <p> {{ $video->description }} </p>
-  </div>
+      <li>
+       <button type="button" class="btn btn-primary btn-sm views"> 
+        <i class="fa fa-eye"> {{ $video->views }}  </i> 
+      </button>
+    </li>
+    <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> 5</i>
+    </li>
+    @if (Auth::check())
+    <li>
+     <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}"> 
+     <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
+    </button>
+  </li>
+  @endif
+</ul>
+<p> {{ $video->description }} </p>
+</div>
 </div>
 </div>
 <div class="row">

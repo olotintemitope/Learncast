@@ -5,10 +5,59 @@
             video.makeAjaxRequest();
             video.deActivateVideo();
             video.switchTabs();
+            video.processVideoFavourite();
         });
     }
 
     function Video() {
+
+        this.processVideoFavourite = function() {
+            video = new Video();
+            favBtn = $(".favourites");
+            favPlaceholder = $(".fa-thumbs-up");
+            nOfFavourites = 0;
+            flag = 0;
+            a = $(".favourites").attr('data-fav');
+
+            favBtn.on("click", function() {
+                currentObj = $(this);
+                videoId = currentObj.attr('id');
+                userId  = currentObj.data('user');
+                nOfFavourites = currentObj.data('fav');
+
+                flag = toggleFavourite($(this), flag);
+
+                video.makeAjaxRequest('/favourite/video/'+videoId, 
+                {'user' : userId,'flag' : flag }, '')
+                .done(function(response) {
+                    if (response.statuscode == 200) {
+                        if (flag === 1) {
+                            $(".favourites").attr('data-fav', a);
+                            favPlaceholder.html(parseInt(nOfFavourites) + 1);
+                        } else {
+                            $(".favourites").attr('data-fav', a);
+                            favPlaceholder.html(a);
+                        }
+                    }
+                }); 
+
+                return false;
+            });
+        }
+
+        var toggleFavourite = function(obj, flag) {
+            if (!obj.hasClass('click')) {
+                obj.addClass('click');
+                obj.removeClass('unclick');
+                flag++;
+                } else {
+                    obj.addClass('unclick');
+                    obj.removeClass('click');
+                    flag--;
+                }
+
+            return flag;
+        }
 
         this.makeAjaxRequest  = function(url, parameters, request) {
             return $.ajax({
