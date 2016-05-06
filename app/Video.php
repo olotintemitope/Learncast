@@ -28,6 +28,11 @@ class Video extends Model
         return $this->hasMany('App\Favourite');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public function scopeGetVideosByUserId($query, $id)
     {
         return $query
