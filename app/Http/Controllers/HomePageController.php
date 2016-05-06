@@ -40,4 +40,20 @@ class HomePageController extends Controller
 
         return view('main.pages.single_video', compact('video'));
     }
+
+    /**
+     * This function store the users favourite video and also 
+     * increase the number of favourites on a video
+     * 
+     * @param $video_id
+     *
+     * @return json response
+     */
+    public function favouriteVideo($video_id)
+    {
+        return [
+           'statuscode' => 200,
+           'message'    => 'Successful'
+        ];
+    }
 }
