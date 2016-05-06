@@ -14,22 +14,33 @@
         this.processVideoFavourite = function() {
             video = new Video();
             favBtn = $(".favourites");
+            favPlaceholder = $(".fa-thumbs-up");
+            nOfFavourites = 0;
             flag = 0;
+            a = $(".favourites").attr('data-fav');
 
             favBtn.on("click", function() {
-                videoId = $(this).attr('id');
-                userId  = $(this).data('user');
+                currentObj = $(this);
+                videoId = currentObj.attr('id');
+                userId  = currentObj.data('user');
+                nOfFavourites = currentObj.data('fav');
+
                 flag = toggleFavourite($(this), flag);
-            video.
-            makeAjaxRequest(
-                '/favourite/video/'+videoId,
-                {'user' : userId,'flag' : flag
-            }, 
-            '').done(function(response) {
-                if (response.statuscode == 200) {
-                    alert(response.message)
-                }
-            }); 
+
+                video.makeAjaxRequest('/favourite/video/'+videoId, 
+                {'user' : userId,'flag' : flag }, '')
+                .done(function(response) {
+                    if (response.statuscode == 200) {
+                        if (flag === 1) {
+                            $(".favourites").attr('data-fav', a);
+                            favPlaceholder.html(parseInt(nOfFavourites) + 1);
+                        } else {
+                            $(".favourites").attr('data-fav', a);
+                            favPlaceholder.html(a);
+                        }
+                    }
+                }); 
+
                 return false;
             });
         }
