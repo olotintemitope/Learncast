@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Video;
 use App\Favourite;
+use App\Video;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
     /**
-     * This method get videos paginated by 12 record perPage
-     * 
+     * This method get videos paginated by 12 record perPage.
+     *
      * @param void
-     * 
+     *
      * @return view
      */
     public function index()
@@ -23,14 +23,15 @@ class HomePageController extends Controller
     }
 
     /**
-     * This method gets video by id
+     * This method gets video by id.
+     *
      * @param $video_id
-     * 
+     *
      * @return view
      */
     public function viewCurrentVideo($video_id)
     {
-        // Update the number of views on this page 
+        // Update the number of views on this page
         Video::where('id', '=', $video_id)->increment('views');
 
         $video = Video::with('category')->getVideoById($video_id)
@@ -45,9 +46,9 @@ class HomePageController extends Controller
     }
 
     /**
-     * This function store the users favourite video and also 
-     * increase the number of favourites on a video
-     * 
+     * This function store the users favourite video and also
+     * increase the number of favourites on a video.
+     *
      * @param $video_id
      *
      * @return json response
@@ -72,74 +73,69 @@ class HomePageController extends Controller
 
         return [
                'statuscode' => 200,
-               'message'    => 'Oop! something went wrong'
+               'message'    => 'Oop! something went wrong',
             ];
     }
 
     /**
-     * This method increases the number of favourites on a video
-     * 
-     * @param $request
+     * This method increases the number of favourites on a video.
      *
+     * @param $request
      * @param $video_id
      *
-     * @return boolean
+     * @return bool
      */
     public function addToVideoFavourite($request, $video_id)
     {
-         $video = Video::where('id', '=', $video_id)->increment('favourites');
+        $video = Video::where('id', '=', $video_id)->increment('favourites');
 
-         return $video;
+        return $video;
     }
 
     /**
-     * This method add a video to the user favourites table
-     * 
-     * @param $request
+     * This method add a video to the user favourites table.
      *
+     * @param $request
      * @param $video_id
      *
-     * @return boolean
+     * @return bool
      */
     public function addToMyVideoFavourites($request, $video_id)
     {
         $favourites = Favourite::create([
             'user_id'  => $request->input('user'),
-            'video_id' =>  $video_id,
+            'video_id' => $video_id,
         ]);
 
-        if (! is_null($favourites)) {
+        if (!is_null($favourites)) {
             return true;
         }
 
         return false;
-
     }
 
     /**
-     * This method decrements the counter of favourites on a video
+     * This method decrements the counter of favourites on a video.
      *
      * @param $request
-     *
      * @param $video_id
      *
-     * @return boolean
+     * @return bool
      */
     public function removeVideoFavourite($request, $video_id)
     {
-         $video = Video::where('id', '=', $video_id)->decrement('favourites');
+        $video = Video::where('id', '=', $video_id)->decrement('favourites');
 
-         return $video;
+        return $video;
     }
 
     /**
-     * This method remove a video from the user favourites table
-     * 
-     * @param $request
+     * This method remove a video from the user favourites table.
      *
+     * @param $request
      * @param $video_id
      *
-     * @return boolean
+     * @return bool
      */
     public function removeVideoFromMyFavourites($request, $video_id)
     {
@@ -148,6 +144,5 @@ class HomePageController extends Controller
         ->delete();
 
         return $favourite;
-
     }
 }
