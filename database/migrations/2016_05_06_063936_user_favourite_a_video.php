@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentsTable extends Migration
+class UserFavouriteAVideo extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('favourites', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->text('comment');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('comments');
+        Schema::drop('favourites');
     }
 }
