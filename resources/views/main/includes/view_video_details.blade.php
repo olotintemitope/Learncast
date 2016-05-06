@@ -16,8 +16,8 @@
     </li>
     @if (Auth::check())
     <li>
-     <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}"> 
-      <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
+     <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}"> 
+     <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
     </button>
   </li>
   @endif
