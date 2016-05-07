@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Video;
 use App\Category;
 use App\Http\Requests\VideoRequest;
-use App\Video;
-use Auth;
 use Illuminate\Http\Request;
 
 class VideoController extends Controller
@@ -186,5 +186,28 @@ class VideoController extends Controller
         parse_str(parse_url($url, PHP_URL_QUERY), $my_array_of_vars);
 
         return $my_array_of_vars['v'];
+    }
+
+    /**
+     * This method returns all videos under a category
+     */
+    public function getVideosByCategory($name)
+    {
+        $videos = null;
+
+        $category = Category::getCategoryByName($name)
+        ->first();
+
+        if (is_null($category)) {
+            return abort(404, 'Page not found.');
+
+        }
+
+        $categoryName = ucwords($category->name);
+        $myVideos  = Video::where('category_id', '=', $category->id)
+        ->paginate(12);
+
+        return view('main.pages.video_category', compact('myVideos', 'categoryName'));
+
     }
 }
