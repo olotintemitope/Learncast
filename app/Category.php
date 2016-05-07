@@ -39,4 +39,9 @@ class Category extends Model
     {
         return $query->find($id);
     }
+
+    public function scopeGetCategoryByName($query, $category)
+    {
+        return $query->where('name', '=', urldecode($category));
+    }
 }
