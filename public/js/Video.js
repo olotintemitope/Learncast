@@ -44,6 +44,7 @@
                             .slideDown()
                             .append(drawComment(username, avatar, comment ));
                             loader.hide('fast');
+                            $("#comment").val('');
                         } else {
                             loader
                             .html('<strong>*</strong>' + response.message)
