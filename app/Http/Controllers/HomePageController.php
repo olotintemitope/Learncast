@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Video;
-use App\Favourite;
 use App\Category;
+use App\Favourite;
+use App\Video;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
