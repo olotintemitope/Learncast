@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests\VideoRequest;
-use App\Video;
 use Auth;
+use App\User;
+use App\Video;
+use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -216,10 +217,5 @@ class VideoController extends Controller
 
         return view('main.pages.video_category', compact('myVideos', 'categoryName'));
     }
-
     
-    public function getVideoComments()
-    {
-
-    }
 }
