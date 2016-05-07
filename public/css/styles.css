@@ -251,6 +251,7 @@ section {
       position: fixed;
       bottom: 0;
       width: 100%;
+      z-index: 9999999999;
     }
 
     footer .nav>li>a {
@@ -347,7 +348,7 @@ section {
   text-align: justify;
 }
 .media img {
-  width:50%;
+  width:80px;
 }
 
 .video_category {
