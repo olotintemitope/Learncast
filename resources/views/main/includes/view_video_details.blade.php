@@ -78,9 +78,10 @@
    <form method="POST" id="comment_form">
      {!! csrf_field() !!}
    <div class="input-group">
-    <input type="text" class="form-control" placeholder="Enter Message" id="comment">
+    <!-- <input type="text" class="form-control" placeholder="Enter Message" id="comment"> -->
+    <textarea class="form-control" placeholder="Enter Message" id="comment"></textarea>
     <span class="input-group-btn">
-      <button class="btn btn-primary" type="button" id="send" data-user="{{ Auth::user()->id }}" data-video="{{ $video->id }}" data-avatar="{{ Auth::user()->picture_url }}" data-username = "{{ ucwords(Auth::user()->username) }}">SEND</button>
+      <button class="btn btn-primary clear-fix" type="button" id="send" data-user="{{ Auth::user()->id }}" data-video="{{ $video->id }}" data-avatar="{{ Auth::user()->picture_url }}" data-username = "{{ ucwords(Auth::user()->username) }}">SEND</button>
     </span>
  </div>
  </form>
