@@ -179,7 +179,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method parse youtube url.
+     * This method parse youtube url
+     * 
+     * @param $url
+     *
+     * @return string 
      */
     public function parseYoutubeUrl($url)
     {
@@ -189,7 +193,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method returns all videos under a category.
+     * This method returns all videos under a category
+     * 
+     * @param $name
+     *
+     * @return view
      */
     public function getVideosByCategory($name)
     {
@@ -207,5 +215,11 @@ class VideoController extends Controller
         ->paginate(12);
 
         return view('main.pages.video_category', compact('myVideos', 'categoryName'));
+    }
+
+    
+    public function getVideoComments()
+    {
+
     }
 }
