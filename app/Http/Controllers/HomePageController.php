@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Favourite;
 use App\Video;
+use App\Favourite;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
@@ -18,8 +19,9 @@ class HomePageController extends Controller
     public function index()
     {
         $allVideos = Video::paginate(12);
+        $allCategories = Category::all();
 
-        return view('welcome', compact('allVideos'));
+        return view('welcome', compact('allVideos', 'allCategories'));
     }
 
     /**
