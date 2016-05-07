@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use App\Http\Requests;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
     /**
-     * This method add video comments
-     * 
+     * This method add video comments.
+     *
      * @param $request
      *
      * @return object comment
@@ -23,7 +22,7 @@ class CommentController extends Controller
         if (!is_null($findComment)) {
             return [
                'statuscode' => 202,
-               'message'    => 'Comment has been added earlier!'
+               'message'    => 'Comment has been added earlier!',
             ];
         }
 
@@ -42,8 +41,7 @@ class CommentController extends Controller
 
         return [
             'statuscode' => 400,
-            'message'    => 'Comment failed to add!'
+            'message'    => 'Comment failed to add!',
         ];
-
     }
 }
