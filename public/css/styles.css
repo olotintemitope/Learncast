@@ -350,3 +350,11 @@ section {
   width:50%;
 }
 
+.video_category {
+  padding: 2%;
+  border-bottom: 1px dotted #777;
+}
+.caption-text h3 {
+  width: auto;
+  text-overflow: ellipsis;
+}
