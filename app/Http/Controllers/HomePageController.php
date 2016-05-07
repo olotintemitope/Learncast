@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Video;
 use App\Category;
 use App\Favourite;
-use App\Video;
 use Illuminate\Http\Request;
+use App\Http\Controllers\VideoController;
 
 class HomePageController extends Controller
 {
@@ -36,15 +37,16 @@ class HomePageController extends Controller
         // Update the number of views on this page
         Video::where('id', '=', $video_id)->increment('views');
 
-        $video = Video::with('category')->getVideoById($video_id)
+        $video = Video::getVideoById($video_id)
         ->get()
         ->first();
+
+        return view('main.pages.single_video', compact('video'));
 
         if (is_null($video)) {
             return abort(404, 'Page not found.');
         }
 
-        return view('main.pages.single_video', compact('video'));
     }
 
     /**

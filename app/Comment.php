@@ -13,8 +13,8 @@ class Comment extends Model
         return $this->belongsTo('App\Video');
     }
 
-    public function scopeGetCommentsOnVideo($query)
+    public function user()
     {
-        $query->where('videos.id', '=', 'comments.video_id');
+        return $this->belongsTo('App\User');
     }
 }

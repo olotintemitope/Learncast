@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests\VideoRequest;
-use App\Video;
 use Auth;
+use App\User;
+use App\Video;
+use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -179,7 +180,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method parse youtube url.
+     * This method parse youtube url
+     * 
+     * @param $url
+     *
+     * @return string 
      */
     public function parseYoutubeUrl($url)
     {
@@ -189,7 +194,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method returns all videos under a category.
+     * This method returns all videos under a category
+     * 
+     * @param $name
+     *
+     * @return view
      */
     public function getVideosByCategory($name)
     {
@@ -208,4 +217,5 @@ class VideoController extends Controller
 
         return view('main.pages.video_category', compact('myVideos', 'categoryName'));
     }
+    
 }

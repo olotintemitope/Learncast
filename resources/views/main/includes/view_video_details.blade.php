@@ -12,7 +12,7 @@
         <i class="fa fa-eye"> {{ $video->views }}  </i> 
       </button>
     </li>
-    <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> 5</i>
+    <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> {{ count($video->comments) }}</i>
     </li>
     @if (Auth::check())
     <li>
@@ -32,42 +32,23 @@
      <div class="panel-heading">RECENT COMMENT HISTORY</div>
      <div class="panel-body">
        <ul class="media-list">
+       @foreach($video->comments as $comment)
         <li class="media">
           <div class="media-body">
            <div class="media">
             <a class="pull-left" href="#">
-              <img class="media-object img-circle" src="http://res.cloudinary.com/dfdws9cpx/image/upload/v1462553003/ltn8f7ede007xvxeqgb9.jpg">
+              <img class="media-object img-circle" src="{{ $comment->user->picture_url }}">
             </a>
             <div class="media-body">
-              Donec sit amet ligula enim. Duis vel condimentum massa.
-              Donec sit amet ligula enim. Duis vel condimentum massa.Donec sit amet ligula enim. 
-              Duis vel condimentum massa.
-              Donec sit amet ligula enim. Duis vel condimentum massa.
+              {{ $comment->comment }}
               <br><br>
-              <small class="text-muted">Alex Deo</small>
+              <small class="text-muted">{{ ucwords($comment->user->username) }} | {{ Carbon\Carbon::createFromTimeStamp(strtotime($comment->created_at))->diffForHumans() }}</small>
               <hr>
             </div>
           </div>
         </div>
       </li> 
-      <li class="media">
-          <div class="media-body">
-           <div class="media">
-            <a class="pull-left" href="#">
-              <img class="media-object img-circle" src="http://res.cloudinary.com/dfdws9cpx/image/upload/v1462553003/ltn8f7ede007xvxeqgb9.jpg">
-            </a>
-            <div class="media-body">
-              Donec sit amet ligula enim. Duis vel condimentum massa.
-              Donec sit amet ligula enim. Duis vel condimentum massa.Donec sit amet ligula enim. 
-              Duis vel condimentum massa.
-              Donec sit amet ligula enim. Duis vel condimentum massa.
-              <br><br>
-              <small class="text-muted">Alex Deo</small>
-              <hr>
-            </div>
-          </div>
-        </div>
-      </li>    
+       @endforeach
     </ul>
   </div>
   @if (Auth::check())
