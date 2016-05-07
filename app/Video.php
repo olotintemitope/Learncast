@@ -35,8 +35,7 @@ class Video extends Model
 
     public function scopeGetVideosByUserId($query, $id)
     {
-        return $query
-        ->where('videos.user_id', '=', $id);
+        return $query->where('videos.user_id', '=', $id);
     }
 
     public function scopeAllTrashedVideos($query, $id)
@@ -48,16 +47,12 @@ class Video extends Model
 
     public function scopeGetVideoById($query, $id)
     {
-        return $query->where('id', '=', $id);
+        return $query->where('videos.id', '=', $id);
     }
 
     public function scopeSetVideoStatus($query, $id)
     {
         return $query->find($id);
     }
-
-    public function scopeGetAllVideos($query)
-    {
-        return $query->where('videos.category_id ', '=', 'categories.id');
-    }
+    
 }
