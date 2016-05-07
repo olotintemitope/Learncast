@@ -56,19 +56,19 @@ class HomePageController extends Controller
     public function favouriteVideo(Request $request, $video_id)
     {
         if ($request->input('flag') == 1) {
-            if ($this->addToVideoFavourite($request, $video_id) && $this->addToMyVideoFavourites($request, $video_id)) {
+            if ($this->addToVideoFavourite($video_id) && $this->addToMyVideoFavourites($request, $video_id)) {
                 return [
                     'statuscode' => 200,
                     'message'    => 'Successful',
                 ];
             }
-        } elseif ($request->input('flag') == 0) {
-            if ($this->removeVideoFavourite($request, $video_id) && $this->removeVideoFromMyFavourites($request, $video_id)) {
-                return [
-                    'statuscode' => 200,
-                    'message'    => 'Successful',
-                ];
-            }
+        }
+
+        if ($this->removeVideoFavourite($video_id) && $this->removeVideoFromMyFavourites($request, $video_id)) {
+            return [
+                'statuscode' => 200,
+                'message'    => 'Successful',
+            ];
         }
 
         return [
@@ -85,7 +85,7 @@ class HomePageController extends Controller
      *
      * @return bool
      */
-    public function addToVideoFavourite($request, $video_id)
+    public function addToVideoFavourite($video_id)
     {
         $video = Video::where('id', '=', $video_id)->increment('favourites');
 
@@ -122,7 +122,7 @@ class HomePageController extends Controller
      *
      * @return bool
      */
-    public function removeVideoFavourite($request, $video_id)
+    public function removeVideoFavourite($video_id)
     {
         $video = Video::where('id', '=', $video_id)->decrement('favourites');
 

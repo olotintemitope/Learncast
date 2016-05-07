@@ -113,4 +113,5 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
+    Route::post('/video/comment', 'CommentController@addComment');
 });
