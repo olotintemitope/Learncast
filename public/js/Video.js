@@ -6,10 +6,66 @@
             video.deActivateVideo();
             video.switchTabs();
             video.processVideoFavourite();
+            video.addComment();
         });
     }
 
     function Video() {
+
+        this.addComment = function() {
+            videoObject = new Video();
+            loader = $(".preloader-wrapper");
+            sendBtn  = $("#send");
+            
+            sendBtn.on("click", function() {
+                video   = $(this).data('video');
+                user    = $(this).data('user');
+                comment = $("#comment").val();
+                avatar  = $(this).data('avatar');
+                username = $(this).data('username');
+                commentWrapper = $(".media-list");
+
+                token = $("#comment_form").find('input[type="hidden"]').val();
+                if (comment.length == 0) {
+                    loader
+                    .html('<strong>*</strong> Did you forget to enter your comment')
+                    .css({'color':'#A00', 'font-size': '14px', 'padding':'10px'})
+                    .show('fast');
+                } else {
+                    loader.show('fast');
+                    videoObject.makeAjaxRequest('/video/comment', {
+                        'video':video, 
+                        'user':user, 
+                        'comment':comment,
+                        '_token':token
+                    }, 'POST').done(function(response) {
+                        if (response.statuscode === 201) {
+                            commentWrapper
+                            .slideDown()
+                            .append(drawComment(username, avatar, comment ));
+                            loader.hide('fast');
+                        } else {
+                            loader
+                            .html('<strong>*</strong>' + response.message)
+                            .css({'color':'#A00', 'font-size': '14px', 'padding':'10px'})
+                            .show('fast');
+                        }
+                    })
+                }
+
+                return false;
+            });
+        }
+
+        var drawComment = function(username, avatar, comment) {
+            var liComment  = "<li class='media'><div class='media-body'><div class='media'>";
+                liComment += "<a class='pull-left' href='#'>";
+                liComment += "<img class='media-object img-circle' src="+avatar+"></a>";
+                liComment += "<div class='media-body'>"+comment+"<br><br><small class='text-muted'>"+ username +"</small>";
+                liComment += "<hr></div></div></div></li>";
+
+            return liComment;
+        }
 
         this.processVideoFavourite = function() {
             video = new Video();
