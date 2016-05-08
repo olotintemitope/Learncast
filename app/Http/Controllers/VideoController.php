@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use App\Video;
 use App\Category;
+use App\Favourite;
 use Illuminate\Http\Request;
 use App\Http\Requests\VideoRequest;
 
@@ -216,6 +217,16 @@ class VideoController extends Controller
         ->paginate(12);
 
         return view('main.pages.video_category', compact('myVideos', 'categoryName'));
+    }
+
+    /**
+     * This method returns user video favourites
+     */
+    public function myFavouriteVideos()
+    {
+        $favourite = Favourite::get()->first();
+
+        return view('dashboard.pages.myfavourite_videos', compact('favourite'));
     }
     
 }
