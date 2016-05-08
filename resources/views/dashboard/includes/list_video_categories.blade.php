@@ -7,6 +7,7 @@
     </ul>
   </div>
   <div id="active_categories" class="col s12">
+  @if (count($categories) > 0)
     <table class="bordered responsive-table">
       <thead>
         <tr>
@@ -39,9 +40,13 @@
     @endforeach
   </tbody>
 </table>
+@else
+<h5>Video are not available for display</h5>
+@endif
 {!! $categories->render() !!}
 </div>
 <div id="pending_categories" class="col s12">
+@if (count($categories) > 0)
   <table class="bordered responsive-table">
     <thead>
       <tr>
@@ -67,6 +72,9 @@
     @endforeach
   </tbody>
 </table>
+@else
+<h5>Video are not available for display</h5>
+@endif
 {!! $pendingCategories->render() !!}
 </div>
 </div>

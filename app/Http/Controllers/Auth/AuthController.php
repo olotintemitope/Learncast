@@ -96,7 +96,7 @@ class AuthController extends Controller
         if (!is_null($user)) {
             Auth::attempt($request->only(['username', 'password']));
 
-            return ['statuscode' => 200, 'message'  => 'User created successful'];
+            return ['statuscode' => 201, 'message'  => 'User created successful'];
         }
     }
 
