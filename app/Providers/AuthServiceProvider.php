@@ -27,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        $gate->define('has-category', function ($user, $category) {
+            return $user->role_id === 2;
+        });
     }
 }

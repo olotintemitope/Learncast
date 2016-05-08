@@ -8,7 +8,7 @@ class VideoCategoryTest extends TestCase
 
     public function testVideoCategoryWasVisited()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $this->actingAs($user)->visit('/dashboard/category/add')
        ->see('/dashboard/category/create');
@@ -16,7 +16,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatVideoCategoryWasAddedEalier()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -33,7 +33,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatVideoCategoryWasSuccessful()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -50,7 +50,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatVideoCategoryNameFieldIsMissing()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -66,7 +66,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatVideoCategoryDescriptionFieldIsMissing()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -82,7 +82,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatVideoCategoryFieldsAreMissing()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -98,7 +98,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatVideoCategoryWasUpdated()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -116,7 +116,7 @@ class VideoCategoryTest extends TestCase
 
     public function testThatASingleCategoryWasRetrived()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -130,7 +130,7 @@ class VideoCategoryTest extends TestCase
 
     public function testgetAllCategories()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $categories = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -149,7 +149,7 @@ class VideoCategoryTest extends TestCase
 
     public function testchangeCategoryStatus()
     {
-        $user = factory('App\User')->create();
+        $user = $this->createUserWithSuperAdminRole();
 
         $category = factory('App\Category')->create([
             'name'        => 'Javascript',
@@ -159,5 +159,20 @@ class VideoCategoryTest extends TestCase
 
         $this->actingAs($user)->visit('/dashboard/category/delete/1')
        ->see('Operation Successfully');
+    }
+
+    public function createUserWithSuperAdminRole()
+    {
+        $user = factory('App\User')->create([
+            'username'       => 'prosper',
+            'email'          => 'ginger.prosper@php.io',
+            'password'       => bcrypt(str_random(10)),
+            'remember_token' => str_random(10),
+            'role_id'        => 2,
+            'picture_url'    => 'https://en.gravatar.com/userimage/102347280/b3e9c138c1548147b7ff3f9a2a1d9bb0.png?size=200',
+            'profile_bio'    => 'PHP awesome evangelist',
+        ]);
+
+        return $user;
     }
 }

@@ -16,6 +16,7 @@
             </ul>
           </div>
         </li>
+        @can('has-category', session('category'))
         <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Video Category <i class="material-icons">video_library</i></a>
           <div class="collapsible-body">
             <ul>
@@ -24,6 +25,7 @@
             </ul>
           </div>
         </li>
+        @endcan
         <li class="bold"><a class="collapsible-header  waves-effect waves-teal">My Videos 
           <i class="material-icons">note_add</i></a>
           <div class="collapsible-body">

@@ -1,0 +1,12 @@
+TAP version 13
+ok 1 - VideoCategoryTest::testVideoCategoryWasVisited
+ok 2 - VideoCategoryTest::testThatVideoCategoryWasAddedEalier
+ok 3 - VideoCategoryTest::testThatVideoCategoryWasSuccessful
+ok 4 - VideoCategoryTest::testThatVideoCategoryNameFieldIsMissing
+ok 5 - VideoCategoryTest::testThatVideoCategoryDescriptionFieldIsMissing
+ok 6 - VideoCategoryTest::testThatVideoCategoryFieldsAreMissing
+ok 7 - VideoCategoryTest::testThatVideoCategoryWasUpdated
+ok 8 - VideoCategoryTest::testThatASingleCategoryWasRetrived
+ok 9 - VideoCategoryTest::testgetAllCategories
+ok 10 - VideoCategoryTest::testchangeCategoryStatus
+1..10
