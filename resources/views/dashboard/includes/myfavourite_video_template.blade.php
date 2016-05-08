@@ -14,15 +14,15 @@
       </thead>
       <tbody>
         <?php $sn = 1; ?>
-        @foreach($favourite->user->videos as $video)
+        @foreach($favourite as $favourites)
         <tr>
           <td>{{ $sn }}</td>
-          <td>{{ $video->title }}</td>
-          <td>{{ $video->url }}</td>
-          <td>{{ $video->category->name }}</td>
+          <td>{{ $favourites->video->title }}</td>
+          <td>{{ $favourites->video->url }}</td>
+          <td>{{ $favourites->video->category->name }}</td>
           <td>
            <span>
-             <a href ="/view/video/{{ $video->id }}" title="{{ $video->title }}"><i class="fa fa-youtube-play" aria-hidden="true"></i> View</a>
+             <a href ="/view/video/{{ $favourites->video->id }}" title="{{ $favourites->video->title }}"><i class="fa fa-youtube-play" aria-hidden="true"></i> View</a>
           </span>
         </td>
     </tr>
@@ -34,6 +34,10 @@
 @else 
 <h5>Video are not available for display</h5>
 @endif
- 
 </div>
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-4 pull-right">
+       {!! $favourite->render() !!}
+    </div>
+  </div>
 </div>
