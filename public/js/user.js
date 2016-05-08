@@ -44,11 +44,12 @@
                         user.makeAjaxRequest('auth/register', formFields, 'POST')
                         .done(function(response) {
                             $(".preloader-wrapper").hide();
-                            if (response.statuscode === 200) {
+                            if (response.statuscode === 201) {
                                 reporter.html(response.message).css('color', 'green')
                                 window.location.href = '/'
+                            } else {
+                                reporter.html(response.message).css('color', 'red')
                             }
-                            reporter.html(response.message).css('color', 'red')
 
                         });
                     } else {

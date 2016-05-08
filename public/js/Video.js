@@ -62,7 +62,7 @@
             var liComment  = "<li class='media'><div class='media-body'><div class='media'>";
                 liComment += "<a class='pull-left' href='#'>";
                 liComment += "<img class='media-object img-circle' src="+avatar+"></a>";
-                liComment += "<div class='media-body'>"+comment+"<br><br><small class='text-muted'>"+ username + " | " + jQuery.timeago(new Date()); + "</small>";
+                liComment += "<div class='media-body'>"+comment+"<br><br><small class='text-muted'>"+ username + " | posted " + jQuery.timeago(new Date()); + "</small>";
                 liComment += "<hr></div></div></div></li>";
 
             return liComment;
