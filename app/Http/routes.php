@@ -18,39 +18,13 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], functi
 
     Route::auth();
 
-    Route::get('/', function () {
-        return view('dashboard.index');
-    });
+    Route::get('/', 'CategoryController@index');
 
     Route::get('/logout', 'Auth\AuthController@logUserOut');
-
-    Route::get('/category/add', function () {
-        return view('dashboard.pages.video_category');
-    });
-
-    Route::get('/category/view', [
-        'uses' => 'CategoryController@viewAllCategories',
-    ]);
 
     Route::get('/profile', function () {
         return view('dashboard.pages.view_myprofile');
     });
-
-    Route::post('/category/create', [
-        'uses' => 'CategoryController@store',
-    ]);
-
-    Route::get('/category/edit/{id}', [
-        'uses' => 'CategoryController@getCategory',
-    ]);
-
-    Route::post('/category/update/{id}', [
-        'uses' => 'CategoryController@updateCategory',
-    ]);
-
-    Route::get('/category/delete/{id}', [
-        'uses' => 'CategoryController@changeCategoryStatus',
-    ]);
 
     Route::get('/video/add', [
         'uses' => 'VideoController@index',
@@ -88,6 +62,38 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], functi
         'uses' => 'VideoController@myFavouriteVideos',
     ]);
 
+});
+
+/*
+|----------------------------------------------------------
+| Video category is protected by this middle. It checks for the 
+| user role and redirect non admin user when they try to manipulate pages
+| via the page url
+ */
+Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth', 'auth.notadmin']], function () {
+    Route::get('/category/add', function () {
+        return view('dashboard.pages.video_category');
+    });
+
+    Route::get('/category/view', [
+        'uses' => 'CategoryController@viewAllCategories',
+    ]);
+    
+    Route::post('/category/create', [
+        'uses' => 'CategoryController@store',
+    ]);
+
+    Route::get('/category/edit/{id}', [
+        'uses' => 'CategoryController@getCategory',
+    ]);
+
+    Route::post('/category/update/{id}', [
+        'uses' => 'CategoryController@updateCategory',
+    ]);
+
+    Route::get('/category/delete/{id}', [
+        'uses' => 'CategoryController@changeCategoryStatus',
+    ]);
 });
 
 /*
