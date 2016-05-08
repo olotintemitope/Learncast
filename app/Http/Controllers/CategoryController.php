@@ -2,13 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests\CategoryRequest;
 use Auth;
+use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
+    /**
+     * This method loads all video categories 
+     * @param void
+     *
+     * @return void
+     */
+    public function index()
+    {
+        $category = Category::orderBy('id', 'asc')->get();
+
+        return view('dashboard.index')->with('category', compact('category'));
+        
+    }
+    /**
+     * This method creates video category
+     * @param CategoryRequest $request
+     * @return view 
+     */
     public function store(CategoryRequest $request)
     {
         $category = Category::create([
@@ -30,6 +48,13 @@ class CategoryController extends Controller
             );
     }
 
+    /**
+     * This method updates video category
+     * @param CategoryRequest $request
+     * @param $id
+     * 
+     * @return view 
+     */
     public function updateCategory(CategoryRequest $request, $id)
     {
         $category = Category::getCategoryById($id)
@@ -48,6 +73,12 @@ class CategoryController extends Controller
         );
     }
 
+    /**
+     * This method gets category by its id
+     * @param $id
+     * 
+     * @return view
+     */
     public function getCategory($id)
     {
         $category = Category::getCategoryById($id)
@@ -64,6 +95,12 @@ class CategoryController extends Controller
         return view('dashboard.pages.view_video_category', compact('category'));
     }
 
+    /**
+     * This method fetches all video categories
+     * @param void
+     * 
+     * @return view 
+     */
     public function viewAllCategories()
     {
         $user_id = Auth::user()->id;
@@ -81,6 +118,13 @@ class CategoryController extends Controller
         ));
     }
 
+    /**
+     * This method changes the status of video category
+     * @param $request
+     * @param $id
+     * 
+     * @return response
+     */
     public function changeCategoryStatus(Request $request, $id)
     {
         $category = null;
