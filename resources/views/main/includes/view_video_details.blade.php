@@ -32,6 +32,7 @@
      <div class="panel-heading">RECENT COMMENT HISTORY</div>
      <div class="panel-body">
        <ul class="media-list">
+       @if (count($video->comments))
        @foreach($video->comments as $comment)
         <li class="media">
           <div class="media-body">
@@ -42,13 +43,16 @@
             <div class="media-body">
               {{ $comment->comment }}
               <br><br>
-              <small class="text-muted">{{ ucwords($comment->user->username) }} | {{ Carbon\Carbon::createFromTimeStamp(strtotime($comment->created_at))->diffForHumans() }}</small>
+              <small class="text-muted">{{ ucwords($comment->user->username) }} | posted {{ Carbon\Carbon::createFromTimeStamp(strtotime($comment->created_at))->diffForHumans() }}</small>
               <hr>
             </div>
           </div>
         </div>
       </li> 
        @endforeach
+       @else
+       <li><h4 align="center" class="video_category text-danger">Oops! comments are not available for display!</h4></li>
+       @endif
     </ul>
   </div>
   @if (Auth::check())

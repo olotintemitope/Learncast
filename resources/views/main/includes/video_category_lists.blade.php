@@ -24,7 +24,7 @@
   </div>
   @endforeach
   @else 
-  <h3 align="center" class="video_category">Videos are available for display!</h3>
+  <h4 align="center" class="video_category text-danger">Oops! videos are not available for display!</h4>
   @endif
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3 pull-right">
