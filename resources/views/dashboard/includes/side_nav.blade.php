@@ -1,20 +1,21 @@
-<header class="">
+<header class="header">
   <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
-  <ul id="nav-mobile" class="side-nav fixed grey lighten-4">
+  <ul id="nav-mobile" class="side-nav fixed ">
     <li class="logo">
-      <a id="logo-container" href="#" class="brand-logo">
-        <img src="{{ URL::to('/') }}/images/user.jpg" title="myprofile" alt="myprofile">
+      <a id="logo-container" href="/dashboard/profile" class="brand-logo">
+        <img src="{{ Auth::user()->picture_url }}" title="{{ ucwords(Auth::user()->username) }}" alt="{{ ucwords(Auth::user()->username) }}" class="img-circle">
       </a>
-    </li>
-    <li class="search">
-      <div class="search-wrapper card">
-        <input id="search" spellcheck="false" ginger_software_editor="true" class="" style=""><i class="material-icons">search</i>
-        <div class="search-results"></div>
-      </div>
-    </li>
-    <li class="bold"><a href="/dashboard" class="waves-effect waves-teal"><i class="material-icons"></i> Home</a></li>
+   </li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
+      <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Home <i class="material-icons">home</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li> <a href="/dashboard" class="waves-effect waves-teal"> Dashboard </a></li>
+              <li><a href="/">Homepage</a></li>
+            </ul>
+          </div>
+        </li>
         <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Video Category <i class="material-icons">video_library</i></a>
           <div class="collapsible-body">
             <ul>
@@ -23,12 +24,13 @@
             </ul>
           </div>
         </li>
-        <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Courseware 
+        <li class="bold"><a class="collapsible-header  waves-effect waves-teal">My Videos 
           <i class="material-icons">note_add</i></a>
           <div class="collapsible-body">
             <ul>
               <li><a href="/dashboard/video/add">Add video </a></li>
               <li><a href="/dashboard/video/view">View Videos</a></li>
+              <li><a href="/dashboard/video/favourites">Favourite Videos</a></li>
             </ul>
           </div>
         </li>

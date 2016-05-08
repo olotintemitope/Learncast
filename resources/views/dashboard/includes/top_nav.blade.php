@@ -1,8 +1,8 @@
-<nav class="light-blue darken-1">
+<nav class="nav">
   <ul class="right">
     <li>
        <a class="dropdown-button" href="#" data-activates="d2">
-        {{ ucwords(Auth::user()->username) }} <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        Welcome {{ ucwords(Auth::user()->username) }} <i class="fa fa-chevron-down" aria-hidden="true"></i>
        </a>
       <ul id='d2' class='dropdown-content'>
         <li><a href="/dashboard/profile">Profile </a></li>
