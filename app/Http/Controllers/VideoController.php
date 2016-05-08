@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Favourite;
-use App\Http\Requests\VideoRequest;
+use Auth;
 use App\User;
 use App\Video;
-use Auth;
+use App\Category;
+use App\Favourite;
 use Illuminate\Http\Request;
+use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -35,19 +35,9 @@ class VideoController extends Controller
      */
     public function store(VideoRequest $request)
     {
-        $user_id = Auth::user()->id;
+        $video = $this->createVideo($request, Auth::user()->id);
 
-        $category = Video::create([
-            'title'        => $request->input('title'),
-            'url'          => $this->parseYoutubeUrl($request->input('url')),
-            'category_id'  => $request->input('category'),
-            'user_id'      => $user_id,
-            'description'  => $request->input('description'),
-            'views'        => 0,
-            'favourites'   => 0,
-            ]);
-
-        if (!is_null($category)) {
+        if (!is_null($video)) {
             return redirect('/dashboard/video/add')->with(
                 'status',
                 'Sucessfully created!'
@@ -115,15 +105,11 @@ class VideoController extends Controller
      *
      * @return $response
      */
-    public function updateVideo(VideoRequest $request, $id)
+    public function updateVideo(Request $request, $id)
     {
-        $video = Video::getVideoById($id)
-        ->update([
-            'title'        => $request->input('title'),
-            'url'          => $this->parseYoutubeUrl($request->input('url')),
-            'category_id'  => $request->input('category'),
-            'description'  => $request->input('description'),
-        ]);
+        $this->validateRequest($request,$id); 
+
+        $video = $this->assistUpdateVideo($request, $id);
 
         if (!is_null($video)) {
             return redirect('/dashboard/video/view');
@@ -220,7 +206,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method returns user video favourites.
+     * This method returns user video favourites
+     * 
+     * @param void 
+     *
+     * @return view
      */
     public function myFavouriteVideos()
     {
@@ -229,5 +219,65 @@ class VideoController extends Controller
         ->paginate(10);
 
         return view('dashboard.pages.myfavourite_videos', compact('favourite'));
+    }
+
+    /**
+     * This method validates video request
+     * @param $request
+     * @param $id
+     * @return object
+     */
+    public function validateRequest($request, $id) 
+    {
+        $this->validate($request, [
+            'title'        => 'required|max:50|unique:videos,title,'.$id,
+            'url'          => 'required|min:10|unique:videos,url,'.$id,
+            'description'  => 'required|max:256',
+            'category'     => 'required|max:5',
+        ]);
+    }
+
+    /**
+     * This method updates a video and return the video object
+     * 
+     * @param $request
+     * @param $id
+     * 
+     * @return $video
+     */
+    public function assistUpdateVideo($request, $id)
+    {
+        $video = Video::getVideoById($id)
+        ->update([
+            'title'        => $request->input('title'),
+            'url'          => $this->parseYoutubeUrl($request->input('url')),
+            'category_id'  => $request->input('category'),
+            'description'  => $request->input('description'),
+        ]);
+
+        return $video;
+    }
+
+    /**
+     * This method creates video and return the video object
+     * 
+     * @param  $request
+     * @param  $user_id
+     * 
+     * @return $video
+     */
+    public function createVideo($request, $user_id)
+    {
+        $video = Video::create([
+            'title'        => $request->input('title'),
+            'url'          => $this->parseYoutubeUrl($request->input('url')),
+            'category_id'  => $request->input('category'),
+            'user_id'      => $user_id,
+            'description'  => $request->input('description'),
+            'views'        => 0,
+            'favourites'   => 0,
+        ]);
+
+        return $video;
     }
 }

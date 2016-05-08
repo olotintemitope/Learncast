@@ -67,6 +67,7 @@
                             current.parents("tr")
                             .fadeOut('fast')
                             .remove();
+                            window.location = '/dashboard/category/view'
                         } else {
                             swal("Failed!", response.message, "error");
                         }

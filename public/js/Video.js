@@ -173,6 +173,7 @@
                             current.parents("tr")
                             .fadeOut('fast')
                             .remove();
+                            window.location = '/dashboard/video/view'
                         } else {
                             swal("Failed!", response.message, "error");
                         }

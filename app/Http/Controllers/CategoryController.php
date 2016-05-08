@@ -50,13 +50,19 @@ class CategoryController extends Controller
 
     /**
      * This method updates video category
+     * 
      * @param CategoryRequest $request
      * @param $id
      * 
      * @return view 
      */
-    public function updateCategory(CategoryRequest $request, $id)
+    public function updateCategory(Request $request, $id)
     {
+        $this->validate($request, [
+            'name'         => 'required|max:20|unique:categories,name,'.$id,
+            'description'  => 'required|max:256',
+        ]);
+
         $category = Category::getCategoryById($id)
         ->update([
             'name'        => $request->input('name'),
@@ -139,14 +145,14 @@ class CategoryController extends Controller
 
         if (!is_null($category)) {
             return [
-            'statuscode' => 200,
-            'message'    => 'Operation Successfully',
+                'statuscode' => 200,
+                'message'    => 'Operation Successfully',
             ];
         }
 
         return [
-        'statuscode' => 404,
-        'message'    => 'Invalid Category ID!',
+            'statuscode' => 404,
+            'message'    => 'Invalid Category ID!',
         ];
     }
 }

@@ -27,7 +27,7 @@ class VideoRequest extends Request
            'title'        => 'required|max:50|unique:videos',
            'description'  => 'required|max:256',
            'category'     => 'required|max:5',
-           'url'          => 'required|min:10,url,'.Auth::user()->id,
+           'url'          => 'required|min:10,url,',
         ];
     }
 }
