@@ -68,6 +68,12 @@ header, main, footer {
   color: #A00;
 }
 
+.pagination li.active {
+  background: #1E76C1;
+  color: #ffffff;
+  font-weight: 400;
+}
+
 body { 
   background:#F1F2F1;
 }
