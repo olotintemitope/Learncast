@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\User;
-use App\Video;
 use App\Category;
 use App\Favourite;
-use Illuminate\Http\Request;
 use App\Http\Requests\VideoRequest;
+use App\User;
+use App\Video;
+use Auth;
+use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
@@ -107,7 +107,7 @@ class VideoController extends Controller
      */
     public function updateVideo(Request $request, $id)
     {
-        $this->validateRequest($request,$id); 
+        $this->validateRequest($request, $id);
 
         $video = $this->assistUpdateVideo($request, $id);
 
@@ -206,9 +206,9 @@ class VideoController extends Controller
     }
 
     /**
-     * This method returns user video favourites
-     * 
-     * @param void 
+     * This method returns user video favourites.
+     *
+     * @param void
      *
      * @return view
      */
@@ -222,12 +222,14 @@ class VideoController extends Controller
     }
 
     /**
-     * This method validates video request
+     * This method validates video request.
+     *
      * @param $request
      * @param $id
+     *
      * @return object
      */
-    public function validateRequest($request, $id) 
+    public function validateRequest($request, $id)
     {
         $this->validate($request, [
             'title'        => 'required|max:50|unique:videos,title,'.$id,
@@ -238,11 +240,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method updates a video and return the video object
-     * 
+     * This method updates a video and return the video object.
+     *
      * @param $request
      * @param $id
-     * 
+     *
      * @return $video
      */
     public function assistUpdateVideo($request, $id)
@@ -259,11 +261,11 @@ class VideoController extends Controller
     }
 
     /**
-     * This method creates video and return the video object
-     * 
+     * This method creates video and return the video object.
+     *
      * @param  $request
      * @param  $user_id
-     * 
+     *
      * @return $video
      */
     public function createVideo($request, $user_id)

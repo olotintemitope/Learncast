@@ -66,7 +66,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], functi
 
 /*
 |----------------------------------------------------------
-| Video category is protected by this middle. It checks for the 
+| Video category is protected by this middle. It checks for the
 | user role and redirect non admin user when they try to manipulate pages
 | via the page url
  */
@@ -78,7 +78,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth', 'auth.no
     Route::get('/category/view', [
         'uses' => 'CategoryController@viewAllCategories',
     ]);
-    
+
     Route::post('/category/create', [
         'uses' => 'CategoryController@store',
     ]);

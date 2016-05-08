@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Category;
-use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
+use Auth;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     /**
-     * This method loads all video categories 
+     * This method loads all video categories.
+     *
      * @param void
      *
      * @return void
@@ -20,12 +21,14 @@ class CategoryController extends Controller
         $category = Category::orderBy('id', 'asc')->get();
 
         return view('dashboard.index')->with('category', compact('category'));
-        
     }
+
     /**
-     * This method creates video category
+     * This method creates video category.
+     *
      * @param CategoryRequest $request
-     * @return view 
+     *
+     * @return view
      */
     public function store(CategoryRequest $request)
     {
@@ -49,12 +52,12 @@ class CategoryController extends Controller
     }
 
     /**
-     * This method updates video category
-     * 
+     * This method updates video category.
+     *
      * @param CategoryRequest $request
      * @param $id
-     * 
-     * @return view 
+     *
+     * @return view
      */
     public function updateCategory(Request $request, $id)
     {
@@ -80,9 +83,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * This method gets category by its id
+     * This method gets category by its id.
+     *
      * @param $id
-     * 
+     *
      * @return view
      */
     public function getCategory($id)
@@ -102,10 +106,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * This method fetches all video categories
+     * This method fetches all video categories.
+     *
      * @param void
-     * 
-     * @return view 
+     *
+     * @return view
      */
     public function viewAllCategories()
     {
@@ -125,10 +130,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * This method changes the status of video category
+     * This method changes the status of video category.
+     *
      * @param $request
      * @param $id
-     * 
+     *
      * @return response
      */
     public function changeCategoryStatus(Request $request, $id)
