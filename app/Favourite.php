@@ -17,5 +17,10 @@ class Favourite extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function scopeGetVideoFavouritedByUser($query, $id)
+    {
+        return $query->where('user_id', '=', $id);
+    }
     
 }
