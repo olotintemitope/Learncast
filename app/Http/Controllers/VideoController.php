@@ -224,8 +224,9 @@ class VideoController extends Controller
      */
     public function myFavouriteVideos()
     {
-        $favourite = Favourite::get()->first();
-
+        $favourite = Favourite::with('video')
+        ->getVideoFavouritedByUser(Auth::user()->id)
+        ->paginate(10);
         return view('dashboard.pages.myfavourite_videos', compact('favourite'));
     }
     
