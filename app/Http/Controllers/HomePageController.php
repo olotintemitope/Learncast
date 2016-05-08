@@ -59,8 +59,8 @@ class HomePageController extends Controller
      */
     public function favouriteVideo(Request $request, $video_id)
     {
-        if ($request->input('flag') == 1) {
-            if ($this->addToVideoFavourite($video_id) && $this->addToMyVideoFavourites($request, $video_id)) {
+        if ($this->verifyVideoFavourite($request->input('user'), $video_id)) {
+            if ($this->removeVideoFavourite($video_id) && $this->removeVideoFromMyFavourites($request, $video_id)) {
                 return [
                     'statuscode' => 200,
                     'message'    => 'Successful',
@@ -68,15 +68,15 @@ class HomePageController extends Controller
             }
         }
 
-        if ($this->removeVideoFavourite($video_id) && $this->removeVideoFromMyFavourites($request, $video_id)) {
+        if ($this->addToVideoFavourite($video_id) && $this->addToMyVideoFavourites($request, $video_id)) {
             return [
-                'statuscode' => 200,
+                'statuscode' => 201,
                 'message'    => 'Successful',
             ];
         }
 
         return [
-               'statuscode' => 200,
+               'statuscode' => 400,
                'message'    => 'Oop! something went wrong',
             ];
     }
@@ -148,5 +148,27 @@ class HomePageController extends Controller
         ->delete();
 
         return $favourite;
+    }
+
+    /**
+     * This method checks if the user has favourited a particular video before
+     *
+     * @param $user_id
+     * @param $video_id
+     *
+     * @return boolean
+     */
+    public function verifyVideoFavourite($user_id, $video_id)
+    {
+        $favourite = Favourite::where('user_id', '=', $user_id)
+        ->where('video_id', '=', $video_id)
+        ->get()
+        ->first();
+
+        if (!is_null($favourite)) {
+            return true;
+        }
+
+        return false;
     }
 }
