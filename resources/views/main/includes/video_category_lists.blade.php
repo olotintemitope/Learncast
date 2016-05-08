@@ -1,5 +1,6 @@
 <div class="container v-center bounceInDown animated bg-white">
 <h3 align="center" class="video_category"> {{ $categoryName }}</h3>
+@if (count($myVideos) > 0)
   @foreach ($myVideos->chunk(4) as $chunk)
   <div class="row">
     @foreach ($chunk as $video)
@@ -22,6 +23,9 @@
     @endforeach
   </div>
   @endforeach
+  @else 
+  <h3 align="center" class="video_category">Videos are available for display!</h3>
+  @endif
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3 pull-right">
        {!! $myVideos->render() !!}
