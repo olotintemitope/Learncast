@@ -88,13 +88,13 @@
                 {'user' : userId,'flag' : flag }, '')
                 .done(function(response) {
                     if (response.statuscode == 200) {
-                        if (flag === 1) {
-                            $(".favourites").attr('data-fav', a);
-                            favPlaceholder.html(parseInt(nOfFavourites) + 1);
-                        } else {
-                            $(".favourites").attr('data-fav', a);
-                            favPlaceholder.html(a);
-                        }
+                        $(".favourites").attr('data-fav', a);
+                        favPlaceholder.html(a);
+                    } else if (response.statuscode == 201){
+                        $(".favourites").attr('data-fav', a);
+                        favPlaceholder.html(parseInt(nOfFavourites) + 1);
+                    } else {
+                        console.log("error", response.message);
                     }
                 }); 
 
