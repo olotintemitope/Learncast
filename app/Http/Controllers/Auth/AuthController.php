@@ -118,10 +118,8 @@ class AuthController extends Controller
             );
         }
 
-        return redirect('/')->with(
-                'status',
-                'Sucessfully logged in!'
-        );
+        return redirect()->intended('dashboard');
+        
     }
 
     /**
