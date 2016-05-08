@@ -84,6 +84,10 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], functi
         'uses' => 'UserController@updateAvatar',
     ]);
 
+    Route::get('/video/favourites', [
+        'uses' => 'VideoController@myFavouriteVideos',
+    ]);
+
 });
 
 /*
