@@ -28,6 +28,9 @@
                 <div class="form-group">
                     <input type="password" class="form-control input-lg" placeholder="Password" name="password" id="password">
                 </div>
+                <div class="form-group">
+                    <input type="password" class="form-control input-lg" placeholder="Confirm password" name="cpassword" id="cpassword">
+                </div>
                 <div class="preloader-wrapper small active">
                     <img src="{{ URL::to('/') }}/images/preloader.gif" title="preloader" alt="preloader">
                 </div>
