@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Video;
 use App\Category;
 use App\Favourite;
+use App\Video;
 use Illuminate\Http\Request;
-use App\Http\Controllers\VideoController;
-
 class HomePageController extends Controller
 {
     /**
@@ -46,7 +44,6 @@ class HomePageController extends Controller
         if (is_null($video)) {
             return abort(404, 'Page not found.');
         }
-
     }
 
     /**
@@ -151,12 +148,12 @@ class HomePageController extends Controller
     }
 
     /**
-     * This method checks if the user has favourited a particular video before
+     * This method checks if the user has favourited a particular video before.
      *
      * @param $user_id
      * @param $video_id
      *
-     * @return boolean
+     * @return bool
      */
     public function verifyVideoFavourite($user_id, $video_id)
     {

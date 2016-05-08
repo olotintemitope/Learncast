@@ -54,5 +54,4 @@ class Video extends Model
     {
         return $query->find($id);
     }
-    
 }

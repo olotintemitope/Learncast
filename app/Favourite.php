@@ -22,5 +22,4 @@ class Favourite extends Model
     {
         return $query->where('user_id', '=', $id);
     }
-    
 }
