@@ -17,50 +17,50 @@ class ProfileUpdateTest extends TestCase
     //         ->see('Sucessfully updated!');
     // }
 
-    public function testThatUserBackgroundDetailsIsMissing()
-    {
-        $user = factory('App\User')->create();
+    // public function testThatUserBackgroundDetailsIsMissing()
+    // {
+    //     $user = factory('App\User')->create();
 
-        $this->actingAs($user)
-            ->visit('/dashboard/profile')
-            ->type('lytopz', 'username')
-            ->type('lytopz@gmail.com', 'email')
-            ->type('', 'profile_bio')
-            ->press('Update')
-            ->see('The profile bio field is required.');
-    }
+    //     $this->actingAs($user)
+    //         ->visit('/dashboard/profile')
+    //         ->type('lytopz', 'username')
+    //         ->type('lytopz@gmail.com', 'email')
+    //         ->type('', 'profile_bio')
+    //         ->press('Update')
+    //         ->see('The profile bio field is required.');
+    // }
 
-    public function testThatSomeFieldsAreMissing()
-    {
-        $user = factory('App\User')->create();
+    // public function testThatSomeFieldsAreMissing()
+    // {
+    //     $user = factory('App\User')->create();
 
-        $this->actingAs($user)
-            ->visit('/dashboard/profile')
-            ->type('', 'username')
-            ->type('', 'email')
-            ->type('', 'profile_bio')
-            ->press('Update')
-            ->see('The profile bio field is required.');
-    }
+    //     $this->actingAs($user)
+    //         ->visit('/dashboard/profile')
+    //         ->type('', 'username')
+    //         ->type('', 'email')
+    //         ->type('', 'profile_bio')
+    //         ->press('Update')
+    //         ->see('The profile bio field is required.');
+    // }
 
-    public function testThatImageWasNotSelected()
-    {
-        $user = factory('App\User')->create();
+    // public function testThatImageWasNotSelected()
+    // {
+    //     $user = factory('App\User')->create();
 
-        $this->actingAs($user)
-            ->visit('/dashboard/profile')
-            ->press('Upload')
-            ->see('File accepted must be a jpg and not more 10MB!');
-    }
+    //     $this->actingAs($user)
+    //         ->visit('/dashboard/profile')
+    //         ->press('Upload')
+    //         ->see('File accepted must be a jpg and not more 10MB!');
+    // }
 
-    public function testThatTheUserUploadProfilePicture()
-    {
-        $user = factory('App\User')->create();
+    // public function testThatTheUserUploadProfilePicture()
+    // {
+    //     $user = factory('App\User')->create();
 
-        $this->actingAs($user)
-            ->visit('/dashboard/profile')
-            ->attach(storage_path('laz.jpg'), 'picture_url')
-            ->press('Upload')
-            ->see('Profile picture update successfully!');
-    }
+    //     $this->actingAs($user)
+    //         ->visit('/dashboard/profile')
+    //         ->attach(storage_path('laz.jpg'), 'picture_url')
+    //         ->press('Upload')
+    //         ->see('Profile picture update successfully!');
+    // }
 }
