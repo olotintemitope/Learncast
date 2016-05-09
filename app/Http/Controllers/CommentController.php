@@ -12,12 +12,11 @@ class CommentController extends Controller
      *
      * @param $request
      *
-     * @return object comment
+     * @return array
      */
     public function addComment(Request $request)
     {
-        $findComment = Comment::where('comment', '=', strtolower($request->input('comment')))
-        ->first();
+        $findComment = $this->findComment($request);
 
         if (!is_null($findComment)) {
             return [
@@ -26,11 +25,7 @@ class CommentController extends Controller
             ];
         }
 
-        $comment = Comment::create([
-            'comment'  => strtolower($request->input('comment')),
-            'video_id' => $request->input('video'),
-            'user_id'  => $request->input('user'),
-        ]);
+        $comment = $this->createComment($request);
 
         if (!is_null($comment)) {
             return [
@@ -43,5 +38,60 @@ class CommentController extends Controller
             'statuscode' => 400,
             'message'    => 'Comment failed to add!',
         ];
+    }
+
+    /**
+     * This method finds duplicate comments made by a user
+     * @param $request
+     * 
+     * @return Comment
+     */
+    public function findComment($request) {
+        return Comment::where('comment', strtolower($request->input('comment')))
+        ->where('user_id', $request->input('user'))
+        ->first();
+
+    }
+
+    /**
+     * This method creates comments on video
+     *
+     * @param $request
+     * 
+     * @return Comment
+     */
+    public function createComment($request) {
+        return Comment::create([
+            'comment'  => strtolower($request->input('comment')),
+            'video_id' => $request->input('video'),
+            'user_id'  => $request->input('user'),
+        ]);
+
+    }
+
+    /**
+     * This method softDelete Comment
+     * 
+     * @param $request
+     * 
+     * @return array
+     */
+    public function softDeleteComment($id)
+    {
+        $deletedComment = Comment::removeComment($id)
+        ->delete();
+
+        if (!is_null($deletedComment)) {
+            return [
+                'statuscode' => 200,
+                'message'    => 'Comment deleted successfully!',
+            ];
+        }
+
+        return [
+            'statuscode' => 400,
+            'message'    => 'Comment failed to add!',
+        ];
+
     }
 }
