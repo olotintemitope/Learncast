@@ -1,12 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
-@import url(http://fonts.googleapis.com/css?family=Bitter:400);
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
+@import url(http://fonts.googleapis.com/css?family='Quattrocento Sans', sans-serif:400);
 
 html,body {
   height:100%;
   background:center no-repeat fixed url('../images/bg4.jpg');
   background-size: cover;
   color:#444;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Quattrocento Sans', sans-serif;
 }
 
 @media (min-width:768px) {
@@ -355,7 +355,16 @@ section {
   padding: 2%;
   border-bottom: 1px dotted #777;
 }
+
 .caption-text h3 {
   width: auto;
   text-overflow: ellipsis;
+}
+
+.btn {
+  border: none !important;
+}
+
+.pull-right >.dropdown-menu {
+  z-index: 11111111111;
 }
