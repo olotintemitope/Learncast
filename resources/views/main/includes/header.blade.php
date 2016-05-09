@@ -11,5 +11,6 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/als_demo.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/sweetalert.css') }}">
   </head>
   <body>
