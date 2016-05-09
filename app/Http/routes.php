@@ -112,7 +112,7 @@ Route::group(['prefix' => '/auth', 'middleware' => ['web']], function () {
     Route::post('/login', 'Auth\AuthController@loginUser');
 });
 
-/** 
+/*
  * Social login routes
  */
 Route::group(['prefix' => '/auth/{provider}', 'middleware' => ['web']], function () {
