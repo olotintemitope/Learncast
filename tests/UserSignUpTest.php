@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class UserSignUpTest extends TestCase
 {
@@ -24,12 +23,11 @@ class UserSignUpTest extends TestCase
 
         ]);
 
-        $output  =  (array) json_decode($response->getContent());
+        $output = (array) json_decode($response->getContent());
 
         $this->assertEquals($output['message'], 'User created successful');
         $this->assertEquals($output['statuscode'], 201);
     }
-
 
     public function testThatUserAlreadyExists()
     {
@@ -55,7 +53,7 @@ class UserSignUpTest extends TestCase
 
         ]);
 
-        $output  =  (array) json_decode($response->getContent());
+        $output = (array) json_decode($response->getContent());
 
         $this->assertEquals($output['message'], 'User already exist');
         $this->assertEquals($output['statuscode'], 400);

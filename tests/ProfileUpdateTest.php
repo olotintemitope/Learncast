@@ -6,8 +6,8 @@ class ProfileUpdateTest extends TestCase
 {
     use DatabaseTransactions;
 
-     public function testThatUserBackgroundDetailsWasUpdated()
-     {
+    public function testThatUserBackgroundDetailsWasUpdated()
+    {
         $user = factory('App\User')->create();
 
         $this->actingAs($user)
@@ -56,7 +56,7 @@ class ProfileUpdateTest extends TestCase
     public function testThatTheUserUploadProfilePicture()
     {
         $user = factory('App\User')->create();
-        
+
         $this->actingAs($user)
             ->visit('/dashboard/profile')
             ->attach(storage_path('laz.jpg'), 'picture_url')

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\HomePageController;
 use App\Http\Requests\UserRequest;
 use App\User;
 use Auth;
@@ -154,7 +153,7 @@ class AuthController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
-        
+
         $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::login($authUser, true);
