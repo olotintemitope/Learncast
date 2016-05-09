@@ -25,10 +25,14 @@ header, main, footer {
 .tabs li a {
      color: grey;
 }
-.brand-logo img {
+.brand-logo img, .my-pix {
   width: 100%;
   height: 180px;
   border-radius: 50%;
+}
+
+.my-pix  {
+  border-radius: 4px;
 }
 
 .side-nav {
