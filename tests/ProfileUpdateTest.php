@@ -53,14 +53,14 @@ class ProfileUpdateTest extends TestCase
             ->see('File accepted must be a jpg and not more 10MB!');
     }
 
-    // public function testThatTheUserUploadProfilePicture()
-    // {
-    //     $user = factory('App\User')->create();
-
-    //     $this->actingAs($user)
-    //         ->visit('/dashboard/profile')
-    //         ->attach(storage_path('laz.jpg'), 'picture_url')
-    //         ->press('Upload')
-    //         ->see('Profile picture update successfully!');
-    // }
+    public function testThatTheUserUploadProfilePicture()
+    {
+        $user = factory('App\User')->create();
+        
+        $this->actingAs($user)
+            ->visit('/dashboard/profile')
+            ->attach(storage_path('laz.jpg'), 'picture_url')
+            ->press('Upload')
+            ->see('Profile picture update successfully!');
+    }
 }
