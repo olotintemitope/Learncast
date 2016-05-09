@@ -6,16 +6,16 @@ class ProfileUpdateTest extends TestCase
 {
     use DatabaseTransactions;
 
-    // public function testThatUserBackgroundDetailsWasUpdated()
-    // {
-    //     $user = factory('App\User')->create();
+     public function testThatUserBackgroundDetailsWasUpdated()
+     {
+        $user = factory('App\User')->create();
 
-    //     $this->actingAs($user)
-    //         ->visit('/dashboard/profile')
-    //         ->type('Im a cool and God fearing man.', 'profile_bio')
-    //         ->press('Update')
-    //         ->see('Sucessfully updated!');
-    // }
+        $this->actingAs($user)
+            ->visit('/dashboard/profile')
+            ->type('Im a cool and God fearing man.', 'profile_bio')
+            ->press('Update')
+            ->see('Sucessfully updated!');
+    }
 
     public function testThatUserBackgroundDetailsIsMissing()
     {
@@ -56,7 +56,7 @@ class ProfileUpdateTest extends TestCase
     public function testThatTheUserUploadProfilePicture()
     {
         $user = factory('App\User')->create();
-
+        
         $this->actingAs($user)
             ->visit('/dashboard/profile')
             ->attach(storage_path('laz.jpg'), 'picture_url')
