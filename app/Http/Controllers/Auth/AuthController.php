@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-use App\User;
 use Auth;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Http\Request;
+use App\User;
 use Socialite;
 use Validator;
+use Illuminate\Http\Request;
+use App\Http\Controllers\HomePageController;
+use App\Http\Requests\UserRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
@@ -39,9 +40,10 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(HomePageController $home)
     {
         $this->middleware('guest', ['except' => ['logUserOut', 'postRegister']]);
+        $this->home = $home;
     }
 
     /**
@@ -72,6 +74,7 @@ class AuthController extends Controller
             'username'       => strtolower($data['username']),
             'email'          => strtolower($data['email']),
             'password'       => bcrypt($data['password']),
+            'provider'       => 'traditional',
             'picture_url'    => 'https://en.gravatar.com/userimage/102347280/b3e9c138c1548147b7ff3f9a2a1d9bb0.png?size=200',
             'role_id'        => 1,
             'remember_token' => str_random(10),
@@ -134,22 +137,91 @@ class AuthController extends Controller
     }
 
     /**
-     * Redirect the user to the GitHub authentication page.
+     * Redirect the user to the authentication page.
      *
      * @return Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information.
      *
      * @return Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver('github')->user();
+        $user = Socialite::driver($provider)->user();
+
+        $authUser  = $this->findOrCreateUser($user, $provider);
+
+        Auth::login($authUser, true);
+
+        return redirect($this->redirectTo);
+
+    }
+
+    /**
+     * This find user or register the user
+     * 
+     * @param $user
+     * @param $provider
+     * 
+     * @return object $user
+     */
+    public function findOrCreateUser($user, $provider)
+    {
+        $authUser = User::where('provider_id', $user->getId())
+        ->where('provider', $provider)
+        ->first();
+
+        if (!is_null($authUser)) {
+            return $authUser;
+        }
+
+        $this->checkDuplicateEmail($user, $provider);
+
+        return $this->createSocialLoginUser($user);
+    }
+
+    /**
+     * This method checks for duplicate email address
+     * 
+     * @param $authUser
+     * 
+     * @return $users
+     */
+    public function checkDuplicateEmail($user, $provider)
+    {
+        if ($provider == 'facebook' || $provider == 'github') {
+            $findEmail = User::where('email', $user->getEmail())
+            ->first();
+
+            if (!is_null($findEmail)) {
+                abort(409);
+            }
+        }
+    }
+
+    /**
+     * This method creates a user who logs in via social integration
+     * 
+     * @param $user
+     * 
+     * @return object $user
+     */
+    public function createSocialLoginUser($user)
+    {
+        return User::create([
+            'username'       => $user->getNickname() ? : $user->getName() ,
+            'email'          => $user->getEmail() ? : 'learncast.noemail.app',
+            'picture_url'    => $user->getAvatar(),
+            'provider_id'    => $user->getId(),
+            'role_id'        => 1,
+            'remember_token' => str_random(10),
+            'provider'       => $provider,
+        ]);
     }
 }
