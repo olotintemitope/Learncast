@@ -3,6 +3,7 @@
 @include('main.includes.top_section')
 <section class="container-fluid" id="section2">
 <h3 align="center">Video Categories</h3>
+{{ session('data') }}
 @include('main.includes.video_category_slide')
 <h3 align="center">Featured Videos</h3>
 @include('main.includes.learning_content')

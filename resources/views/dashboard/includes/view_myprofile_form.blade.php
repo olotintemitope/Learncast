@@ -30,7 +30,7 @@
    <form class="form" method="POST" action="/dashboard/picture/update" enctype="multipart/form-data">
      {{ csrf_field() }}
      <div class="input-field col s10">
-      <img src="{{ Auth::user()->picture_url }}" title="myprofile" alt="myprofile" class="img-circle">
+      <img src="{{ Auth::user()->picture_url }}" title="myprofile" alt="myprofile" class="img-circle my-pix">
     </div>
     <div class="input-field col s10">
      <input id="picture_url" type="file" class="validate" name="picture_url">
