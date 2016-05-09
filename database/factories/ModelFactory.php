@@ -20,13 +20,13 @@ $factory->define(App\Role::class, function (Faker\Generator $faker) {
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
+        'profile_bio'    => $faker->name,
         'username'       => $faker->name,
         'email'          => $faker->email,
         'password'       => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
         'role_id'        => 1,
         'picture_url'    => $faker->url,
-        'profile_bio'    => $faker->name,
     ];
 });
 

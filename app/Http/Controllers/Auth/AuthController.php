@@ -40,10 +40,9 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct(HomePageController $home)
+    public function __construct()
     {
         $this->middleware('guest', ['except' => ['logUserOut', 'postRegister']]);
-        $this->home = $home;
     }
 
     /**
@@ -78,6 +77,7 @@ class AuthController extends Controller
             'picture_url'    => 'https://en.gravatar.com/userimage/102347280/b3e9c138c1548147b7ff3f9a2a1d9bb0.png?size=200',
             'role_id'        => 1,
             'remember_token' => str_random(10),
+            'profile_bio'    => 'NULL',
         ]);
     }
 
@@ -154,7 +154,7 @@ class AuthController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
-
+        
         $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::login($authUser, true);
@@ -182,7 +182,7 @@ class AuthController extends Controller
 
         $this->checkDuplicateEmail($user, $provider);
 
-        return $this->createSocialLoginUser($user);
+        return $this->createSocialUserLogin($user);
     }
 
     /**
@@ -211,7 +211,7 @@ class AuthController extends Controller
      *
      * @return object $user
      */
-    public function createSocialLoginUser($user)
+    public function createSocialUserLogin($user)
     {
         return User::create([
             'username'       => $user->getNickname() ?: $user->getName(),
