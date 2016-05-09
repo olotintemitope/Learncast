@@ -19,6 +19,8 @@ class User extends Authenticatable
         'profile_bio',
         'role_id',
         'remember_token',
+        'provider_id',
+        'provider',
     ];
 
     /**

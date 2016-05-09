@@ -108,10 +108,16 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth', 'auth.no
 */
 
 Route::group(['prefix' => '/auth', 'middleware' => ['web']], function () {
-    Route::get('/github', 'Auth\AuthController@redirectToProvider');
-    Route::get('/github/callback', 'Auth\AuthController@handleProviderCallback');
     Route::post('/register', 'Auth\AuthController@postRegister');
     Route::post('/login', 'Auth\AuthController@loginUser');
+});
+
+/** 
+ * Social login routes
+ */
+Route::group(['prefix' => '/auth/{provider}', 'middleware' => ['web']], function () {
+    Route::get('/', 'Auth\AuthController@redirectToProvider');
+    Route::get('/callback', 'Auth\AuthController@handleProviderCallback');
 });
 
 Route::group(['middleware' => ['web']], function () {

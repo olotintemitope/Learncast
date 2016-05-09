@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Video;
 use App\Category;
 use App\Favourite;
-use App\Video;
 use Illuminate\Http\Request;
+
 class HomePageController extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class HomePageController extends Controller
         $allVideos = Video::paginate(12);
         $allCategories = Category::all();
 
-        return view('welcome', compact('allVideos', 'allCategories'));
+        return view('welcome', compact('allVideos', 'allCategories', 'user'));
     }
 
     /**
