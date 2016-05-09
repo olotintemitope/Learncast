@@ -7,10 +7,53 @@
             video.switchTabs();
             video.processVideoFavourite();
             video.addComment();
+            video.deleteComment();
         });
     }
 
     function Video() {
+
+        var swalAlert = function(video, url, dom, parameters) {
+             swal({ title: "Are you sure?",    
+                 type: "warning",   showCancelButton: true,   
+                 confirmButtonColor: "#DD6B55",   
+                 confirmButtonText: "Yes!",   
+                 cancelButtonText: "No, cancel plx!",   
+                 closeOnConfirm: false,   
+                 closeOnCancel: false 
+             }, function(isConfirm) { 
+                if (isConfirm) { 
+                    video.makeAjaxRequest(url, parameters, '')
+                    .done(function(response) {
+                        if (response.statuscode === 200) {
+                            swal("Successful!", response.message , "success");
+                            dom
+                            .parents("li.media")
+                            .fadeOut('fast')
+                            .remove();
+                        } else {
+                            swal("Failed!", response.message, "error");
+                        }
+                    })
+                } else { 
+                    swal("Cancelled", "Operation cancelled)", "error"); 
+                } 
+            });
+        }
+
+        this.deleteComment = function() {
+            videoObject = new Video();
+            deleteBtn = $(".delete-comment");
+
+            deleteBtn.on("click", function() {
+                commentId = $(this).attr('id');
+
+                swalAlert(videoObject, '/video/comment/delete/'+commentId, $(this), {});
+
+                return false;
+
+            });
+        }
 
         this.addComment = function() {
             videoObject = new Video();
