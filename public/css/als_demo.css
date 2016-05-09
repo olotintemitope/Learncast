@@ -17,6 +17,7 @@
 .als-wrapper {
 	position: relative;
 	list-style: none;
+	padding: 0;
 }
 .als-wrapper > li p {
 	line-height: 24px;
