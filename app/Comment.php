@@ -17,4 +17,9 @@ class Comment extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function scopeRemoveComment($query, $id)
+    {
+        return $query->where('id', $id);
+    }
 }
