@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
-use App\User;
-use Socialite;
-use Validator;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomePageController;
 use App\Http\Requests\UserRequest;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\User;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
+use Socialite;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -155,20 +155,19 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
-        $authUser  = $this->findOrCreateUser($user, $provider);
+        $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::login($authUser, true);
 
         return redirect($this->redirectTo);
-
     }
 
     /**
-     * This find user or register the user
-     * 
+     * This find user or register the user.
+     *
      * @param $user
      * @param $provider
-     * 
+     *
      * @return object $user
      */
     public function findOrCreateUser($user, $provider)
@@ -187,10 +186,10 @@ class AuthController extends Controller
     }
 
     /**
-     * This method checks for duplicate email address
-     * 
+     * This method checks for duplicate email address.
+     *
      * @param $authUser
-     * 
+     *
      * @return $users
      */
     public function checkDuplicateEmail($user, $provider)
@@ -206,17 +205,17 @@ class AuthController extends Controller
     }
 
     /**
-     * This method creates a user who logs in via social integration
-     * 
+     * This method creates a user who logs in via social integration.
+     *
      * @param $user
-     * 
+     *
      * @return object $user
      */
     public function createSocialLoginUser($user)
     {
         return User::create([
-            'username'       => $user->getNickname() ? : $user->getName() ,
-            'email'          => $user->getEmail() ? : 'learncast.noemail.app',
+            'username'       => $user->getNickname() ?: $user->getName(),
+            'email'          => $user->getEmail() ?: 'learncast.noemail.app',
             'picture_url'    => $user->getAvatar(),
             'provider_id'    => $user->getId(),
             'role_id'        => 1,
