@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class UserLoginTest extends TestCase 
+class UserLoginTest extends TestCase
 {
     use DatabaseTransactions;
 

@@ -41,39 +41,40 @@ class CommentController extends Controller
     }
 
     /**
-     * This method finds duplicate comments made by a user
+     * This method finds duplicate comments made by a user.
+     *
      * @param $request
-     * 
+     *
      * @return Comment
      */
-    public function findComment($request) {
+    public function findComment($request)
+    {
         return Comment::where('comment', strtolower($request->input('comment')))
         ->where('user_id', $request->input('user'))
         ->first();
-
     }
 
     /**
-     * This method creates comments on video
+     * This method creates comments on video.
      *
      * @param $request
-     * 
+     *
      * @return Comment
      */
-    public function createComment($request) {
+    public function createComment($request)
+    {
         return Comment::create([
             'comment'  => strtolower($request->input('comment')),
             'video_id' => $request->input('video'),
             'user_id'  => $request->input('user'),
         ]);
-
     }
 
     /**
-     * This method softDelete Comment
-     * 
+     * This method softDelete Comment.
+     *
      * @param $request
-     * 
+     *
      * @return array
      */
     public function softDeleteComment($id)
@@ -92,13 +93,13 @@ class CommentController extends Controller
             'statuscode' => 400,
             'message'    => 'Comment failed to add!',
         ];
-
     }
+
     /**
-     * This method updates the user comment
-     * 
+     * This method updates the user comment.
+     *
      * @param $request
-     * 
+     *
      * @return array
      */
     public function updateComment(Request $request, $id)
@@ -119,6 +120,5 @@ class CommentController extends Controller
             'statuscode' => 400,
             'message'    => 'Comment failed to update!',
         ];
-
     }
 }
