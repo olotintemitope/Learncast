@@ -30,6 +30,19 @@ class ProfileUpdateTest extends TestCase
             ->see('The profile bio field is required.');
     }
 
+    public function testThatUserProfileWasNotUpdated()
+    {
+        $user = factory('App\User')->create();
+
+        $this->actingAs($user)
+            ->visit('/dashboard/profile')
+            ->type('lytopz', 'username')
+            ->type('lytopz@gmail.com', 'email')
+            ->type('I am a cool dude ', 'profile_bio')
+            ->press('Update')
+            ->see('The profile bio field is required.');
+    }
+
     public function testThatSomeFieldsAreMissing()
     {
         $user = factory('App\User')->create();
