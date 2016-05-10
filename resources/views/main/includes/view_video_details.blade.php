@@ -1,5 +1,6 @@
 <div class="container v-center">
  <div class="row">
+ @if (count($video) > 0)
   <div class="col-lg-12 bg-white video_frame">
     <div class="video_wrapper">
      <iframe src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
@@ -120,5 +121,8 @@
 </div>
 </div>
 </div>
+@else 
+<h4 align="center" class="text-danger">Video you requested for cannot be found</h4>
+@endif
 </div>
 </div>
