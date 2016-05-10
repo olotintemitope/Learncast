@@ -38,7 +38,7 @@ class ProfileUpdateTest extends TestCase
             ->visit('/dashboard/profile')
             ->type('lytopz', 'username')
             ->type('lytopz@gmail.com', 'email')
-            ->type('I am a cool dude ', 'profile_bio')
+            ->type('', 'profile_bio')
             ->press('Update')
             ->see('The profile bio field is required.');
     }
@@ -53,6 +53,9 @@ class ProfileUpdateTest extends TestCase
             ->type('', 'email')
             ->type('', 'profile_bio')
             ->press('Update')
+            ->see('The username field is required.')
+            ->see('The email field is required.')
+            ->see('The profile bio field is required.')
             ->see('The profile bio field is required.');
     }
 
