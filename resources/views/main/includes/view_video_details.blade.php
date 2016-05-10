@@ -4,7 +4,7 @@
     <div class="video_wrapper">
      <iframe src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
    </div>
-   <h3> {{ $video->title }} </h3>
+   <h3> {{ $video->title }}</h3><p class="pull-right"><strong>Created by </strong><em> <a href="/view/user/{{ $video->user->id}}" >{{ ucwords($video->user->username) }} </a></em></p>
    <div class="video_details">
      <ul class="list-inline">
       <li>
@@ -54,9 +54,11 @@
               </ul>
             </div>
             @endif
-            {{ $comment->comment }}
+            <div class="comment" id="comment{{ $comment->id }}">{{ $comment->comment }}</div>
+            <div class="comment_form"></div>
             <br><br>
-            <small class="text-muted">{{ ucwords($comment->user->username) }} | posted {{ Carbon\Carbon::createFromTimeStamp(strtotime($comment->created_at))->diffForHumans() }}</small>
+            <small class="text-muted">{{ ucwords($comment->user->username) }} | posted {{ Carbon\Carbon::createFromTimeStamp(strtotime($comment->created_at))->diffForHumans() }}
+            </small>
             <hr>
           </div>
         </div>
@@ -65,10 +67,10 @@
     @endforeach
     @else
     <li>
-       <h4 align="center" class="video_category text-danger">Oops! comments are not available for display!</h4>
-    </li>
-    @endif
-  </ul>
+     <h4 align="center" class="video_category text-danger">Oops! comments are not available for display!</h4>
+   </li>
+   @endif
+ </ul>
 </div>
 @if (Auth::check())
 <div class="panel-footer">
@@ -95,26 +97,26 @@
   <div class="list_videos ">
     <div class="video_thumbnail">
      <a class="pull-left" href="#">
-      <img class="media-object" src="{{ URL::to('/') }}/images/user.jpg">
+      <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/D38CH9zmG2w/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
     </a>
   </div>
   <div class="video_info bg-white">
-   <h4>PHP Iterators</h4>
+   <h5>All for Love - Hillsong United</h5>
    <span>Category</span><br>
    <span>12,000 views</span>
  </div>
 </div>
 <div class="list_videos">
  <div class="video_thumbnail">
-   <a class="pull-left" href="#">
-    <img class="media-object" src="{{ URL::to('/') }}/images/user.jpg">
+   <a class="" href="#">
+   <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/NoM0AT8fBvs/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
   </a>
 </div>
-<div class="video_info bg-white">
- <h4>PHP Iterators</h4>
- <span>Category</span><br>
- <span>12,000 views</span>
-</div>
+  <div class="video_info bg-white">
+    <h5>PHP Iterators</h5>
+    <span>Category</span><br>
+    <span>12,000 views</span>
+   </div>
 </div>
 </div>
 </div>
