@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class VideoFavouriteTest extends TestCase 
+class VideoFavouriteTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -38,5 +38,5 @@ class VideoFavouriteTest extends TestCase
         $this->assertEquals($output->message, 'Oop! something went wrong');
         $this->assertEquals($output->statuscode, 400);
     }
-    
+
 } 
