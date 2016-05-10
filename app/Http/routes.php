@@ -129,7 +129,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
 });
 
-/** This route belongs to a group of video  */
+/* This route belongs to a group of video  */
 Route::group(['prefix' => '/video', 'middleware' => ['web']], function () {
     Route::get('/category/{name}', 'VideoController@getVideosByCategory');
     Route::post('/comment/add', 'CommentController@addComment');
