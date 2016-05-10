@@ -7,10 +7,114 @@
             video.switchTabs();
             video.processVideoFavourite();
             video.addComment();
+            video.deleteComment();
+            video.appendCommentForm();
+            video.cancelForm();
+            video.updateComment();
         });
     }
 
     function Video() {
+
+        var genearateEditForm  = function(id, comment) {
+            var updateForm = '<form class="form-horizontal" role="form" id="form'+id+'">';
+            updateForm     += '<div class="form-group"><div class="col-sm-10"><textarea class="form-control" name="coment" id="comment">'+comment+'</textarea></div>';
+            updateForm     += '</div><div class="form-group"><div class="col-sm-offset-2 col-sm-10">';
+            updateForm     += '<button type="submit" class="btn btn-default cancel-comment" id='+id+'>Cancel</button><button type="submit" class="btn btn-default update-comment" id='+id+'>Update</button>';
+            updateForm     += '</div></div></form>';
+
+            return updateForm;
+        }
+
+        this.updateComment  = function() {
+            video = new Video();
+            $(document).delegate(".update-comment", "click", function() {
+                obj = $(this);
+                commentId = obj.attr('id');
+                commentHolder = obj.parents(".comment_form").siblings("#comment"+commentId);
+                comment = $("#form"+commentId ).find("textarea").val();
+
+                if (comment.length === 0) {
+                    $("#form"+commentId).slideUp('fast');
+                } else {
+                    video.makeAjaxRequest('/video/comment/update/'+commentId, {'comment':comment}, '')
+                    .done(function(response) {
+                        if (response.statuscode === 200) {
+                            commentHolder.html(comment);
+                            $("#form"+commentId).slideUp('fast');
+                        } else {
+                            obj.html('Failed!').css('color', 'red');
+                        }
+                    });
+                }
+
+                return false;
+            });
+        } 
+
+        this.cancelForm  = function() {
+            $(document).delegate(".cancel-comment", "click", function() {
+                $("#form"+$(this).attr('id')).slideUp('fast');
+
+                return false;
+            });
+        }
+
+        this.appendCommentForm = function() {
+            editBtn = $(".edit-comment");
+            editBtn.on("click", function() {
+                commentId       = $(this).attr('id');
+                recentComment   = $(this).parents(".pull-right").siblings(".comment").text();
+                commentForm     = genearateEditForm(commentId, recentComment);
+                commentPosition = $(this).parents(".pull-right").siblings(".comment_form");
+
+                $(commentPosition).slideDown('fast').html(commentForm);
+                
+                return false;
+            });
+        }
+
+        var swalAlert = function(video, url, dom, parameters) {
+             swal({ title: "Are you sure?",    
+                 type: "warning",   showCancelButton: true,   
+                 confirmButtonColor: "#DD6B55",   
+                 confirmButtonText: "Yes!",   
+                 cancelButtonText: "No, cancel plx!",   
+                 closeOnConfirm: false,   
+                 closeOnCancel: false 
+             }, function(isConfirm) { 
+                if (isConfirm) { 
+                    video.makeAjaxRequest(url, parameters, '')
+                    .done(function(response) {
+                        if (response.statuscode === 200) {
+                            swal("Successful!", response.message , "success");
+                            dom
+                            .parents("li.media")
+                            .fadeOut('fast')
+                            .remove();
+                        } else {
+                            swal("Failed!", response.message, "error");
+                        }
+                    })
+                } else { 
+                    swal("Cancelled", "Operation cancelled)", "error"); 
+                } 
+            });
+        }
+
+        this.deleteComment = function() {
+            videoObject = new Video();
+            deleteBtn = $(".delete-comment");
+
+            deleteBtn.on("click", function() {
+                commentId = $(this).attr('id');
+
+                swalAlert(videoObject, '/video/comment/delete/'+commentId, $(this), {});
+
+                return false;
+
+            });
+        }
 
         this.addComment = function() {
             videoObject = new Video();

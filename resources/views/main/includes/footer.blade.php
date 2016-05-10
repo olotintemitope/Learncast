@@ -72,6 +72,7 @@
 <script src="{{ URL::asset('js/user.js') }}"></script>
 <script src="{{ URL::asset('js/Video.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.timeago.js') }}"></script>
+<script src="{{ URL::asset('js/sweetalert.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         $("body").userPlugin();
