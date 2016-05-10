@@ -137,7 +137,7 @@
                     .show('fast');
                 } else {
                     loader.show('fast');
-                    videoObject.makeAjaxRequest('/video/comment', {
+                    videoObject.makeAjaxRequest('/video/comment/add', {
                         'video':video, 
                         'user':user, 
                         'comment':comment,

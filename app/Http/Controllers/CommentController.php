@@ -82,7 +82,7 @@ class CommentController extends Controller
         $deletedComment = Comment::removeComment($id)
         ->delete();
 
-        if (!is_null($deletedComment)) {
+        if ($deletedComment) {
             return [
                 'statuscode' => 200,
                 'message'    => 'Comment deleted successfully!',
@@ -91,7 +91,7 @@ class CommentController extends Controller
 
         return [
             'statuscode' => 400,
-            'message'    => 'Comment failed to add!',
+            'message'    => 'Comment failed to delete!',
         ];
     }
 
@@ -109,7 +109,7 @@ class CommentController extends Controller
             'comment' => $request->input('comment'),
         ]);
 
-        if (!is_null($comment)) {
+        if ($comment) {
             return [
                 'statuscode' => 200,
                 'message'    => 'Comment updated successfully!',
