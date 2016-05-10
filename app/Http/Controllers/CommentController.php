@@ -94,4 +94,31 @@ class CommentController extends Controller
         ];
 
     }
+    /**
+     * This method updates the user comment
+     * 
+     * @param $request
+     * 
+     * @return array
+     */
+    public function updateComment(Request $request, $id)
+    {
+        $comment = Comment::where('id', '=', $id)
+        ->update([
+            'comment' => $request->input('comment'),
+        ]);
+
+        if (!is_null($comment)) {
+            return [
+                'statuscode' => 200,
+                'message'    => 'Comment updated successfully!',
+            ];
+        }
+
+        return [
+            'statuscode' => 400,
+            'message'    => 'Comment failed to update!',
+        ];
+
+    }
 }
