@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class VideoCommentTest extends TestCase 
+class VideoCommentTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -65,7 +65,7 @@ class VideoCommentTest extends TestCase
 
         $comment = factory('App\Comment')->create();
 
-        $request = $this->actingAs($user)->call('GET', 
+        $request = $this->actingAs($user)->call('GET',
             '/video/comment/delete/'.$comment->id, [
         ]);
 
@@ -82,7 +82,7 @@ class VideoCommentTest extends TestCase
 
         $comment = factory('App\Comment')->create();
 
-        $request = $this->actingAs($user)->call('GET', 
+        $request = $this->actingAs($user)->call('GET',
             '/video/comment/delete/20', [
         ]);
 
