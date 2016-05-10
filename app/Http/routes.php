@@ -132,4 +132,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/video/comment', 'CommentController@addComment');
     Route::get('/video/category/{name}', 'VideoController@getVideosByCategory');
     Route::get('/video/comment/delete/{id}', 'CommentController@softDeleteComment');
+    Route::get('/video/comment/update/{id}', 'CommentController@updateComment');
 });
