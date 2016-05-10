@@ -68,11 +68,11 @@ html,body {
 .cuadro_intro_hover .caption{
   position: absolute;
   top:260px;
-  -webkit-transition:all 0.3s ease-in-out;
-  -moz-transition:all 0.3s ease-in-out;
-  -o-transition:all 0.3s ease-in-out;
-  -ms-transition:all 0.3s ease-in-out;
-  transition:all 0.3s ease-in-out;
+  -webkit-transition:all 0.2s ease-in-out;
+  -moz-transition:all 0.2s ease-in-out;
+  -o-transition:all 0.2s ease-in-out;
+  -ms-transition:all 0.2s ease-in-out;
+  transition:all 0.2s ease-in-out;
   width: 100%;
 }
 .cuadro_intro_hover .blur{
@@ -264,15 +264,17 @@ section {
       color:#fff;
     }
 
-    .list_videos .video_thumbnail {
-      width: 30%;
+    .video_thumbnail {
+      width: 40%;
       float: left;
       min-height: 100px;
-      margin-right:4%; 
+      margin-right:2%; 
+      margin-left: 2%;
     }
 
     .video_thumbnail {
-      margin-top: 5%;
+      margin-top: 10%;
+      padding-right: 5%;
     }
     .list_videos {
       border-bottom:1px dashed #f5f5f5;
@@ -292,7 +294,7 @@ section {
     }
 
     .video_info {
-     padding-top: -5%;
+     width: 50%;
    }
 
    .fa-heart-o {
@@ -367,4 +369,8 @@ section {
 
 .pull-right >.dropdown-menu {
   z-index: 99999999999999;
+}
+.comment {
+  margin-bottom: 5%;
+  width: auto;
 }
