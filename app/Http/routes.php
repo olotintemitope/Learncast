@@ -121,16 +121,18 @@ Route::group(['prefix' => '/auth/{provider}', 'middleware' => ['web']], function
 });
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', 'HomePageController@index');
-
     Route::get('/login', function () {
         return view('main.pages.auth.userlogin_form');
     });
-
+    Route::get('/', 'HomePageController@index');
     Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
-    Route::post('/video/comment', 'CommentController@addComment');
-    Route::get('/video/category/{name}', 'VideoController@getVideosByCategory');
-    Route::get('/video/comment/delete/{id}', 'CommentController@softDeleteComment');
-    Route::get('/video/comment/update/{id}', 'CommentController@updateComment');
+});
+
+/** This route belongs to a group of video  */
+Route::group(['prefix' => '/video', 'middleware' => ['web']], function () {
+    Route::get('/category/{name}', 'VideoController@getVideosByCategory');
+    Route::post('/comment/add', 'CommentController@addComment');
+    Route::get('/comment/delete/{id}', 'CommentController@softDeleteComment');
+    Route::get('/comment/update/{id}', 'CommentController@updateComment');
 });
