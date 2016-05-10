@@ -48,9 +48,9 @@
                 <i class="glyphicon glyphicon-option-vertical"></i>
               </button>
               <ul class="dropdown-menu t-menu">
-                <li><a href="#"><i class="glyphicon glyphicon-pencil edit-comment"></i> Edit</a></li>
+                <li  class= "edit-comment" id="{{ $comment->id }}"><a href="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#"><i class="glyphicon glyphicon-trash delete-comment"></i> Delete</a></li>
+                <li class="delete-comment" id="{{ $comment->id }}"><a href="#"><i class="glyphicon glyphicon-trash" ></i> Delete</a></li>
               </ul>
             </div>
             @endif
