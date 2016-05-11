@@ -61,6 +61,6 @@ class Video extends Model
         return $query
         ->whereNotIn('videos.id', [$id])
         ->where('videos.category_id', $catId)
-        ->select(DB::raw("videos.*", "videos.title like ". '%'.$search.'%'));
+        ->select(DB::raw('videos.*', 'videos.title like '.'%'.$search.'%'));
     }
 }
