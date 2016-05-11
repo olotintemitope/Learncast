@@ -62,6 +62,7 @@ class HomePageController extends Controller
                 return [
                     'statuscode' => 200,
                     'message'    => 'Successful',
+                    'favourites'  => $this->getVideoFavourites($video_id),
                 ];
             }
         }
@@ -70,6 +71,7 @@ class HomePageController extends Controller
             return [
                 'statuscode' => 201,
                 'message'    => 'Successful',
+                'favourites'  => $this->getVideoFavourites($video_id),
             ];
         }
 
@@ -168,5 +170,14 @@ class HomePageController extends Controller
         }
 
         return false;
+    }
+    /**
+     * This method gets the total number of video favourites
+     * @param $video_id
+     * @return favourites
+     */
+    public function getVideoFavourites($video_id)
+    {
+        return Video::getVideoById($video_id)->get()->first()->favourites;
     }
 }
