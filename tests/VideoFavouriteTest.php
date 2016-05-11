@@ -20,7 +20,6 @@ class VideoFavouriteTest extends TestCase
 
         $this->assertEquals($output->message, 'Successful');
         $this->assertEquals($output->statuscode, 201);
-
     }
 
     public function testThatTheVideoCouldNotBeFavourited()
@@ -41,7 +40,6 @@ class VideoFavouriteTest extends TestCase
 
     public function testThatAUrlClickLinksToAVideo()
     {
-
         $user = factory('App\User')->create();
 
         $video = factory('App\Video')->create();
@@ -49,19 +47,15 @@ class VideoFavouriteTest extends TestCase
         $this->visit('/')
         ->click('VIEW')
         ->seePageIs('/view/video/'.$video->id);
-
     }
 
     public function testThatVideoUrlIsWrong()
     {
-
         $user = factory('App\User')->create();
 
         $video = factory('App\Video')->create();
 
         $this->visit('/view/video/17')
         ->see('Video you requested for cannot be found');
-
     }
-
-} 
+}

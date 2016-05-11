@@ -60,8 +60,8 @@ class HomePageController extends Controller
         if ($this->verifyVideoFavourite($request->input('user'), $video_id)) {
             if ($this->removeVideoFavourite($video_id) && $this->removeVideoFromMyFavourites($request, $video_id)) {
                 return [
-                    'statuscode' => 200,
-                    'message'    => 'Successful',
+                    'statuscode'  => 200,
+                    'message'     => 'Successful',
                     'favourites'  => $this->getVideoFavourites($video_id),
                 ];
             }
@@ -69,8 +69,8 @@ class HomePageController extends Controller
 
         if ($this->addToVideoFavourite($video_id) && $this->addToMyVideoFavourites($request, $video_id)) {
             return [
-                'statuscode' => 201,
-                'message'    => 'Successful',
+                'statuscode'  => 201,
+                'message'     => 'Successful',
                 'favourites'  => $this->getVideoFavourites($video_id),
             ];
         }
@@ -171,9 +171,12 @@ class HomePageController extends Controller
 
         return false;
     }
+
     /**
-     * This method gets the total number of video favourites
+     * This method gets the total number of video favourites.
+     *
      * @param $video_id
+     *
      * @return favourites
      */
     public function getVideoFavourites($video_id)

@@ -22,7 +22,6 @@ class VideoCommentTest extends TestCase
 
         $this->assertEquals($response->message, 'Comment added successfully!');
         $this->assertEquals($response->statuscode, 201);
-
     }
 
     public function testThatCommentWasUpdatedSuccessfully()
@@ -39,7 +38,6 @@ class VideoCommentTest extends TestCase
 
         $this->assertEquals($response->message, 'Comment updated successfully!');
         $this->assertEquals($response->statuscode, 200);
-
     }
 
     public function testThatCommentWasUpdatedNotSuccessfully()
@@ -56,7 +54,6 @@ class VideoCommentTest extends TestCase
 
         $this->assertEquals($response->message, 'Comment failed to update!');
         $this->assertEquals($response->statuscode, 400);
-
     }
 
     public function testThatCommentWasDeletedSuccessfully()
@@ -73,7 +70,6 @@ class VideoCommentTest extends TestCase
 
         $this->assertEquals($response->message, 'Comment deleted successfully!');
         $this->assertEquals($response->statuscode, 200);
-
     }
 
     public function testThatCommentWasNotDeletedSuccessfully()
@@ -90,6 +86,5 @@ class VideoCommentTest extends TestCase
 
         $this->assertEquals($response->message, 'Comment failed to delete!');
         $this->assertEquals($response->statuscode, 400);
-
     }
 }
