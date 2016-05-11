@@ -104,30 +104,24 @@
 <div class="col-lg-4">
  <div class="related_videos_wrapper">
   <h3> Related Videos </h3>
-  <div class="list_videos ">
-    <div class="video_thumbnail">
-     <a class="pull-left" href="#">
-      <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/D38CH9zmG2w/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
-    </a>
-  </div>
-  <div class="video_info bg-white">
-   <h5>All for Love - Hillsong United</h5>
-   <span>Category</span><br>
-   <span>12,000 views</span>
- </div>
-</div>
+  @if (count($relatedVideos))
+  @foreach($relatedVideos as $video)
 <div class="list_videos">
  <div class="video_thumbnail">
    <a class="" href="#">
-   <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/NoM0AT8fBvs/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
+   <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
   </a>
 </div>
   <div class="video_info bg-white">
-    <h5>PHP Iterators</h5>
-    <span>Category</span><br>
-    <span>12,000 views</span>
+    <h5><a href="/view/video/{{ $video->id }}"  title="{{ $video->title }}">{{ $video->title }}</a></h5>
+    <span>{{ $video->category->name}}</span><br>
+    <span>{{ $video->views }} views</span>
    </div>
 </div>
+@endforeach
+@else
+ <h5>This video does not have related videos yet</h5>
+@endif
 </div>
 </div>
 @else 

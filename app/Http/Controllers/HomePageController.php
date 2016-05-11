@@ -40,11 +40,15 @@ class HomePageController extends Controller
         ->get()
         ->first();
 
-        return view('main.pages.single_video', compact('video'));
-
         if (is_null($video)) {
             return abort(404, 'Page not found.');
         }
+
+        $relatedVideos = Video::getRelatedVideo($video_id, $video->category_id, $video->title)
+        ->orderBy('videos.views', 'desc')
+        ->get();
+
+        return view('main.pages.single_video', compact('video', 'relatedVideos'));
     }
 
     /**
