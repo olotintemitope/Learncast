@@ -181,7 +181,7 @@ class AuthController extends Controller
 
         $this->checkDuplicateEmail($user, $provider);
 
-        return $this->createSocialUserLogin($user);
+        return $this->createSocialUserLogin($user, $provider);
     }
 
     /**
@@ -210,7 +210,7 @@ class AuthController extends Controller
      *
      * @return object $user
      */
-    public function createSocialUserLogin($user)
+    public function createSocialUserLogin($user, $provider)
     {
         return User::create([
             'username'       => $user->getNickname() ?: $user->getName(),
