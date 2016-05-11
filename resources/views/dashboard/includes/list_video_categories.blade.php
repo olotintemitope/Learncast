@@ -46,7 +46,7 @@
 {!! $categories->render() !!}
 </div>
 <div id="pending_categories" class="col s12">
-@if (count($categories) > 0)
+@if (count($pendingCategories) > 0)
   <table class="bordered responsive-table">
     <thead>
       <tr>

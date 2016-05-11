@@ -54,6 +54,15 @@
                 <li class="delete-comment" id="{{ $comment->id }}"><a href="#"><i class="glyphicon glyphicon-trash" ></i> Delete</a></li>
               </ul>
             </div>
+            @else
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="glyphicon glyphicon-option-vertical"></i>
+              </button>
+              <ul class="dropdown-menu t-menu">
+                <li  class= "" id=""><a href=""><i class="glyphicon glyphicon-info"></i>Can't edit</a></li>
+              </ul>
+            </div>
             @endif
             <div class="comment" id="comment{{ $comment->id }}">{{ $comment->comment }}</div>
             <div class="comment_form"></div>
@@ -80,7 +89,7 @@
   </div>
   <form method="POST" id="comment_form">
    {!! csrf_field() !!}
-   <div class="input-group">
+   <div class="input-group" style="margin-bottom: 20px;">
     <!-- <input type="text" class="form-control" placeholder="Enter Message" id="comment"> -->
     <textarea class="form-control" placeholder="Enter Message" id="comment" name="comment"></textarea>
     <span class="input-group-btn">

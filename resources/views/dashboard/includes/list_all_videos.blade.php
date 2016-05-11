@@ -2,8 +2,8 @@
  <div class="row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tabs col s3"><a class="active" href="#active_videos">Active Videos</a></li>
-      <li class="tabs col s3"><a class="" href="#pending_videos">Pending Videos</a></li>
+      <li class="tabs vtabs col s3"><a class="active" href="#active_videos">Active Videos</a></li>
+      <li class="tabs vtabs col s3"><a class="" href="#pending_videos">Pending Videos</a></li>
     </ul>
   </div>
   <div id="active_videos" class="col s12">
@@ -50,6 +50,7 @@
 @endif
 <div id="pending_videos" class="col s12">
 @if (count($pendingVideos) > 0)
+<?php $sn = 1; ?>
   <table class="bordered responsive-table">
     <thead>
       <tr>
@@ -63,7 +64,7 @@
     <tbody>
       @foreach($pendingVideos as $video)
       <tr>
-        <td>{{ $video->id }}</td>
+        <td>{{ $sn }}</td>
         <td>{{ $video->title }}</td>
         <td>{{ $video->url }}</td>
         <td>{{ $video->category->name }}</td>
@@ -74,6 +75,7 @@
         </select>
       </td>
     </tr>
+    <?php $sn++; ?>
     @endforeach
   </tbody>
 </table>
