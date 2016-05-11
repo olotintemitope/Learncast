@@ -16,7 +16,7 @@
 
     function Video() {
 
-        var genearateEditForm  = function(id, comment) {
+        var generateEditForm  = function(id, comment) {
             var updateForm = '<form class="form-horizontal" role="form" id="form'+id+'">';
             updateForm     += '<div class="form-group"><div class="col-sm-10"><textarea class="form-control" name="coment" id="comment">'+comment+'</textarea></div>';
             updateForm     += '</div><div class="form-group"><div class="col-sm-offset-2 col-sm-10">';
@@ -40,6 +40,7 @@
                     video.makeAjaxRequest('/video/comment/update/'+commentId, {'comment':comment}, '')
                     .done(function(response) {
                         if (response.statuscode === 200) {
+                            $(".comment").fadeIn('slow');
                             commentHolder.html(comment);
                             $("#form"+commentId).slideUp('fast');
                         } else {
@@ -54,6 +55,7 @@
 
         this.cancelForm  = function() {
             $(document).delegate(".cancel-comment", "click", function() {
+                $(".comment").fadeIn('slow');
                 $("#form"+$(this).attr('id')).slideUp('fast');
 
                 return false;
@@ -64,10 +66,10 @@
             editBtn = $(".edit-comment");
             editBtn.on("click", function() {
                 commentId       = $(this).attr('id');
-                recentComment   = $(this).parents(".pull-right").siblings(".comment").text();
-                commentForm     = genearateEditForm(commentId, recentComment);
+                recentComment   = $(this).parents(".pull-right").siblings(".comment");
+                commentForm     = generateEditForm(commentId, recentComment.text());
                 commentPosition = $(this).parents(".pull-right").siblings(".comment_form");
-
+                recentComment.fadeOut('slow');
                 $(commentPosition).slideDown('fast').html(commentForm);
                 
                 return false;
@@ -192,11 +194,9 @@
                 {'user' : userId,'flag' : flag }, '')
                 .done(function(response) {
                     if (response.statuscode == 200) {
-                        $(".favourites").attr('data-fav', a);
-                        favPlaceholder.html(a);
+                        favPlaceholder.html(response.favourites);
                     } else if (response.statuscode == 201){
-                        $(".favourites").attr('data-fav', a);
-                        favPlaceholder.html(parseInt(nOfFavourites) + 1);
+                        favPlaceholder.html(response.favourites);
                     } else {
                         console.log("error", response.message);
                     }
@@ -233,14 +233,14 @@
         }
 
         this.switchTabs = function() {
-            tabHead = $(".tabs a");
+            tabHead = $(".vtabs a");
             $("#pending_videos").fadeOut('fast');
             tabHead.on("click", function() {
                if (! $(this).hasClass('active')) {
                 $(this).addClass('active');
                 currentTab = $(this).attr('href').split('#');
 
-                nextTab = $(".tabs").find('a').not($(this));
+                nextTab = $(".vtabs").find('a').not($(this));
                 blindTab = nextTab.attr('href').split('#');
                 nextTab.removeClass('active');
 
