@@ -56,6 +56,6 @@ class VideoFavouriteTest extends TestCase
         $video = factory('App\Video')->create();
 
         $this->visit('/view/video/17')
-        ->see('Video you requested for cannot be found');
+        ->see('Page Not Found');
     }
 }
