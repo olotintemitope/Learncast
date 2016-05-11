@@ -2,6 +2,7 @@
 
 namespace App;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -53,5 +54,13 @@ class Video extends Model
     public function scopeSetVideoStatus($query, $id)
     {
         return $query->find($id);
+    }
+
+    public function scopeGetRelatedVideo($query, $id, $catId, $search)
+    {
+        return $query
+        ->whereNotIn('videos.id', [$id])
+        ->where('videos.category_id', $catId)
+        ->select(DB::raw("videos.*", "videos.title like ". '%'.$search.'%'));
     }
 }
