@@ -15,7 +15,6 @@ class SearchVideoTest extends TestCase
         ->press('search')
         ->see($video->first()->title)
         ->see($video->first()->description);
-
     }
 
     public function testThatASearchKeywordReturnRecordNotFound()
@@ -28,3 +27,4 @@ class SearchVideoTest extends TestCase
         ->see('0 results found for:');
     }
 }
+
