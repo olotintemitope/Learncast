@@ -191,9 +191,8 @@ class VideoController extends Controller
     {
         parse_str(parse_url($url, PHP_URL_QUERY), $my_array_of_vars);
 
-        if (! array_key_exists('v', $my_array_of_vars)) {
+        if (!array_key_exists('v', $my_array_of_vars)) {
             return false;
-
         }
 
         return $my_array_of_vars['v'];
@@ -295,7 +294,6 @@ class VideoController extends Controller
     {
         if ($this->parseYoutubeUrl($request->input('url')) === false) {
             return false;
-
         }
 
         $video = Video::create([
