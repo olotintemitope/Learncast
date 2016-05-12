@@ -2,13 +2,13 @@
 
 namespace LearnCast\Http\Controllers;
 
+use Auth;
+use Illuminate\Http\Request;
 use LearnCast\Category;
 use LearnCast\Favourite;
 use LearnCast\Http\Requests\VideoRequest;
 use LearnCast\User;
 use LearnCast\Video;
-use Auth;
-use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
@@ -177,7 +177,7 @@ class VideoController extends Controller
     {
         parse_str(parse_url($url, PHP_URL_QUERY), $my_array_of_vars);
 
-        return $my_array_of_vars['v'] ? : false;
+        return $my_array_of_vars['v'] ?: false;
     }
 
     /**

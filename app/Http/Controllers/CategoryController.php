@@ -2,10 +2,10 @@
 
 namespace LearnCast\Http\Controllers;
 
-use LearnCast\Category;
-use LearnCast\Http\Requests\CategoryRequest;
 use Auth;
 use Illuminate\Http\Request;
+use LearnCast\Category;
+use LearnCast\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {

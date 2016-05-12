@@ -2,11 +2,11 @@
 
 namespace LearnCast\Http\Controllers;
 
-use LearnCast\Http\Requests\UserSignupRequest;
-use LearnCast\User;
 use Auth;
 use Cloudder;
 use Illuminate\Http\Request;
+use LearnCast\Http\Requests\UserSignupRequest;
+use LearnCast\User;
 use Validator;
 
 class UserController extends Controller

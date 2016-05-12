@@ -2,8 +2,8 @@
 
 namespace LearnCast\Http\Controllers\Auth;
 
-use LearnCast\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use LearnCast\Http\Controllers\Controller;
 
 class PasswordController extends Controller
 {

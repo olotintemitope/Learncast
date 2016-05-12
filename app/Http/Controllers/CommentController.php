@@ -2,8 +2,8 @@
 
 namespace LearnCast\Http\Controllers;
 
-use LearnCast\Comment;
 use Illuminate\Http\Request;
+use LearnCast\Comment;
 
 class CommentController extends Controller
 {

@@ -27,4 +27,3 @@ class SearchVideoTest extends TestCase
         ->see('0 results found for:');
     }
 }
-
