@@ -37,6 +37,13 @@ class VideoController extends Controller
     {
         $video = $this->createVideo($request, Auth::user()->id);
 
+        if ($video === false) {
+            return redirect('/dashboard/video/add')->with(
+                'status',
+                'Invalid url'
+            );
+        }
+
         if (!is_null($video)) {
             return redirect('/dashboard/video/add')->with(
                 'status',
@@ -111,6 +118,13 @@ class VideoController extends Controller
 
         $video = $this->assistUpdateVideo($request, $id);
 
+        if ($video === false) {
+            return redirect('/dashboard/video/edit'.$id)->with(
+                'status',
+                'Invalid url'
+            );
+        }
+
         if (!is_null($video)) {
             return redirect('/dashboard/video/view');
         }
@@ -177,7 +191,12 @@ class VideoController extends Controller
     {
         parse_str(parse_url($url, PHP_URL_QUERY), $my_array_of_vars);
 
-        return $my_array_of_vars['v'] ?: false;
+        if (! array_key_exists('v', $my_array_of_vars)) {
+            return false;
+
+        }
+
+        return $my_array_of_vars['v'];
     }
 
     /**
@@ -249,6 +268,10 @@ class VideoController extends Controller
      */
     public function assistUpdateVideo($request, $id)
     {
+        if ($this->parseYoutubeUrl($request->input('url')) == false) {
+            return false;
+        }
+
         $video = Video::getVideoById($id)
         ->update([
             'title'        => $request->input('title'),
@@ -270,6 +293,11 @@ class VideoController extends Controller
      */
     public function createVideo($request, $user_id)
     {
+        if ($this->parseYoutubeUrl($request->input('url')) === false) {
+            return false;
+
+        }
+
         $video = Video::create([
             'title'        => $request->input('title'),
             'url'          => $this->parseYoutubeUrl($request->input('url')),
