@@ -10,7 +10,7 @@ class UserSignUpTest extends TestCase
     {
         Session::start();
 
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
         $response = $this->actingAs($user)
         ->call('POST', 'auth/register', [
@@ -20,7 +20,6 @@ class UserSignUpTest extends TestCase
             'profile_bio'    => 'I am a cool dude',
             'role_id'        => 1,
             'picture_url'    => 'https://en.gravatar.com/userimage/102347280/b3e9c138c1548147b7ff3f9a2a1d9bb0.png?size=200',
-
         ]);
 
         $output = (array) json_decode($response->getContent());
@@ -33,7 +32,7 @@ class UserSignUpTest extends TestCase
     {
         Session::start();
 
-        $user = factory('App\User')->create([
+        $user = factory('LearnCast\User')->create([
             'username'       => 'laztopaz',
             'email'          => 'laztopaz@phptesting.unit',
             'password'       => bcrypt(str_random(10)),

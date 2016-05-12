@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace LearnCast\Http\Controllers;
 
-use App\Comment;
+use LearnCast\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller

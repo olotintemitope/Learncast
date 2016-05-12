@@ -8,7 +8,7 @@ class ProfileUpdateTest extends TestCase
 
     public function testThatUserBackgroundDetailsWasUpdated()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
         $this->actingAs($user)
             ->visit('/dashboard/profile')
@@ -19,7 +19,7 @@ class ProfileUpdateTest extends TestCase
 
     public function testThatUserBackgroundDetailsIsMissing()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
         $this->actingAs($user)
             ->visit('/dashboard/profile')
@@ -32,7 +32,7 @@ class ProfileUpdateTest extends TestCase
 
     public function testThatUserProfileWasNotUpdated()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
         $this->actingAs($user)
             ->visit('/dashboard/profile')
@@ -45,7 +45,7 @@ class ProfileUpdateTest extends TestCase
 
     public function testThatSomeFieldsAreMissing()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
         $this->actingAs($user)
             ->visit('/dashboard/profile')
@@ -61,7 +61,7 @@ class ProfileUpdateTest extends TestCase
 
     public function testThatImageWasNotSelected()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
         $this->actingAs($user)
             ->visit('/dashboard/profile')
@@ -71,7 +71,7 @@ class ProfileUpdateTest extends TestCase
 
     public function testThatTheUserUploadProfilePicture()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
         $this->actingAs($user)
             ->visit('/dashboard/profile')

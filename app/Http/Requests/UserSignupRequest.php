@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace LearnCast\Http\Requests;
 
 use Auth;
 

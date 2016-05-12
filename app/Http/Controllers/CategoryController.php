@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace LearnCast\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests\CategoryRequest;
+use LearnCast\Category;
+use LearnCast\Http\Requests\CategoryRequest;
 use Auth;
 use Illuminate\Http\Request;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace LearnCast;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
@@ -12,34 +12,26 @@ class Video extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable = [
-        'title',
-        'url',
-        'description',
-        'category_id',
-        'user_id',
-        'views',
-        'favourites',
-    ];
+    protected $fillable = ['title','url','description','category_id','user_id','views','favourites',];
 
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('LearnCast\Category');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('LearnCast\User');
     }
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('LearnCast\Comment');
     }
 
     public function favourite()
     {
-        return $this->hasMany('App\Favourite');
+        return $this->hasMany('LearnCast\Favourite');
     }
 
     public function scopeGetVideosByUserId($query, $id)

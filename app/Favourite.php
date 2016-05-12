@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace LearnCast;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,12 @@ class Favourite extends Model
 
     public function video()
     {
-        return $this->belongsTo('App\Video');
+        return $this->belongsTo('LearnCast\Video');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('LearnCast\User');
     }
 
     public function scopeGetVideoFavouritedByUser($query, $id)

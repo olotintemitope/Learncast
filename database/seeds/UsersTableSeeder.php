@@ -11,9 +11,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Role::class, 1)->create();
-        factory(App\User::class, 1)->create();
-        factory(App\Category::class, 1)->create();
-        factory(App\Video::class, 1)->create();
+        factory(LearnCast\Role::class, 1)->create();
+        factory(LearnCast\User::class, 1)->create();
+        factory(LearnCast\Category::class, 5)->create();
+        factory(LearnCast\Video::class, 1)->create();
     }
 }

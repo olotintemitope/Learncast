@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace LearnCast\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-use App\User;
+use LearnCast\Http\Controllers\Controller;
+use LearnCast\Http\Requests\UserRequest;
+use LearnCast\User;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace LearnCast\Http\Controllers;
 
-use App\Category;
-use App\Favourite;
-use App\Video;
+use LearnCast\Category;
+use LearnCast\Favourite;
+use LearnCast\Video;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
