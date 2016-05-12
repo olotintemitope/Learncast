@@ -1,4 +1,4 @@
-<footer class="page-footer white" style="bottom: 0;">
+<footer class="page-footer white" style="bottom:0;">
     <div class="footer-copyright">
         <div class="container">
         © 2015-2016 Learncast, All rights reserved.
