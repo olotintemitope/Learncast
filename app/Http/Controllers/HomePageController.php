@@ -187,4 +187,23 @@ class HomePageController extends Controller
     {
         return Video::getVideoById($video_id)->get()->first()->favourites;
     }
+
+    /**
+     * This method search the database by category and videos
+     *
+     * @param $request
+     *
+     * @return collection
+     */
+    public function search(Request $request)
+    {
+        $decodedString = urldecode($request->query('q'));
+
+        if (isset($decodedString)) {
+            $searchResult = Video::getVideoLike($decodedString)
+            ->paginate(10);
+
+            return view('main.pages.view_search_result', compact('searchResult', 'decodedString'));
+        }
+    }
 }

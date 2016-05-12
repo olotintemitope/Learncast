@@ -43,6 +43,7 @@
     <li>&nbsp;</li>
 </ul>
 @endif
+@include('main.includes.search_form')
 </div>
 </div>
 </nav>

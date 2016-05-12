@@ -125,6 +125,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('main.pages.auth.userlogin_form');
     });
     Route::get('/', 'HomePageController@index');
+    Route::get('/search', 'HomePageController@search');
     Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
 });
