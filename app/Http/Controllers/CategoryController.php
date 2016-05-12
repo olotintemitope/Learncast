@@ -6,8 +6,8 @@ use Auth;
 use Illuminate\Http\Request;
 use LearnCast\Category;
 use LearnCast\Favourite;
-use LearnCast\Video;
 use LearnCast\Http\Requests\CategoryRequest;
+use LearnCast\Video;
 
 class CategoryController extends Controller
 {
