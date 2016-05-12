@@ -237,6 +237,22 @@ class VideoTest extends TestCase
           ->see('I have made you too small in my heart');
     }
 
+    public function testThatOnlyLoggedInUserCanUpdateVideo()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
+        ]);
+        
+        $video = $this->createVideo($user, $category);
+
+        $this->visit('/dashboard/video/edit/'.$video->id)
+          ->seePageIs('/login');
+    }
+
     public function testThatASingleVideoWasRetrived()
     {
         $user = factory('LearnCast\User')->create();
@@ -287,6 +303,22 @@ class VideoTest extends TestCase
        ->see('Operation Successfully');
     }
 
+    public function testThatOnlyLoggedInUserCanDeleteVideo()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
+        ]);
+
+        $video = $this->createVideo($user, $category);
+
+        $this->visit('/dashboard/video/delete/'.$video->id)
+        ->seePageIs('/login');
+    }
+
     public function createVideo($user, $category)
     {
         $video = factory('LearnCast\Video')->create([
@@ -301,7 +333,7 @@ class VideoTest extends TestCase
         return $video;
     }
 
-    public function testThatDoesNotSupplyAValidYoutubeUrl()
+    public function testThatUserDoesNotSupplyAValidYoutubeUrl()
     {
         $user = factory('LearnCast\User')->create();
 
