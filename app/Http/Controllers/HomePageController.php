@@ -2,10 +2,10 @@
 
 namespace LearnCast\Http\Controllers;
 
+use Illuminate\Http\Request;
 use LearnCast\Category;
 use LearnCast\Favourite;
 use LearnCast\Video;
-use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {

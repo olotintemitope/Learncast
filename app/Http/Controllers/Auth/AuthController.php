@@ -2,13 +2,13 @@
 
 namespace LearnCast\Http\Controllers\Auth;
 
-use LearnCast\Http\Controllers\Controller;
-use LearnCast\Http\Requests\UserRequest;
-use LearnCast\User;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
+use LearnCast\Http\Controllers\Controller;
+use LearnCast\Http\Requests\UserRequest;
+use LearnCast\User;
 use Socialite;
 use Validator;
 
