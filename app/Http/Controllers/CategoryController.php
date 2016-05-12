@@ -22,7 +22,7 @@ class CategoryController extends Controller
     {
         $category = Category::orderBy('id', 'asc');
         $categories = Category::where('user_id', Auth::user()->id)->get();
-        $favourites = Favourite::where('user_id', Auth::user()->id)->get();
+        $favourites = Favourite::with('video')->getVideoFavouritedByUser(Auth::user()->id)->get();
         $videos = Video::where('user_id', Auth::user()->id)->get();
 
         return view('dashboard.index', compact('favourites', 'videos', 'categories'))

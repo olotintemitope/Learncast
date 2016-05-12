@@ -300,4 +300,25 @@ class VideoTest extends TestCase
 
         return $video;
     }
+
+    public function testThatDoesNotSupplyAValidYoutubeUrl()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
+        ]);
+
+        $video = $this->createVideo($user, $category);
+
+        $this->actingAs($user)->visit('/dashboard/video/add')
+             ->select($category->id, 'category')
+             ->type('Laravel file System/Cloud Storage', 'title')
+             ->type('//http://goodheads.io/2016/03/16/dependency-injection-explained-plain-english/', 'url')
+             ->type('File upload system in laravel', 'description')
+             ->press('Create')
+             ->see('Invalid url');
+    } 
 }
