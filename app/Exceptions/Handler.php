@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace LearnCast\Exceptions;
 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace LearnCast;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -11,16 +11,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'username',
-        'email',
-        'password',
-        'picture_url',
-        'profile_bio',
-        'role_id',
-        'remember_token',
-        'provider_id',
-        'provider',
+    protected $fillable = ['username','email','password','picture_url','profile_bio','role_id','remember_token','provider_id','provider',
     ];
 
     /**
@@ -34,21 +25,21 @@ class User extends Authenticatable
 
     public function videos()
     {
-        return $this->hasMany('App\Video');
+        return $this->hasMany('LearnCast\Video');
     }
 
     public function categories()
     {
-        return $this->hasMany('App\Category');
+        return $this->hasMany('LearnCast\Category');
     }
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('LearnCast\Comment');
     }
 
     public function favourites()
     {
-        return $this->hasMany('App\Favourite');
+        return $this->hasMany('LearnCast\Favourite');
     }
 }

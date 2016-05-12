@@ -19,7 +19,7 @@ class UserLoginTest extends TestCase
 
     public function testThatUserLoginWasSuccessful()
     {
-        $user = factory('App\User')->create([
+        $user = factory('LearnCast\User')->create([
             'username'       => 'laztopaz',
             'email'          => 'laztopaz@phptesting.unit',
             'password'       => bcrypt('tope0852'),

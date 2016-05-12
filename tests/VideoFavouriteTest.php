@@ -8,8 +8,8 @@ class VideoFavouriteTest extends TestCase
 
     public function testThatUserFavouriteAVideo()
     {
-        $user = factory('App\User')->create();
-        $video = factory('App\Video')->create();
+        $user = factory('LearnCast\User')->create();
+        $video = factory('LearnCast\Video')->create();
 
         $response = $this->actingAs($user)
         ->call('GET', '/favourite/video/'.$video->id, [
@@ -24,8 +24,8 @@ class VideoFavouriteTest extends TestCase
 
     public function testThatTheVideoCouldNotBeFavourited()
     {
-        $user = factory('App\User')->create();
-        $video = factory('App\Video')->create();
+        $user = factory('LearnCast\User')->create();
+        $video = factory('LearnCast\Video')->create();
 
         $response = $this->actingAs($user)
         ->call('GET', '/favourite/video/17', [
@@ -40,9 +40,9 @@ class VideoFavouriteTest extends TestCase
 
     public function testThatAUrlClickLinksToAVideo()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
-        $video = factory('App\Video')->create();
+        $video = factory('LearnCast\Video')->create();
 
         $this->visit('/')
         ->click('VIEW')

@@ -8,7 +8,7 @@ class SearchVideoTest extends TestCase
 
     public function testThatASearchKeywordReturnAResult()
     {
-        $video = factory('App\Video', 5)->create();
+        $video = factory('LearnCast\Video', 5)->create();
 
         $this->visit('/search')
         ->type($video->first()->title, 'q')
@@ -19,7 +19,7 @@ class SearchVideoTest extends TestCase
 
     public function testThatASearchKeywordReturnRecordNotFound()
     {
-        $video = factory('App\Video')->create();
+        $video = factory('LearnCast\Video')->create();
 
         $this->visit('/search')
         ->type('php', 'q')
@@ -27,3 +27,4 @@ class SearchVideoTest extends TestCase
         ->see('0 results found for:');
     }
 }
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace LearnCast;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,7 +15,7 @@ class Category extends Model
 
     public function videos()
     {
-        return $this->hasMany('App\Video');
+        return $this->hasMany('LearnCast\Video');
     }
 
     public function scopeGetCategoriesByUserId($query, $id)

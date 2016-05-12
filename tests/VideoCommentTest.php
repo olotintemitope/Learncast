@@ -8,8 +8,8 @@ class VideoCommentTest extends TestCase
 
     public function testThatCommentWasAddedSuccessfully()
     {
-        $user = factory('App\User')->create();
-        $video = factory('App\Video')->create();
+        $user = factory('LearnCast\User')->create();
+        $video = factory('LearnCast\Video')->create();
 
         $request = $this->actingAs($user)
         ->call('POST', '/video/comment/add', [
@@ -26,8 +26,8 @@ class VideoCommentTest extends TestCase
 
     public function testThatCommentWasUpdatedSuccessfully()
     {
-        $user = factory('App\User')->create();
-        $comment = factory('App\Comment')->create();
+        $user = factory('LearnCast\User')->create();
+        $comment = factory('LearnCast\Comment')->create();
 
         $request = $this->actingAs($user)
         ->call('GET', '/video/comment/update/'.$comment->id, [
@@ -42,9 +42,9 @@ class VideoCommentTest extends TestCase
 
     public function testThatCommentWasUpdatedNotSuccessfully()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
-        $comment = factory('App\Comment')->create();
+        $comment = factory('LearnCast\Comment')->create();
 
         $request = $this->actingAs($user)->call('GET', '/video/comment/update/20', [
             'comment' => 'This comment will not be updated',
@@ -58,9 +58,9 @@ class VideoCommentTest extends TestCase
 
     public function testThatCommentWasDeletedSuccessfully()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
-        $comment = factory('App\Comment')->create();
+        $comment = factory('LearnCast\Comment')->create();
 
         $request = $this->actingAs($user)->call('GET',
             '/video/comment/delete/'.$comment->id, [
@@ -74,9 +74,9 @@ class VideoCommentTest extends TestCase
 
     public function testThatCommentWasNotDeletedSuccessfully()
     {
-        $user = factory('App\User')->create();
+        $user = factory('LearnCast\User')->create();
 
-        $comment = factory('App\Comment')->create();
+        $comment = factory('LearnCast\Comment')->create();
 
         $request = $this->actingAs($user)->call('GET',
             '/video/comment/delete/20', [

@@ -18,7 +18,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -35,7 +35,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -52,7 +52,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -68,7 +68,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -84,7 +84,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -100,7 +100,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -118,7 +118,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -132,7 +132,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $categories = factory('App\Category')->create([
+        $categories = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -151,7 +151,7 @@ class VideoCategoryTest extends TestCase
     {
         $user = $this->createUserWithSuperAdminRole();
 
-        $category = factory('App\Category')->create([
+        $category = factory('LearnCast\Category')->create([
             'name'        => 'Javascript',
             'description' => 'It is the language of the web',
             'user_id'     => $user->id,
@@ -163,7 +163,7 @@ class VideoCategoryTest extends TestCase
 
     public function createUserWithSuperAdminRole()
     {
-        $user = factory('App\User')->create([
+        $user = factory('LearnCast\User')->create([
             'username'       => 'prosper',
             'email'          => 'ginger.prosper@php.io',
             'password'       => bcrypt(str_random(10)),

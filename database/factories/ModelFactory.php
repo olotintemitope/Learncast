@@ -11,14 +11,14 @@
 |
 */
 
-$factory->define(App\Role::class, function (Faker\Generator $faker) {
+$factory->define(LearnCast\Role::class, function (Faker\Generator $faker) {
     return [
         'name'       => $faker->name,
         'role'       => 1,
     ];
 });
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(LearnCast\User::class, function (Faker\Generator $faker) {
     return [
         'profile_bio'    => $faker->name,
         'username'       => $faker->name,
@@ -30,7 +30,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Category::class, function (Faker\Generator $faker) {
+$factory->define(LearnCast\Category::class, function (Faker\Generator $faker) {
     return [
         'name'        => $faker->name,
         'description' => $faker->text,
@@ -38,7 +38,7 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Video::class, function (Faker\Generator $faker) {
+$factory->define(LearnCast\Video::class, function (Faker\Generator $faker) {
     return [
         'title'       => $faker->name,
         'url'         => $faker->url,
@@ -50,7 +50,7 @@ $factory->define(App\Video::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+$factory->define(LearnCast\Comment::class, function (Faker\Generator $faker) {
     return [
         'comment'  => $faker->name,
         'video_id' => 1,

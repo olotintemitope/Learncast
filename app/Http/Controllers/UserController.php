@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace LearnCast\Http\Controllers;
 
-use App\Http\Requests\UserSignupRequest;
-use App\User;
+use LearnCast\Http\Requests\UserSignupRequest;
+use LearnCast\User;
 use Auth;
 use Cloudder;
 use Illuminate\Http\Request;
