@@ -320,5 +320,5 @@ class VideoTest extends TestCase
              ->type('File upload system in laravel', 'description')
              ->press('Create')
              ->see('Invalid url');
-    } 
+    }
 }
