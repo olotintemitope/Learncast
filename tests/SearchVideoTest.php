@@ -12,7 +12,7 @@ class SearchVideoTest extends TestCase
 
         $this->visit('/search')
         ->type($video->first()->title, 'q')
-        ->press("search")
+        ->press('search')
         ->see($video->first()->title)
         ->see($video->first()->description);
 
@@ -24,7 +24,7 @@ class SearchVideoTest extends TestCase
 
         $this->visit('/search')
         ->type('php', 'q')
-        ->press("search")
+        ->press('search')
         ->see('0 results found for:');
     }
 }
