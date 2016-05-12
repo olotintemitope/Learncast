@@ -40,6 +40,24 @@ class VideoCommentTest extends TestCase
         $this->assertEquals($response->statuscode, 200);
     }
 
+    public function testThatOnlyAuthenticatedUserCanAddCommentsToVideos()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
+        ]);
+
+        $video = $this->createVideo($user, $category);
+
+        $this->visit('/view/video/'.$video->id)
+        ->dontSee('<form method="POST" id="comment_form">')
+        ->dontSee('textarea');
+
+    }
+
     public function testThatCommentWasUpdatedNotSuccessfully()
     {
         $user = factory('LearnCast\User')->create();
@@ -86,5 +104,19 @@ class VideoCommentTest extends TestCase
 
         $this->assertEquals($response->message, 'Comment failed to delete!');
         $this->assertEquals($response->statuscode, 400);
+    }
+
+    public function createVideo($user, $category)
+    {
+        $video = factory('LearnCast\Video')->create([
+          'title'        => 'Javascript',
+          'description'  => 'It is the language of the web',
+          'user_id'      => $user->id,
+          'category_id'  => $category->id,
+          'views'        => 0,
+          'favourites'   => 0,
+        ]);
+
+        return $video;
     }
 }
