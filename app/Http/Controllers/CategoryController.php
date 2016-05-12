@@ -5,6 +5,8 @@ namespace LearnCast\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use LearnCast\Category;
+use LearnCast\Favourite;
+use LearnCast\Video;
 use LearnCast\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
@@ -18,9 +20,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::orderBy('id', 'asc')->get();
+        $category = Category::orderBy('id', 'asc');
+        $categories = Category::where('user_id', Auth::user()->id)->get();
+        $favourites = Favourite::where('user_id', Auth::user()->id)->get();
+        $videos = Video::where('user_id', Auth::user()->id)->get();
 
-        return view('dashboard.index')->with('category', compact('category'));
+        return view('dashboard.index', compact('favourites', 'videos', 'categories'))
+        ->with('favourites', compact('favourites'));
     }
 
     /**
@@ -42,7 +48,7 @@ class CategoryController extends Controller
             return redirect('/dashboard/category/add')->with(
                 'status',
                 'Sucessfully created!'
-                );
+            );
         }
 
         return redirect('/dashboard/category/add')->with(
@@ -70,7 +76,7 @@ class CategoryController extends Controller
         ->update([
             'name'        => $request->input('name'),
             'description' => $request->input('description'),
-            ]);
+        ]);
 
         if (!is_null($category)) {
             return redirect('/dashboard/category/view');
@@ -99,7 +105,7 @@ class CategoryController extends Controller
             return redirect('/dashboard/category/add')->with(
                 'status',
                 'Oops! Category does not exist!'
-                );
+            );
         }
 
         return view('dashboard.pages.view_video_category', compact('category'));
