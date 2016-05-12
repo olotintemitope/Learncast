@@ -48,5 +48,4 @@ class VideoFavouriteTest extends TestCase
         ->click('VIEW')
         ->seePageIs('/view/video/'.$video->id);
     }
-
 }
