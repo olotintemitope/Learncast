@@ -17,17 +17,12 @@ class ProfileUpdateTest extends TestCase
             ->see('Sucessfully updated!');
     }
 
-    public function testThatUserBackgroundDetailsIsMissing()
+    public function testThatOnlyAuthenticatedUserCanUpdateTheirProfile()
     {
         $user = factory('LearnCast\User')->create();
 
-        $this->actingAs($user)
-            ->visit('/dashboard/profile')
-            ->type('lytopz', 'username')
-            ->type('lytopz@gmail.com', 'email')
-            ->type('', 'profile_bio')
-            ->press('Update')
-            ->see('The profile bio field is required.');
+        $this->visit('/dashboard/profile')
+            ->seePageIs('/login');
     }
 
     public function testThatUserProfileWasNotUpdated()
@@ -55,7 +50,6 @@ class ProfileUpdateTest extends TestCase
             ->press('Update')
             ->see('The username field is required.')
             ->see('The email field is required.')
-            ->see('The profile bio field is required.')
             ->see('The profile bio field is required.');
     }
 
