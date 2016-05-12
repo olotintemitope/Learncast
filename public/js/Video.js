@@ -180,13 +180,15 @@
             favPlaceholder = $(".fa-thumbs-up");
             nOfFavourites = 0;
             flag = 0;
-            a = $(".favourites").attr('data-fav');
 
             favBtn.on("click", function() {
                 currentObj = $(this);
                 videoId = currentObj.attr('id');
                 userId  = currentObj.data('user');
-                nOfFavourites = currentObj.data('fav');
+
+                if (userId == '') { // Redirect unathenticated user back to login screen
+                    return window.location.href = "/login";
+                }
 
                 flag = toggleFavourite($(this), flag);
 

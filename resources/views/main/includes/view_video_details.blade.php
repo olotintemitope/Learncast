@@ -1,7 +1,7 @@
 <div class="container v-center">
  <div class="row">
- @if (count($video) > 0)
-  <div class="col-lg-12 bg-white video_frame">
+   @if (count($video) > 0)
+   <div class="col-lg-12 bg-white video_frame">
     <div class="video_wrapper">
      <iframe src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
    </div>
@@ -15,13 +15,17 @@
     </li>
     <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> {{ count($video->comments) }}</i>
     </li>
-    @if (Auth::check())
     <li>
+    @if (Auth::check())
      <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}"> 
        <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
      </button>
+     @else
+     <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="" data-fav="{{ $video->favourites }}"> 
+       <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
+     </button>
+     @endif
    </li>
-   @endif
  </ul>
  <p> {{ $video->description }} </p>
 </div>
@@ -77,7 +81,7 @@
     @endforeach
     @else
     <li>
-     <h4 align="center" class="video_category text-danger">Oops! comments are not available for display!</h4>
+     <h4 align="center" class="video_category text-danger">Comments are not available for display!</h4>
    </li>
    @endif
  </ul>
@@ -106,21 +110,21 @@
   <h3> Related Videos </h3>
   @if (count($relatedVideos))
   @foreach($relatedVideos as $video)
-<div class="list_videos">
- <div class="video_thumbnail">
-   <a class="" href="#">
-   <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
-  </a>
-</div>
-  <div class="video_info bg-white">
+  <div class="list_videos">
+   <div class="video_thumbnail">
+     <a class="" href="#">
+       <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
+     </a>
+   </div>
+   <div class="video_info bg-white">
     <h5><a href="/view/video/{{ $video->id }}"  title="{{ $video->title }}">{{ $video->title }}</a></h5>
     <span>{{ $video->category->name}}</span><br>
     <span>{{ $video->views }} views</span>
-   </div>
+  </div>
 </div>
 @endforeach
 @else
- <h5>This video does not have related videos yet</h5>
+<h5>This video does not have related videos yet</h5>
 @endif
 </div>
 </div>
