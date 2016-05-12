@@ -189,7 +189,7 @@ class HomePageController extends Controller
     }
 
     /**
-     * This method search the database by category and videos
+     * This method search the database by category and videos.
      *
      * @param $request
      *

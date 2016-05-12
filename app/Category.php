@@ -44,5 +44,4 @@ class Category extends Model
     {
         return $query->where('name', '=', urldecode($category));
     }
-    
 }
