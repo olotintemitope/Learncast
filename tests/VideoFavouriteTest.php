@@ -49,13 +49,4 @@ class VideoFavouriteTest extends TestCase
         ->seePageIs('/view/video/'.$video->id);
     }
 
-    public function testThatVideoUrlIsWrong()
-    {
-        $user = factory('App\User')->create();
-
-        $video = factory('App\Video')->create();
-
-        $this->visit('/view/video/17')
-        ->see('Page Not Found');
-    }
 }
