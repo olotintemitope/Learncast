@@ -19,7 +19,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="card card-inverse card-primary">
                         <div class="card-block bg-primary">
-                            <div class="rotate">gaa
+                            <div class="rotate">
                                 <i class="fa fa-heart-o fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Favourites</h6>
