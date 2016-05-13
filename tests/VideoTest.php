@@ -353,4 +353,15 @@ class VideoTest extends TestCase
              ->press('Create')
              ->see('Invalid url');
     }
+
+    public function testThatAUrlClickLinksToAVideo()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $video = factory('LearnCast\Video')->create();
+
+        $this->visit('/')
+        ->click('VIEW')
+        ->seePageIs('/view/video/'.$video->id);
+    }
 }

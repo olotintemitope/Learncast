@@ -16,6 +16,7 @@
     <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> {{ count($video->comments) }}</i>
     </li>
     <li>
+    <form>
     @if (Auth::check())
      <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}"> 
        <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
@@ -25,6 +26,7 @@
        <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
      </button>
      @endif
+     </form>
    </li>
  </ul>
  <p> {{ $video->description }} </p>

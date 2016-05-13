@@ -38,14 +38,20 @@ class VideoFavouriteTest extends TestCase
         $this->assertEquals($output->statuscode, 400);
     }
 
-    public function testThatAUrlClickLinksToAVideo()
+    public function testThatOnlyAuthenticatedUserCanFavouriteAVideo()
     {
         $user = factory('LearnCast\User')->create();
 
         $video = factory('LearnCast\Video')->create();
 
-        $this->visit('/')
-        ->click('VIEW')
-        ->seePageIs('/view/video/'.$video->id);
+        $response = $this->call('GET', '/favourite/video/22', [
+            'user' => '',
+        ]);
+
+        $output = json_decode($response->getContent());
+
+        $this->assertEquals($output->message, 'Oop! something went wrong');
+        $this->assertEquals($output->statuscode, 400);
     }
+
 }
