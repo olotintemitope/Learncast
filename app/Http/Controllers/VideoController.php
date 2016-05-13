@@ -91,7 +91,7 @@ class VideoController extends Controller
     public function getVideo($id)
     {
         $video = Auth::user()->videos->find($id);
-        
+
         $categories = Category::all();
 
         if (is_null($video)) {
