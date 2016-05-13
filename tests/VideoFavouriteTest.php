@@ -53,5 +53,4 @@ class VideoFavouriteTest extends TestCase
         $this->assertEquals($output->message, 'Oop! something went wrong');
         $this->assertEquals($output->statuscode, 400);
     }
-
 }

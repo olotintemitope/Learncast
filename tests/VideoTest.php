@@ -246,7 +246,7 @@ class VideoTest extends TestCase
             'name'        => 'Erlang',
             'description' => 'I have made you too small in my heart',
         ]);
-        
+
         $video = $this->createVideo($user, $category);
 
         $this->visit('/dashboard/video/edit/'.$video->id)
