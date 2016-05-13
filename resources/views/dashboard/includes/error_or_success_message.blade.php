@@ -1,5 +1,10 @@
 <div class="row">
  <div class="input-field col s8 offset-m3">
+  @if (session('status') == 'Oops! unauthorized access to video!')
+   <div class="card-panel deep-orange accent-4 danger">
+    <strong> {{ session('status') }}</strong>
+  </div>
+  @endif
  @if (session('status') == 'Invalid url')
    <div class="card-panel deep-orange accent-4 danger">
     <strong> {{ session('status') }}</strong>
