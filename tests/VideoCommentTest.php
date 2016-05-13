@@ -55,7 +55,6 @@ class VideoCommentTest extends TestCase
         $this->visit('/view/video/'.$video->id)
         ->dontSee('<form method="POST" id="comment_form">')
         ->dontSee('textarea');
-
     }
 
     public function testThatCommentWasUpdatedNotSuccessfully()
