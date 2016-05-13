@@ -23,7 +23,7 @@
         @foreach($videos as $video)
         <tr>
           <td>{{ $sn }}</td>
-          <td>{{ $video->title }}</td>
+          <td>{{ ucwords($video->title) }}</td>
           <td>{{ $video->url }}</td>
           <td>{{ $video->category->name }}</td>
           <td>
@@ -65,7 +65,7 @@
       @foreach($pendingVideos as $video)
       <tr>
         <td>{{ $sn }}</td>
-        <td>{{ $video->title }}</td>
+        <td>{{ ucwords($video->title) }}</td>
         <td>{{ $video->url }}</td>
         <td>{{ $video->category->name }}</td>
         <td>
