@@ -16,16 +16,14 @@
         <span class="card-title activator grey-text text-darken-4">
          <i class="material-icons right">more_vert</i></span>
          <div class="row" style="margin-right:3%;">
-               
-
                 <div class="col-lg-3 col-md-6">
                     <div class="card card-inverse card-primary">
                         <div class="card-block bg-primary">
-                            <div class="rotate">
+                            <div class="rotate">gaa
                                 <i class="fa fa-heart-o fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Favourites</h6>
-                            <h4 class="display-1">{{ count($favourites) }}</h4>
+                            <h4 class="display-1">{{ count($favourite) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -36,7 +34,7 @@
                                 <i class="fa fa-file-video-o fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Uploaded Videos</h6>
-                            <h4 class="display-1">{{ count($videos) }}</h4>
+                            <h4 class="display-1">{{ $videos }}</h4>
                         </div>
                     </div>
                 </div>
@@ -48,7 +46,7 @@
                                 <i class="fa fa-video-camera fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Video Category</h6>
-                            <h4 class="display-1">{{ count($categories) }}</h4>
+                            <h4 class="display-1">{{ $category }}</h4>
                         </div>
                     </div>
                 </div>

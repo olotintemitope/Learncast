@@ -69,10 +69,12 @@ class VideoController extends Controller
         $user_id = $user_id = Auth::user()->id;
 
         $videos = Video::with('category')
+        ->orderBy('videos.id', 'desc')
         ->getVideosByUserId($user_id)
         ->paginate(10);
 
         $pendingVideos = Video::with('category')
+        ->orderBy('videos.id', 'desc')
         ->allTrashedVideos($user_id)
         ->paginate(10);
 
@@ -119,7 +121,7 @@ class VideoController extends Controller
         $video = $this->assistUpdateVideo($request, $id);
 
         if ($video === false) {
-            return redirect('/dashboard/video/edit'.$id)->with(
+            return redirect('/dashboard/video/edit/'.$id)->with(
                 'status',
                 'Invalid url'
             );
@@ -129,7 +131,7 @@ class VideoController extends Controller
             return redirect('/dashboard/video/view');
         }
 
-        return redirect('/dashboard/video/edit'.$id)->with(
+        return redirect('/dashboard/video/edit/'.$id)->with(
             'status',
             'Oops! Something went wrong!'
         );
@@ -195,7 +197,7 @@ class VideoController extends Controller
             return false;
         }
 
-        return $my_array_of_vars['v'];
+        return strlen($my_array_of_vars['v']) == 11 ? $my_array_of_vars['v'] : false;
     }
 
     /**
@@ -234,6 +236,7 @@ class VideoController extends Controller
     {
         $favourite = Favourite::with('video')
         ->getVideoFavouritedByUser(Auth::user()->id)
+        ->orderBy('favourites.id', 'desc')
         ->paginate(10);
 
         return view('dashboard.pages.myfavourite_videos', compact('favourite'));
@@ -273,7 +276,7 @@ class VideoController extends Controller
 
         $video = Video::getVideoById($id)
         ->update([
-            'title'        => $request->input('title'),
+            'title'        => strtolower($request->input('title')),
             'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
             'description'  => $request->input('description'),
@@ -297,7 +300,7 @@ class VideoController extends Controller
         }
 
         $video = Video::create([
-            'title'        => $request->input('title'),
+            'title'        => strtolower($request->input('title')),
             'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
             'user_id'      => $user_id,

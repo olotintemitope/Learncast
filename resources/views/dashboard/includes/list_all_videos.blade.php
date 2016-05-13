@@ -24,7 +24,7 @@
         @foreach($videos as $video)
         <tr>
           <td>{{ $sn }}</td>
-          <td>{{ $video->title }}</td>
+          <td>{{ ucwords($video->title) }}</td>
           <td>{{ $video->url }}</td>
           <td>{{ $video->category->name }}</td>
           <td><a href ="/view/video/{{ $video->id }}" title="{{ $video->title }}" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> View</a></td>
@@ -67,7 +67,7 @@
       @foreach($pendingVideos as $video)
       <tr>
         <td>{{ $sn }}</td>
-        <td>{{ $video->title }}</td>
+        <td>{{ ucwords($video->title) }}</td>
         <td>{{ $video->url }}</td>
         <td>{{ $video->category->name }}</td>
         <td>

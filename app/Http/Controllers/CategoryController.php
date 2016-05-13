@@ -21,12 +21,12 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::orderBy('id', 'asc');
-        $categories = Category::where('user_id', Auth::user()->id)->get();
-        $favourites = Favourite::with('video')->getVideoFavouritedByUser(Auth::user()->id)->get();
-        $videos = Video::where('user_id', Auth::user()->id)->get();
 
-        return view('dashboard.index', compact('favourites', 'videos', 'categories'))
-        ->with('favourites', compact('favourites'));
+        $category = Category::where('user_id', Auth::user()->id)->count();
+        $favourite = Favourite::with('video')->getVideoFavouritedByUser(Auth::user()->id)->count();
+        $videos = Video::where('user_id', Auth::user()->id)->count();
+
+        return view('dashboard.index', compact('favourite', 'videos', 'category'));
     }
 
     /**

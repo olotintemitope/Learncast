@@ -5,7 +5,7 @@
     <div class="video_wrapper">
      <iframe src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
    </div>
-   <h3> {{ $video->title }}</h3><p class="pull-right"><strong>Created by </strong><em> <a href="/view/user/{{ $video->user->id}}" >{{ ucwords($video->user->username) }} </a></em></p>
+   <h3> {{ ucwords($video->title) }}</h3><p class="pull-right"><em>Created by </em><a href="#" ><strong> {{ ucwords($video->user->username) }}</strong></a></p>
    <div class="video_details">
      <ul class="list-inline">
       <li>
@@ -89,17 +89,18 @@
  </ul>
 </div>
 @if (Auth::check())
-<div class="panel-footer">
+<div class="panel-footer" style="margin-bottom: 20px;">
   <div class="preloader-wrapper small active">
     <img src="{{ URL::to('/') }}/images/preloader.gif" title="preloader" alt="preloader">
   </div>
-  <form method="POST" id="comment_form">
+  <form method="POST" id="comment_form" class="form-horizontal">
    {!! csrf_field() !!}
-   <div class="input-group" style="margin-bottom: 20px;">
-    <!-- <input type="text" class="form-control" placeholder="Enter Message" id="comment"> -->
+   <div class="input-group" style="width: 100%;margin-bottom: 2%;">
     <textarea class="form-control" placeholder="Enter Message" id="comment" name="comment"></textarea>
-    <span class="input-group-btn">
-      <button class="btn btn-primary clear-fix" type="button" id="send" data-user="{{ Auth::user()->id }}" data-video="{{ $video->id }}" data-avatar="{{ Auth::user()->picture_url }}" data-username = "{{ ucwords(Auth::user()->username) }}">SEND</button>
+  </div>
+  <div class="input-group">
+   <span class="input-group-btn">
+      <button class="btn btn-primary pull-right" type="button" id="send" data-user="{{ Auth::user()->id }}" data-video="{{ $video->id }}" data-avatar="{{ Auth::user()->picture_url }}" data-username = "{{ ucwords(Auth::user()->username) }}"><i class="glyphicon glyphicon-send"></i> Send</button>
     </span>
   </div>
 </form>
@@ -108,7 +109,7 @@
 </div>
 </div>
 <div class="col-lg-4">
- <div class="related_videos_wrapper">
+ <div class="related_videos_wrapper" style="margin-bottom: 50px;">
   <h3> Related Videos </h3>
   @if (count($relatedVideos))
   @foreach($relatedVideos as $video)
@@ -119,7 +120,7 @@
      </a>
    </div>
    <div class="video_info bg-white">
-    <h5><a href="/view/video/{{ $video->id }}"  title="{{ $video->title }}">{{ $video->title }}</a></h5>
+    <h5><a href="/view/video/{{ $video->id }}"  title="{{ $video->title }}">{{ ucwords($video->title) }}</a></h5>
     <span>{{ $video->category->name}}</span><br>
     <span>{{ $video->views }} views</span>
   </div>

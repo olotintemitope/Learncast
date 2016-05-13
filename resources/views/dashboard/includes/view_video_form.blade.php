@@ -19,7 +19,7 @@
   </div>
   <div class="row">
     <div class="input-field col s8 offset-m3">
-      <input id="title" type="text" class="validate" name="title" value="{{ $video->title }}">
+      <input id="title" type="text" class="validate" name="title" value="{{ ucwords($video->title) }}">
       <label for="name">Title</label>
     </div>
   </div>

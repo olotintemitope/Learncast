@@ -193,11 +193,11 @@ class HomePageController extends Controller
      *
      * @param $request
      *
-     * @return collection
+     * @return view
      */
     public function search(Request $request)
     {
-        $decodedString = urldecode($request->query('q'));
+        $decodedString = strtolower(urldecode($request->query('q')));
 
         if (isset($decodedString)) {
             $searchResult = Video::getVideoLike($decodedString)
