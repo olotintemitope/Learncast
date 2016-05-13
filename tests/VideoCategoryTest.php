@@ -128,6 +128,21 @@ class VideoCategoryTest extends TestCase
          ->see($category->name);
     }
 
+    public function testThatASingleCategoryWasNotRetrived()
+    {
+        $user = $this->createUserWithSuperAdminRole();
+
+        $category = factory('LearnCast\Category')->create([
+            'name'        => 'Javascript',
+            'description' => 'It is the language of the web',
+            'user_id'     => $user->id,
+        ]);
+
+        $this->actingAs($user)->visit('/dashboard/category/edit/100')
+         ->seePageIs('/dashboard/category/add')
+         ->see('Oops! unauthorized access to video category!');
+    }
+
     public function testgetAllCategories()
     {
         $user = $this->createUserWithSuperAdminRole();

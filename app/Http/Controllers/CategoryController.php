@@ -97,16 +97,16 @@ class CategoryController extends Controller
      */
     public function getCategory($id)
     {
-        $category = Category::getCategoryById($id)
-        ->get()
-        ->first();
+        $category = Auth::user()->categories()->find($id);
 
         if (is_null($category)) {
             return redirect('/dashboard/category/add')->with(
                 'status',
-                'Oops! Category does not exist!'
+                'Oops! unauthorized access to video category!'
             );
         }
+
+        $category = $category->get()->first();
 
         return view('dashboard.pages.view_video_category', compact('category'));
     }
