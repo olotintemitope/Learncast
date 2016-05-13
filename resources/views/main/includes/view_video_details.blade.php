@@ -5,7 +5,7 @@
     <div class="video_wrapper">
      <iframe src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
    </div>
-   <h3> {{ ucwords($video->title) }}</h3><p class="pull-right"><strong>Created by </strong><em> <a href="/view/user/{{ $video->user->id}}" >{{ ucwords($video->user->username) }} </a></em></p>
+   <h3> {{ ucwords($video->title) }}</h3><p class="pull-right"><strong>Created by </strong><em> <a href="#" >{{ ucwords($video->user->username) }} </a></em></p>
    <div class="video_details">
      <ul class="list-inline">
       <li>

@@ -23,7 +23,7 @@
                                 <i class="fa fa-heart-o fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Favourites</h6>
-                            <h6 class="display-1">{{ count($favourites) }}</h6>
+                            <h6 class="display-1">{{ $favourite }}</h6>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                                 <i class="fa fa-file-video-o fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Uploaded Videos</h6>
-                            <h4 class="display-1">{{ count($videos) }}</h4>
+                            <h4 class="display-1">{{ $videos }}</h4>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                 <i class="fa fa-video-camera fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Video Category</h6>
-                            <h4 class="display-1">{{ count($categories) }}</h4>
+                            <h4 class="display-1">{{ $category }}</h4>
                         </div>
                     </div>
                 </div>
