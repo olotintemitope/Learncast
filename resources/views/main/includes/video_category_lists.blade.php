@@ -12,7 +12,7 @@
        <div class="caption">
         <div class="blur"></div>
         <div class="caption-text">
-          <h3>{{ $video->title }}</h3>
+          <h3>{{ ucwords($video->title) }}</h3>
             <p>{{ $video->description }}</p>
           <a class=" btn btn-primary" href="/view/video/{{ $video->id }}">
             <span class="glyphicon glyphicon-play"> VIEW </span></a>
