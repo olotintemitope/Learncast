@@ -214,7 +214,8 @@ class AuthController extends Controller
     {
         return User::create([
             'username'       => $user->getNickname() ?: $user->getName(),
-            'email'          => $user->getEmail() ?: 'learncast.noemail.app',
+            'password'       => bcrypt(str_random(10)),
+            'email'          => $user->getEmail() ?: str_random(10).'@noemail.app',
             'picture_url'    => $user->getAvatar(),
             'provider_id'    => $user->getId(),
             'role_id'        => 1,
