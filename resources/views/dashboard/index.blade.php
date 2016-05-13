@@ -17,13 +17,13 @@
          <i class="material-icons right">more_vert</i></span>
          <div class="row" style="margin-right:3%;">
                 <div class="col-lg-3 col-md-6">
-                    <div class="card card-inverse card-danger">
-                        <div class="card-block bg-danger">
-                            <div class="rotate">
+                    <div class="card card-inverse card-primary">
+                        <div class="card-block bg-primary">
+                            <div class="rotate">gaa
                                 <i class="fa fa-heart-o fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Favourites</h6>
-                            <h6 class="display-1">{{ $favourite }}</h6>
+                            <h4 class="display-1">{{ count($favourite) }}</h4>
                         </div>
                     </div>
                 </div>
