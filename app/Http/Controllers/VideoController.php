@@ -119,7 +119,7 @@ class VideoController extends Controller
         $video = $this->assistUpdateVideo($request, $id);
 
         if ($video === false) {
-            return redirect('/dashboard/video/edit'.$id)->with(
+            return redirect('/dashboard/video/edit/'.$id)->with(
                 'status',
                 'Invalid url'
             );
@@ -129,7 +129,7 @@ class VideoController extends Controller
             return redirect('/dashboard/video/view');
         }
 
-        return redirect('/dashboard/video/edit'.$id)->with(
+        return redirect('/dashboard/video/edit/'.$id)->with(
             'status',
             'Oops! Something went wrong!'
         );
@@ -195,7 +195,7 @@ class VideoController extends Controller
             return false;
         }
 
-        return $my_array_of_vars['v'];
+        return strlen($my_array_of_vars['v']) == 11 ? $my_array_of_vars['v'] : false;
     }
 
     /**

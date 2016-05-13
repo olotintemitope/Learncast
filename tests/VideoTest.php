@@ -232,6 +232,7 @@ class VideoTest extends TestCase
           ->select($category->id, 'category')
           ->type('I have made you too small in my heart', 'title')
           ->type('It is the language of the Html', 'description')
+          ->type('https://www.youtube.com/watch?v=hKUwxXgz2RM', 'url')
           ->press('Update')
           ->seePageIs('/dashboard/video/view')
           ->see('I have made you too small in my heart');
