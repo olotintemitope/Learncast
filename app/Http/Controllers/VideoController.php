@@ -195,7 +195,7 @@ class VideoController extends Controller
             return false;
         }
 
-        return $my_array_of_vars['v'];
+        return strlen($my_array_of_vars['v']) == 11 ? $my_array_of_vars['v'] : false ;
     }
 
     /**
