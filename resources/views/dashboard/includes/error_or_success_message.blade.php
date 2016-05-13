@@ -15,7 +15,7 @@
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
-  @if (session('status') == 'Oops! Category does not exist!')
+  @if (session('status') == 'Oops! unauthorized access to video category!')
    <div class="card-panel deep-orange accent-4 danger">
     <strong> {{ session('status') }}</strong>
   </div>
