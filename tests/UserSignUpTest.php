@@ -1,7 +1,7 @@
 <?php
 
-use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Laravel\Socialite\Facades\Socialite;
 
 class UserSignUpTest extends TestCase
 {
