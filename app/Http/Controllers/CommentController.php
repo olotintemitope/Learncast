@@ -31,6 +31,7 @@ class CommentController extends Controller
             return [
                 'statuscode' => 201,
                 'message'    => 'Comment added successfully!',
+                'id'         => $comment->id,
             ];
         }
 

@@ -19,7 +19,7 @@
      <a href="{{ url('/auth/twitter') }}" class="btn btn-md btn-primary btn-block btn-social btn-twitter">
       <i class="fa fa-twitter"></i> Twitter
     </a>
-    <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github">
+    <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github" style="background: #000000; color: #ffffff;">
       <i class="fa fa-github"></i> Github
     </a>
   </div>

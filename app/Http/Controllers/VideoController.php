@@ -69,10 +69,12 @@ class VideoController extends Controller
         $user_id = $user_id = Auth::user()->id;
 
         $videos = Video::with('category')
+        ->orderBy('videos.id', 'desc')
         ->getVideosByUserId($user_id)
         ->paginate(10);
 
         $pendingVideos = Video::with('category')
+        ->orderBy('videos.id', 'desc')
         ->allTrashedVideos($user_id)
         ->paginate(10);
 
@@ -234,6 +236,7 @@ class VideoController extends Controller
     {
         $favourite = Favourite::with('video')
         ->getVideoFavouritedByUser(Auth::user()->id)
+        ->orderBy('favourites.id', 'desc')
         ->paginate(10);
 
         return view('dashboard.pages.myfavourite_videos', compact('favourite'));

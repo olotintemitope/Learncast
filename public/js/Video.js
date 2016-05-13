@@ -27,7 +27,6 @@
         }
 
         this.updateComment  = function() {
-            video = new Video();
             $(document).delegate(".update-comment", "click", function() {
                 obj = $(this);
                 commentId = obj.attr('id');
@@ -37,6 +36,7 @@
                 if (comment.length === 0) {
                     $("#form"+commentId).slideUp('fast');
                 } else {
+                    video = new Video();
                     video.makeAjaxRequest('/video/comment/update/'+commentId, {'comment':comment}, '')
                     .done(function(response) {
                         if (response.statuscode === 200) {
@@ -63,8 +63,7 @@
         }
 
         this.appendCommentForm = function() {
-            editBtn = $(".edit-comment");
-            editBtn.on("click", function() {
+            $(document).delegate(".edit-comment", "click", function() {
                 commentId       = $(this).attr('id');
                 recentComment   = $(this).parents(".pull-right").siblings(".comment");
                 commentForm     = generateEditForm(commentId, recentComment.text());
@@ -106,9 +105,7 @@
 
         this.deleteComment = function() {
             videoObject = new Video();
-            deleteBtn = $(".delete-comment");
-
-            deleteBtn.on("click", function() {
+            $(document).delegate(".delete-comment", "click", function() {
                 commentId = $(this).attr('id');
 
                 swalAlert(videoObject, '/video/comment/delete/'+commentId, $(this), {});
@@ -148,9 +145,11 @@
                         if (response.statuscode === 201) {
                             commentWrapper
                             .slideDown()
-                            .append(drawComment(username, avatar, comment ));
+                            .append(drawComment(username, avatar, comment, response.id));
                             loader.hide('fast');
                             $("#comment").val('');
+                            $(".video_category").hide('fast');
+                            $('.dropdown-toggle').dropdown();;
                         } else {
                             loader
                             .html('<strong>*</strong>' + response.message)
@@ -164,11 +163,15 @@
             });
         }
 
-        var drawComment = function(username, avatar, comment) {
+        var drawComment = function(username, avatar, comment, id) {
             var liComment  = "<li class='media'><div class='media-body'><div class='media'>";
                 liComment += "<a class='pull-left' href='#'>";
                 liComment += "<img class='media-object img-circle' src="+avatar+"></a>";
-                liComment += "<div class='media-body'>"+comment+"<br><br><small class='text-muted'>"+ username + " | posted " + jQuery.timeago(new Date()); + "</small>";
+                liComment += "<div class='media-body'>";
+                liComment += "<div class='btn-group pull-right'><button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown aria-haspopup='true' aria-expanded='false'><i class='glyphicon glyphicon-option-vertical'></i></button>";
+                liComment += "<ul class='dropdown-menu t-menu'><li  class='edit-comment' id="+id+"><a href='#'><i class='glyphicon glyphicon-pencil'></i> Edit</a></li>";
+                liComment += "<li role='separator' class='divider'></li><li class='delete-comment' id="+id+"><a href='#'><i class='glyphicon glyphicon-trash'></i> Delete</a></li></ul></div>";
+                liComment += "<div class='comment' id=comment"+id+">"+comment+"</div><div class='comment_form'></div><br><br><small class='text-muted'>"+ username + " | posted " + jQuery.timeago(new Date()); + "</small>";
                 liComment += "<hr></div></div></div></li>";
 
             return liComment;
