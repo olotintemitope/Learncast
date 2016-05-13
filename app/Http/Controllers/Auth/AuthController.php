@@ -213,7 +213,7 @@ class AuthController extends Controller
     public function createSocialUserLogin($user, $provider)
     {
         return User::create([
-            'username'       => $user->getNickname() ? : $user->getName(),
+            'username'       => $user->getNickname() ?: $user->getName(),
             'password'       => bcrypt(str_random(10)),
             'email'          => $user->getEmail() ?: str_random(10).'@noemail.app',
             'picture_url'    => $user->getAvatar(),
