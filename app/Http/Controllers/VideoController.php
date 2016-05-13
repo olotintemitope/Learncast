@@ -90,18 +90,18 @@ class VideoController extends Controller
      */
     public function getVideo($id)
     {
-        $video = Video::getVideoById($id)
-        ->get()
-        ->first();
+        $video = Auth::user()->videos->find($id);
 
         $categories = Category::all();
 
         if (is_null($video)) {
             return redirect('/dashboard/video/add')->with(
                 'status',
-                'Oops! Video does not exist!'
+                'Oops! unauthorized access to video!'
             );
         }
+
+        $video = $video->get()->first();
 
         return view('dashboard.pages.view_video', compact('categories', 'video'));
     }

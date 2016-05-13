@@ -270,6 +270,23 @@ class VideoTest extends TestCase
          ->see($video->title);
     }
 
+    public function testThatASingleVideoWasNotRetrived()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Erlang',
+            'description' => 'I have made you too small in my heart',
+        ]);
+
+        $video = $this->createVideo($user, $category);
+
+        $this->actingAs($user)->visit('/dashboard/video/edit/17')
+         ->seePageIs('/dashboard/video/add')
+         ->see('Oops! unauthorized access to video!');
+    }
+
     public function testgetAllVideos()
     {
         $user = factory('LearnCast\User')->create();
