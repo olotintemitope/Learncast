@@ -34,7 +34,28 @@ class UserLoginTest extends TestCase
            ->type('laztopaz', 'username')
            ->type('tope0852', 'password')
            ->press('Log In')
+           ->seePageIs('/')
            ->see('Laztopaz\'s profile');
+    }
+
+    public function testThatUserLogoutWasSuccessful()
+    {
+        $user = factory('LearnCast\User')->create([
+            'username'       => 'laztopaz',
+            'email'          => 'laztopaz@phptesting.unit',
+            'password'       => bcrypt('tope0852'),
+            'profile_bio'    => 'I am a cool dude',
+            'role_id'        => 1,
+            'picture_url'    => 'https://en.gravatar.com/userimage/102347280/b3e9c138c1548147b7ff3f9a2a1d9bb0.png?size=200',
+
+        ]);
+
+        $this->actingAs($user)
+           ->visit('/dashboard/logout')
+           ->seePageIs('/')
+           ->see('Learning made easy')
+           ->see('Video Categories')
+           ->see('Featured Videos');
     }
 
     public function testThatUserLoginWasNotSuccessful()
