@@ -62,21 +62,35 @@ Clone this repository by typing this on your command line
 
 
 ```
-- GITHUB_CLIENT_ID
-- GITHUB_CLIENT_SECRET
-- GITHUB_CLIENT_REDIRECT
 
-- FACEBOOK_CLIENT_ID
-- FACEBOOK_CLIENT_SECRET
-- FACEBOOK_CLIENT_REDIRECT
+- APP_ENV=local
+- APP_DEBUG=true
+- APP_KEY=xxxxxxxxxxxxxxxxxxxxx
+- APP_URL=http://localhost
 
-- TWITTER_CLIENT_ID
-- TWITTER_CLIENT_SECRET
-- TWITTER_CLIENT_REDIRECT
+- DB_CONNECTION=pgsql
+- DB_HOST=192.168.10.10
+- DB_PORT=33060
+- DB_DATABASE=learnanytime
+- DB_USERNAME=xxxxx
+- DB_PASSWORD=xxxxx
 
-- CLOUDINARY_API_KEY
-- CLOUDINARY_API_SECRETß
-- CLOUDINARY_CLOUD_NAME
+- GITHUB_CLIENT_ID=xxxxxxxxxxxxxx
+- GITHUB_CLIENT_SECRET=xxxxxxxxxx
+- GITHUB_CLIENT_REDIRECT=http://localhost
+
+- FACEBOOK_CLIENT_ID=xxxxxxxxxxxx
+- FACEBOOK_CLIENT_SECRET=xxxxxxxx
+- FACEBOOK_CLIENT_REDIRECT=http://localhost
+
+- TWITTER_CLIENT_ID=xxxxxxx
+- TWITTER_CLIENT_SECRET=xxxxxxx
+- TWITTER_CLIENT_REDIRECT=http://localhost
+
+- CLOUDINARY_API_KEY=xxxxxx
+- CLOUDINARY_API_SECRET=xxxxxxx
+- CLOUDINARY_CLOUD_NAME=xxxxxxxxx
+
 ```
 
 Run Migration:
@@ -88,7 +102,7 @@ Run Migration:
 and Seed:
 
 ```
-    php artisan db:seed --class=CategoriesTableSeeder
+    php artisan db:seed --class=UsersTableSeeder
 ```
 
 ##Requirements
@@ -102,7 +116,7 @@ and Seed:
 
 #Testing 
 
-Run ` phpunit tests ` 
+` Run phpunit tests ` 
 
 
 ##Contributing
