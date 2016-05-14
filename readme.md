@@ -6,24 +6,27 @@ This website offers video tutorials accross various learning fields at no cost a
 
 #Features 
 
-- Login System 
+#### Login System 
 
-## Tradition :  User login via form
-## Oauth : Users use social lazy login
+- Tradition :  User login via form
+- Oauth : Users use social lazy login
 
-- Signup System 
+#### Signup System 
 
-# Tradition : Users signup via form
-# Oauth : Users leverage on social signup without any hassle.
+- Tradition : Users signup via form
+- Oauth : Users leverage on social signup without any hassle.
 
 
-- Video Category
+#### Video Category
 
-#### Admin users can create video categories as well add videos to cateories
+- ##### Admin users can 
+- create video categories 
+- as well add video to cateories
+- Edit video categories
 
-- Video Content
+#### Video Content
 
-#### An authenticated user 
+- ##### An authenticated user can 
 
 - Add videos to category
 - Edit videos
