@@ -34,3 +34,20 @@ This website offers video tutorials accross various learning fields at no cost a
 - Edit videos
 - Delete videos
 - Restore deleted videos
+
+#### Favourite and Comment
+
+##### An authenticated user can 
+
+- Favourite and unfavourite a video
+- Add comments to video
+- Edit their comments
+- Delete their comments
+
+#### Search Video
+
+- Both guest and authenticated users can search videos 
+
+#### View learning resources
+
+- Both guest and authenticated users can view available videos 
