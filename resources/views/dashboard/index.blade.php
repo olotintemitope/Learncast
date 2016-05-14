@@ -23,7 +23,7 @@
                                 <i class="fa fa-heart-o fa-4x"></i>
                             </div>
                             <h6 class="text-uppercase">Favourites</h6>
-                            <h4 class="display-1">{{ count($favourite) }}</h4>
+                            <h4 class="display-1">{{ $favourite }}</h4>
                         </div>
                     </div>
                 </div>
