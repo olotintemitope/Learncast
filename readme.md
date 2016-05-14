@@ -19,14 +19,16 @@ This website offers video tutorials accross various learning fields at no cost a
 
 #### Video Category
 
-- ##### Admin users can 
+##### Admin users can 
+
 - create video categories 
 - as well add video to cateories
 - Edit video categories
+- Restore deleted video categories
 
 #### Video Content
 
-- ##### An authenticated user can 
+##### An authenticated user can 
 
 - Add videos to category
 - Edit videos
