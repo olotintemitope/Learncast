@@ -51,3 +51,59 @@ This website offers video tutorials accross various learning fields at no cost a
 #### View learning resources
 
 - Both guest and authenticated users can view available videos 
+
+## Installation
+You can install the application by forking this repo or cloning it to your desktop. After cloning the application
+you have to set your environments variables, the required ones for the application are below:
+
+Clone this repository by typing this on your command line 
+
+` git clone https://github.com/andela-tolotin/Learncast.git `
+
+
+```
+- GITHUB_CLIENT_ID
+- GITHUB_CLIENT_SECRET
+- GITHUB_CLIENT_REDIRECT
+
+- FACEBOOK_CLIENT_ID
+- FACEBOOK_CLIENT_SECRET
+- FACEBOOK_CLIENT_REDIRECT
+
+- TWITTER_CLIENT_ID
+- TWITTER_CLIENT_SECRET
+- TWITTER_CLIENT_REDIRECT
+
+- CLOUDINARY_API_KEY
+- CLOUDINARY_API_SECRETß
+- CLOUDINARY_CLOUD_NAME
+```
+
+Run Migration:
+
+```artisan
+    php artisan db:migrate
+```
+
+and Seed:
+
+```
+    php artisan db:seed --class=CategoriesTableSeeder
+```
+
+##Requirements
+- PHP
+  - 5.5
+  - 5.6
+  - 7.0
+- Composer
+- Apache
+- Database
+
+#Testing 
+
+Run ` phpunit tests ` 
+
+
+##Contributing
+This application is open-source hence you are free to contribute to any part of the project
