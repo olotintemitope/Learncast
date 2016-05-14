@@ -24,7 +24,6 @@ class CategoryController extends Controller
 
         $category = Category::where('user_id', Auth::user()->id)->count();
         $favourite = Favourite::with('video')->getVideoFavouritedByUser(Auth::user()->id)->count();
-        
         $videos = Video::where('user_id', Auth::user()->id)->count();
 
         return view('dashboard.index', compact('favourite', 'videos', 'category'));
