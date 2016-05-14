@@ -4,7 +4,7 @@
 
 This website offers video tutorials accross various learning fields at no cost and its accessible for learning anywhere, anytime 24/7. 
 
-(http://learncast.herokuapp.com/)
+http://learncast.herokuapp.com
 
 
 #Features 
