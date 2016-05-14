@@ -11,12 +11,12 @@ http://learncast.herokuapp.com
 
 #### Login System 
 
-- Tradition :  User login via form
+- Traditional :  User login via form
 - Oauth : Users use social lazy login
 
 #### Signup System 
 
-- Tradition : Users signup via form
+- Traditional : Users signup via form
 - Oauth : Users leverage on social signup without any hassle.
 
 
