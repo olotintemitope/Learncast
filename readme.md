@@ -123,4 +123,9 @@ and Seed:
 
 
 ##Contributing
+
 This application is open-source hence you are free to contribute to any part of the project
+
+## Credit
+
+LearnCast is created and maintained by Temitope Olotin.
