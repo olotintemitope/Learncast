@@ -209,7 +209,7 @@ class VideoCategoryTest extends TestCase
         $this->visit('video/category/'.$category->name)
         ->see($category->name)
         ->see($video->title)
-        ->see($video->description); 
+        ->see($video->description);
     }
 
     public function testThatVideosHasNotBeenUploadedForACategory()
@@ -221,6 +221,6 @@ class VideoCategoryTest extends TestCase
         $video = factory('LearnCast\Video')->create();
 
         $this->visit('video/category/Ginger')
-        ->see('Oops! videos are not available for display!'); 
+        ->see('Oops! videos are not available for display!');
     }
 }

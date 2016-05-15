@@ -382,4 +382,5 @@ class VideoTest extends TestCase
         ->click('VIEW')
         ->seePageIs('/view/video/'.$video->id);
     }
+    
 }

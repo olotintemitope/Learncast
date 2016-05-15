@@ -229,6 +229,7 @@ class VideoController extends Controller
         if (is_null($category)) {
             $categoryName = $name;
             $myVideos = [];
+
             return view('main.pages.video_category', compact('myVideos', 'categoryName'));
         }
 
