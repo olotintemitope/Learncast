@@ -73,8 +73,8 @@ class VideoFavouriteTest extends TestCase
 
         $response = $this->actingAs($user)
         ->visit('/dashboard/video/favourites')
-        ->see($favourite->video->title)
-        ->see($favourite->video->url)
+        ->see($favourites->video->title)
+        ->see($favourites->video->url)
         ->see($favourites->video->category->name);
     }
 
@@ -90,9 +90,7 @@ class VideoFavouriteTest extends TestCase
 
         $video = factory('LearnCast\Video')->create();
 
-        $favourites = factory('LearnCast\Favourite')->create();
-
-        $response = $this->actingAs($user)
+        $this->actingAs($user)
         ->visit('/dashboard/video/favourites')
         ->see('Video are not available for display');
     }
