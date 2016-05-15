@@ -12,7 +12,11 @@
     <div class="form-group">
       <button class="btn btn-danger btn-lg btn-block">Log In</button>
     </div>
+
     <div class="form-group">
+    <a href="/#signup" class="btn btn-md btn-success btn-block btn-social btn-facebook">
+       <i class="fa fa-user"></i> Signup
+     </a>
       <a href="{{ url('/auth/facebook') }}" class="btn btn-md btn-primary btn-block btn-social btn-facebook">
        <i class="fa fa-facebook"></i> Facebook
      </a>
