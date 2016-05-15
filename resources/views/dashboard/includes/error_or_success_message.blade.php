@@ -10,6 +10,11 @@
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
+  @if (session('status') == 'Video url already exists')
+   <div class="card-panel deep-orange accent-4 danger">
+    <strong> {{ session('status') }}</strong>
+  </div>
+  @endif
    @if (session('status') == 'Category already exists!')
    <div class="card-panel deep-orange accent-4 danger">
     <strong> {{ session('status') }}</strong>

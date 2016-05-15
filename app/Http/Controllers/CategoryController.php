@@ -106,8 +106,6 @@ class CategoryController extends Controller
             );
         }
 
-        $category = $category->get()->first();
-
         return view('dashboard.pages.view_video_category', compact('category'));
     }
 
