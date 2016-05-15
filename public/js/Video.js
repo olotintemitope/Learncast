@@ -115,6 +115,11 @@
             });
         }
 
+        var counterComments  = function() {
+            return  $("ul.media-list").find("li.media").size();
+            
+        }
+
         this.addComment = function() {
             videoObject = new Video();
             loader = $(".preloader-wrapper");
@@ -127,6 +132,7 @@
                 avatar  = $(this).data('avatar');
                 username = $(this).data('username');
                 commentWrapper = $(".media-list");
+                counterPlaceholder = $(".fa-comment");
 
                 token = $("#comment_form").find('input[type="hidden"]').val();
                 if (comment.length == 0) {
@@ -149,7 +155,8 @@
                             loader.hide('fast');
                             $("#comment").val('');
                             $(".video_category").hide('fast');
-                            $('.dropdown-toggle').dropdown();;
+                            $('.dropdown-toggle').dropdown();
+                            counterPlaceholder.html(" "+counterComments());
                         } else {
                             loader
                             .html('<strong>*</strong>' + response.message)
