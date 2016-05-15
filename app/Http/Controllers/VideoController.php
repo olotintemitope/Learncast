@@ -227,7 +227,9 @@ class VideoController extends Controller
         ->first();
 
         if (is_null($category)) {
-            return abort(404, 'Page not found.');
+            $categoryName = $name;
+            $myVideos = [];
+            return view('main.pages.video_category', compact('myVideos', 'categoryName'));
         }
 
         $categoryName = ucwords($category->name);
