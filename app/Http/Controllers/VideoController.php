@@ -336,7 +336,7 @@ class VideoController extends Controller
 
     /**
      * This method checks for duplicate youtube video id.
-     * 
+     *
      * @param $url
      *
      * @return bool
