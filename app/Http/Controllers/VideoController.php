@@ -44,6 +44,13 @@ class VideoController extends Controller
             );
         }
 
+        if ($video == "true") {
+            return redirect('/dashboard/video/add')->with(
+                'status',
+                'Video url already exists'
+            );
+        }
+
         if (!is_null($video)) {
             return redirect('/dashboard/video/add')->with(
                 'status',
@@ -101,8 +108,6 @@ class VideoController extends Controller
             );
         }
 
-        $video = $video->get()->first();
-
         return view('dashboard.pages.view_video', compact('categories', 'video'));
     }
 
@@ -124,6 +129,13 @@ class VideoController extends Controller
             return redirect('/dashboard/video/edit/'.$id)->with(
                 'status',
                 'Invalid url'
+            );
+        }
+
+        if ($video == "true") {
+            return redirect('/dashboard/video/add')->with(
+                'status',
+                'Video url already exists'
             );
         }
 
@@ -270,8 +282,13 @@ class VideoController extends Controller
      */
     public function assistUpdateVideo($request, $id)
     {
-        if ($this->parseYoutubeUrl($request->input('url')) == false) {
+        $youTubeVideoId  = $this->parseYoutubeUrl($request->input('url'));
+        if ($youTubeVideoId === false) {
             return false;
+        }
+
+        if ($this->checkDuplicateYoutubeVideoId($youTubeVideoId)) {
+            return "true";
         }
 
         $video = Video::getVideoById($id)
@@ -295,8 +312,13 @@ class VideoController extends Controller
      */
     public function createVideo($request, $user_id)
     {
-        if ($this->parseYoutubeUrl($request->input('url')) === false) {
+        $youTubeVideoId  = $this->parseYoutubeUrl($request->input('url'));
+        if ($youTubeVideoId === false) {
             return false;
+        }
+
+        if ($this->checkDuplicateYoutubeVideoId($youTubeVideoId)) {
+            return "true";
         }
 
         $video = Video::create([
@@ -310,5 +332,23 @@ class VideoController extends Controller
         ]);
 
         return $video;
+    }
+
+    /**
+     * This method checks for duplicate youtube video id
+     * @param $url
+     *
+     * @return boolean
+     */
+    public function checkDuplicateYoutubeVideoId($url)
+    {
+        $video = Video::where('url', $url)
+        ->get()
+        ->first();
+        if (!is_null($video)) {
+            return true;
+        }
+
+        return false;
     }
 }
