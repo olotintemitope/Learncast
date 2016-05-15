@@ -53,4 +53,45 @@ class VideoFavouriteTest extends TestCase
         $this->assertEquals($output->message, 'Oop! something went wrong');
         $this->assertEquals($output->statuscode, 400);
     }
+
+    public function testGetAuthenticatedVideoFavourites()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Scala',
+            'description' => 'A functional programming language',
+        ]);
+
+        $video = factory('LearnCast\Video')->create();
+
+        $favourites = factory('LearnCast\Favourite')->create([
+            'video_id' => $video->id,
+            'user_id'  => $user->id,
+        ]);
+
+        $response = $this->actingAs($user)
+        ->visit('/dashboard/video/favourites')
+        ->see($favourites->video->title)
+        ->see($favourites->video->url)
+        ->see($favourites->video->category->name);
+    }
+
+    public function testThatTheAuthenticatedUserHasNoFavourites()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create([
+            'user_id'     => $user->id,
+            'name'        => 'Scala',
+            'description' => 'A functional programming language',
+        ]);
+
+        $video = factory('LearnCast\Video')->create();
+
+        $this->actingAs($user)
+        ->visit('/dashboard/video/favourites')
+        ->see('Video are not available for display');
+    }
 }

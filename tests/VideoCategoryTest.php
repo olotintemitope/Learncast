@@ -190,4 +190,37 @@ class VideoCategoryTest extends TestCase
 
         return $user;
     }
+
+    public function testGetVideosByCategory()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create();
+
+        $video = factory('LearnCast\Video')->create([
+            'title'        => 'Haskell',
+            'description'  => 'It is the language of the web',
+            'user_id'      => $user->id,
+            'category_id'  => $category->id,
+            'views'        => 0,
+            'favourites'   => 0,
+        ]);
+
+        $this->visit('video/category/'.$category->name)
+        ->see($category->name)
+        ->see($video->title)
+        ->see($video->description);
+    }
+
+    public function testThatVideosHasNotBeenUploadedForACategory()
+    {
+        $user = factory('LearnCast\User')->create();
+
+        $category = factory('LearnCast\Category')->create();
+
+        $video = factory('LearnCast\Video')->create();
+
+        $this->visit('video/category/Ginger')
+        ->see('Oops! videos are not available for display!');
+    }
 }
