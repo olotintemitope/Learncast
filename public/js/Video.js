@@ -76,6 +76,7 @@
         }
 
         var swalAlert = function(video, url, dom, parameters) {
+            counterPlaceholder = $(".fa-comment");
              swal({ title: "Are you sure?",    
                  type: "warning",   showCancelButton: true,   
                  confirmButtonColor: "#DD6B55",   
@@ -93,6 +94,7 @@
                             .parents("li.media")
                             .fadeOut('fast')
                             .remove();
+                            counterPlaceholder.html(" "+counterComments());
                         } else {
                             swal("Failed!", response.message, "error");
                         }
@@ -106,6 +108,7 @@
         this.deleteComment = function() {
             videoObject = new Video();
             $(document).delegate(".delete-comment", "click", function() {
+
                 commentId = $(this).attr('id');
 
                 swalAlert(videoObject, '/video/comment/delete/'+commentId, $(this), {});
