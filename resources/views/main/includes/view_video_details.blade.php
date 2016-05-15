@@ -16,16 +16,16 @@
     <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> {{ count($video->comments) }}</i>
     </li>
     <li>
-    <form>
-    @if (Auth::check())
-     <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}"> 
-       <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
-     </button>
-     @else
-     <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="" data-fav="{{ $video->favourites }}"> 
-       <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
-     </button>
-     @endif
+      <form>
+        @if (Auth::check())
+        <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}"> 
+         <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
+       </button>
+       @else
+       <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="" data-fav="{{ $video->favourites }}"> 
+         <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
+       </button>
+       @endif
      </form>
    </li>
  </ul>
@@ -100,9 +100,9 @@
   </div>
   <div class="input-group">
    <span class="input-group-btn">
-      <button class="btn btn-primary pull-right" type="button" id="send" data-user="{{ Auth::user()->id }}" data-video="{{ $video->id }}" data-avatar="{{ Auth::user()->picture_url }}" data-username = "{{ ucwords(Auth::user()->username) }}"><i class="glyphicon glyphicon-send"></i> Send</button>
-    </span>
-  </div>
+    <button class="btn btn-primary pull-right" type="button" id="send" data-user="{{ Auth::user()->id }}" data-video="{{ $video->id }}" data-avatar="{{ Auth::user()->picture_url }}" data-username = "{{ ucwords(Auth::user()->username) }}"><i class="glyphicon glyphicon-send"></i> Send</button>
+  </span>
+</div>
 </form>
 </div>
 @endif
