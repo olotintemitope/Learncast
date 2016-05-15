@@ -57,9 +57,6 @@
     </a>
 </div>
 </div>
-<div class="modal-footer">
-    <h6 class="text-center"><a href="">Privacy is important to us. Click here to read why.</a></h6>
-</div>
 </div>
 </div>
 </div>
@@ -77,6 +74,11 @@
     $(document).ready(function() {
         $("body").userPlugin();
         $("body").videoPlugin();
+
+        var hash = window.location.hash;
+        if (hash == "#signup") {
+         $('#myModal').modal();
+      }
     });
 </script>
 </body>
