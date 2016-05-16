@@ -16,7 +16,7 @@
   </div>
   <div class="row">
     <div class="input-field col s12 m8">
-      <button class="btn waves-effect waves-dark" type="submit" name="action"> <i class="material-icons right">send</i>Create
+      <button class="btn waves-effect waves-dark" type="submit" name="action">Create <i class="material-icons right">send</i>
      </button>
    </div>
  </div>
