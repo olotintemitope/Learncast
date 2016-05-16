@@ -1,16 +1,18 @@
-@import url(http://fonts.googleapis.com/css?family='Quattrocento Sans', sans-serif:400);
+@import url(https://fonts.googleapis.com/css?family=Tangerine, sans-serif:400);
 
 html,body {
   height:100%;
   background:center no-repeat fixed url('../images/bg4.jpg');
   background-size: cover;
   color:#444;
-  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: 'Tangerine', serif;
+  font-size: 14px;
 }
 
 @media (min-width:768px) {
   h1 {
     font-size:68px;
+    font-family: 'Tangerine', serif;
   }
 }
 
@@ -84,10 +86,11 @@ html,body {
 .caption-text h3 {
   border-bottom:1px solid white; 
   padding:10px;
-  font-size: 16px;
+  font-size: 18px;
   color: #f8f8f8;
   text-align: center;
   text-overflow: ellipsis;
+  font-family: 'Tangerine', serif;
   
 }
 
@@ -129,14 +132,6 @@ a:hover {
 .btn-huge {
   padding:17px 22px;
   font-size:22px;
-}
-
-.lato {
-  font-family: 'Quattrocento Sans', sans-serif;
-}
-
-.bitter {
-  font-family: 'Quattrocento Sans', sans-serif;
 }
 
 .icon-bar {
@@ -229,13 +224,14 @@ section {
         // position: absolute;
         // top: 0; left: 0; bottom: 0; right: 0;
         margin-top: 5%;
+        font-family: 'Tangerine', serif;
       }
     }
 
     #section1 {
       background-color: rgba(0,0,0,0.7);
       color:#fff;
-      font-family: 'Quattrocento Sans', sans-serif;
+      font-family: 'Tangerine', serif;
     }
 
     #section2 {
