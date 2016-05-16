@@ -2,9 +2,9 @@
  <div class="row">
    @if (count($video) > 0)
    <div class="col-lg-12 bg-white video_frame">
-    <div class="video_wrapper">
-     <iframe src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
-   </div>
+   <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
+</div>
    <h3> {{ ucwords($video->title) }}</h3><p class="pull-right"><em>Created by </em><a href="#" ><strong> {{ ucwords($video->user->username) }}</strong></a></p>
    <div class="video_details">
      <ul class="list-inline">
