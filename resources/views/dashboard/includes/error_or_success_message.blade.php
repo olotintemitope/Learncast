@@ -1,5 +1,5 @@
 <div class="row">
- <div class="input-field col s8 offset-m3">
+ <div class="input-field col s12 m8">
   @if (session('status') == 'Oops! unauthorized access to video!')
    <div class="card-panel deep-orange accent-4 danger">
     <strong> {{ session('status') }}</strong>
