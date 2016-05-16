@@ -20,6 +20,11 @@
             });
         }
 
+        var validateEmail = function(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
         this.signUp = function() {
             user = new User()
 
@@ -29,9 +34,8 @@
 
             $(".preloader-wrapper").hide();
 
-            var error = 0
-
             signUpBtn.on("click", function() {
+                var error = 0
                 password  = $("#password").val();
                 cpassword = $("#cpassword").val();
 
@@ -48,6 +52,8 @@
                     if (password !== cpassword) {
                         reporter.html('Password mismatch!, please correct it')
                         .css('color', 'red')
+                    } else if (!validateEmail($('#email').val())) {
+                        reporter.html('Please provide a valid email address!').css('color', 'red')
                     } else {
                         $(".preloader-wrapper").show();
                         user.makeAjaxRequest('auth/register', formFields, 'POST')
