@@ -1,6 +1,6 @@
 <section class="container-fluid" id="section1">
     <div class="v-center">
-        <h1 class="text-center">Learning made easy</h1>
+        <h1 class="text-center">Learning Made Easy</h1>
         <h2 class="text-center lato animate slideInDown">Learn <b>Anytime,</b> Anywhere 24/7</h2>
         <p class="text-center">
             <br>

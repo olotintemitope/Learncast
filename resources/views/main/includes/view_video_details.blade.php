@@ -2,11 +2,11 @@
  <div class="row">
    @if (count($video) > 0)
    <div class="col-lg-12 bg-white video_frame">
-   <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
-</div>
-   <h3> {{ ucwords($video->title) }}</h3><p class="pull-right"><em>Created by </em><a href="#" ><strong> {{ ucwords($video->user->username) }}</strong></a></p>
-   <div class="video_details">
+     <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <h3> {{ ucwords($video->title) }}</h3><p class="pull-right"><em>Created by </em><a href="#" ><strong> {{ ucwords($video->user->username) }}</strong></a></p>
+    <div class="video_details">
      <ul class="list-inline">
       <li>
        <button type="button" class="btn btn-primary btn-sm views"> 
@@ -81,6 +81,7 @@
       </div>
     </li> 
     @endforeach
+    <li><p class="text-center"><a class="btn btn-info load-more" id="{{ $video->id }}">Load more</a></p></li>
     @else
     <li>
      <h4 align="center" class="video_category text-danger">Comments are not available for display!</h4>

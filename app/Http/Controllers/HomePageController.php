@@ -46,9 +46,32 @@ class HomePageController extends Controller
 
         $relatedVideos = Video::getRelatedVideo($video_id, $video->category_id, $video->title)
         ->orderBy('videos.views', 'desc')
+        ->take(5)
         ->get();
 
         return view('main.pages.single_video', compact('video', 'relatedVideos'));
+    }
+
+    /**
+     * This method loads more comments, calculates the offset and return the next set 
+     * of comments to be displayed to the user
+     *
+     * @param $id
+     * @param $offset
+     *
+     * @return  array
+     */
+    public function loadMoreComments(Request $request, $id, $offset)
+    {
+        $video = Video::getVideoById($id)
+        ->skip($offset)
+        ->take(10)
+        ->get()
+        ->first();
+
+        if (!is_null($video)) {
+            
+        }
     }
 
     /**

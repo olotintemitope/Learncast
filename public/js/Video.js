@@ -11,11 +11,23 @@
             video.appendCommentForm();
             video.cancelForm();
             video.updateComment();
+            video.loadMoreComment();
         });
     }
 
     function Video() {
 
+        this.loadMoreComment = function() {
+            video = new Video();
+            $(document).delegate('.load-more', 'click', function() {
+                commentId = $(this).attr('id');
+                availableComments = counterComments();
+                video.makeAjaxRequest('/load/video/comments/',{'id':commentId, 'offset':availableComments}, '')
+                .done(function(response) {
+
+                });
+            });
+        }
         var generateEditForm  = function(id, comment) {
             var updateForm = '<form class="form-horizontal" role="form" id="form'+id+'">';
             updateForm     += '<div class="form-group"><div class="col-sm-10"><textarea class="form-control" name="coment" id="comment">'+comment+'</textarea></div>';

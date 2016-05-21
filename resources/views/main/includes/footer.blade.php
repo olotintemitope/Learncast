@@ -109,6 +109,10 @@
     ]
 });
     $(document).ready(function() {
+        $(".scroll-up").click(function() {
+          scrollToElement("html", 600);
+        });
+
         $("body").userPlugin();
         $("body").videoPlugin();
 
@@ -117,6 +121,12 @@
          $('#myModal').modal();
       }
     });
+    var scrollToElement = function(el, ms){
+      var speed = (ms) ? ms : 1000;
+      $('html,body').animate({
+        scrollTop: $(el).offset().top
+      }, speed);
+    }
 </script>
 </body>
 </html>

@@ -128,6 +128,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/search', 'HomePageController@search');
     Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
+    Route::get('/load/video/comments', 'HomePageController@loadMoreComments');
 });
 
 /* This route belongs to a group of video  */

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Learncast</title>
+    <title>Learncast:: Welcome Home</title>
     <meta name="description" content="This website offers video tutorials accross various learning fields at no cost and its accessible for learning anywhere, anytime 24/7" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Learncast">
@@ -13,5 +13,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="{{ URL::asset('css/als_demo.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/sweetalert.css') }}">
-  </head>
-  <body>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+</head>
+<body>
