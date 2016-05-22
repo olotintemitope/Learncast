@@ -127,7 +127,6 @@
             videoObject = new Video();
             loader = $(".preloader-wrapper");
             sendBtn  = $("#send");
-            $('.dropdown-toggle').dropdown();
             
             sendBtn.on("click", function() {
                 video   = $(this).data('video');
@@ -137,6 +136,7 @@
                 username = $(this).data('username');
                 commentWrapper = $(".media-list");
                 counterPlaceholder = $(".fa-comment");
+                $('.dropdown-toggle').dropdown();
 
                 token = $("#comment_form").find('input[type="hidden"]').val();
                 if (comment.length == 0) {
