@@ -107,12 +107,20 @@
     ]
   });
   $(document).ready(function() {
-    $(".scroll-up").click(function() {
+
+    $(window).scroll(function () {
+    if ($(this).scrollTop() > 300) {
+      $('.scroll-up').fadeIn();
+    } else {
+      $('.scroll-up').fadeOut();
+    }
+  });
+    $('.scroll-up').click(function() {
       scrollToElement("html", 600);
     });
 
-    $("body").userPlugin();
-    $("body").videoPlugin();
+    $('body').userPlugin();
+    $('body').videoPlugin();
 
     var hash = window.location.hash;
     if (hash == "#signup") {
