@@ -379,7 +379,7 @@ class VideoTest extends TestCase
         $video = factory('LearnCast\Video')->create();
 
         $this->visit('/')
-        ->click('VIEW')
+        ->click($video->title)
         ->seePageIs('/view/video/'.$video->id);
     }
 }
