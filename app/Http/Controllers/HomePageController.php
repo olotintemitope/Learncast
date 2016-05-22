@@ -53,28 +53,6 @@ class HomePageController extends Controller
     }
 
     /**
-     * This method loads more comments, calculates the offset and return the next set 
-     * of comments to be displayed to the user
-     *
-     * @param $id
-     * @param $offset
-     *
-     * @return  array
-     */
-    public function loadMoreComments(Request $request, $id, $offset)
-    {
-        $video = Video::getVideoById($id)
-        ->skip($offset)
-        ->take(10)
-        ->get()
-        ->first();
-
-        if (!is_null($video)) {
-            
-        }
-    }
-
-    /**
      * This function store the users favourite video and also
      * increase the number of favourites on a video.
      *
