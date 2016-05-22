@@ -1,5 +1,6 @@
 <div class="bounceInDown container v-center animated bg-white">
   <div class="main-grids">
+  <h3 align="center" class="text-center"> Featured Videos</h3>
     @foreach ($allVideos->chunk(4) as $chunk)
     <div class="top-grids">
       @foreach ($chunk as $video)

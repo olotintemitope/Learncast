@@ -221,12 +221,12 @@ section {
 
 @media (min-width:768px) {
   .v-center {
-        // height: 100;
+        height: 100;
         // overflow: visible;
         // margin: auto;
         // position: absolute;
-        // top: 0; left: 0; bottom: 0; right: 0;
-        margin-top: 5%;
+        //top: 0; left: 0; bottom: 0; right: 0;
+        //margin-top: 5%;
         font-family: 'Open Sans', sans-serif;
         
       }
@@ -425,9 +425,9 @@ section {
   color: #006621;
 }
 
-.main-grids {
-  padding: 0 0 1em 1em;
-}
+// .main-grids {
+//   padding: 0 0 1em 1em;
+// }
 .resent-grid-img {
   position: relative;
 }
@@ -485,6 +485,7 @@ time p {
 .resent-grid-info {
   background: #f7f7f7;
   padding: 1em;
+  margin-bottom: 4%;
 }
 
 .recommended-grid-info ul li.right-list {
@@ -527,19 +528,77 @@ time p {
   width:100%;
   padding-bottom:20px;
 }
-.login_modal_header, .login_modal_footer {background: #184B94 !important;color:#fff;}
-.modal-register-btn{margin: 4% 33% 2% 33% ;width:100%;}
-.login-modal input{height:40px; box-shadow: none; border:1px solid #ddd;}
-.modal-body-left{float:left; width:50%; padding-right:4%; border-right:4px solid #ddd;}
-.modal-body-right{float:right; width:47%;}
-.login-link{padding:0 20%;}
-.modal-social-icons{padding:0 10%;}
-.facebook, .twitter, .github {width:100%;height:40px; padding-top:2%; margin-top:2%;}
-.modal-icons{margin-left: -10px; margin-right: 20px;}
-.twitter, .twitter:hover{ background-color: #00aced; border:2px solid #00aced;color: #fff;}
-.facebook, .facebook:hover{background-color: #3b5999; border:2px solid #3b5999;color:#fff;}
-.github, .github:hover{background-color: #000000; border: 2px solid #007bb6; color:#fff;}
-#social-icons-conatainer{position: relative;}
-#center-line{position: absolute;  right: 265.7px;top: 80px;background:#ddd;  border: 4px solid #DDDDDD;border-radius: 20px;}
-.modal-login-btn{width:100%;height:40px; margin-bottom:10px;}
-#modal-launcher{margin: 30% 0 0 30%; }
+.login_modal_header, .login_modal_footer {
+  background: #184B94 !important;color:#fff;
+}
+.modal-register-btn{
+  margin: 4% 33% 2% 33% ;
+  width:100%;
+}
+.login-modal input{
+  height:40px; box-shadow: none; border:1px solid #ddd;
+}
+.modal-body-left{
+  float:left; 
+  width:50%; 
+  padding-right:4%; 
+  border-right:4px solid #ddd;
+}
+.modal-body-right{
+  float:right; 
+  width:47%;
+}
+
+.login-link{
+  padding:0 20%;
+}
+.modal-social-icons{
+  padding:0 10%;
+}
+.facebook, .twitter, .github {
+  width:100%;
+  height:40px; 
+  padding-top:2%;
+  margin-top:2%;
+}
+.modal-icons{
+  margin-left: -10px;
+  margin-right: 20px;
+}
+.twitter, .twitter:hover{ 
+  background-color: #00aced; 
+  border:2px solid #00aced;
+  color: #fff;
+}
+.facebook, .facebook:hover{
+  background-color: #3b5999; 
+  border:2px solid #3b5999;
+  color:#fff;
+}
+.github, .github:hover{
+  background-color: #000000; 
+  border: 2px solid #007bb6; 
+  color:#fff;
+}
+#social-icons-conatainer{
+  position: relative;
+}
+#center-line{
+  position: absolute;  
+  right: 265.7px;
+  top: 80px;
+  background:#ddd;  
+  border: 4px solid #DDDDDD;
+  border-radius: 20px;
+}
+.modal-login-btn{
+  width:100%;
+  height:40px; 
+  margin-bottom:10px;
+}
+#modal-launcher{
+  margin: 30% 0 0 30%; 
+}
+.top-grids {
+  min-height: 300px;
+}
