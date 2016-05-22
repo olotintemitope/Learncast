@@ -2,7 +2,7 @@
   <div class="main-grids">
     <div class="top-grids">
      @foreach ($allVideos->chunk(4) as $chunk)
-     <div class="col-md-4 resent-grid recommended-grid slider-top-grids" style="margin-bottom:20px;">
+     <div class="col-md-4 resent-grid recommended-grid slider-top-grids">
       @foreach ($chunk as $video)
       <div class="resent-grid-img recommended-grid-img">
         <a class=" btn btn-primary" href="/view/video/{{ $video->id }}"><img src="http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg" class="img-responsive youtube-thumbnails" alt="{{ $video->title}}"></a>
@@ -10,7 +10,6 @@
           <p></p>
         </div>
         <div class="clck">
-          <!-- <span class="glyphicon glyphicon-time" aria-hidden="true"></span> -->
         </div>
       </div>
       <div class="resent-grid-info recommended-grid-info">
