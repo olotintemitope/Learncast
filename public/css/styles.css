@@ -381,7 +381,7 @@ section {
 }
 
 .pull-right >.dropdown-menu {
-  z-index: 99999999999999;
+  z-index:1111;
 }
 
 .comment {
