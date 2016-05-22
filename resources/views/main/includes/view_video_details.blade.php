@@ -81,7 +81,6 @@
       </div>
     </li> 
     @endforeach
-    <li><p class="text-center"><a class="btn btn-info load-more" id="{{ $video->id }}">Load more</a></p></li>
     @else
     <li>
      <h4 align="center" class="video_category text-danger">Comments are not available for display!</h4>
