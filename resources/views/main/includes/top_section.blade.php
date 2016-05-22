@@ -1,5 +1,5 @@
 <section class="container-fluid" id="section1">
-    <div class="v-center">
+    <div class="v-center pull-down">
         <h1 class="text-center">Learning Made Easy</h1>
         <h2 class="text-center lato animate slideInDown">Learn <b>Anytime,</b> Anywhere 24/7</h2>
         <p class="text-center">
