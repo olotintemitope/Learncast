@@ -221,7 +221,7 @@ section {
 
 @media (min-width:768px) {
   .v-center {
-        height: 100;
+    height: 100;
         // overflow: visible;
         // margin: auto;
         // position: absolute;
@@ -425,9 +425,6 @@ section {
   color: #006621;
 }
 
-// .main-grids {
-//   padding: 0 0 1em 1em;
-// }
 .resent-grid-img {
   position: relative;
 }
@@ -600,5 +597,20 @@ time p {
   margin: 30% 0 0 30%; 
 }
 .top-grids {
-  min-height: 300px;
+  min-height: 280px;
+}
+.featured-videos {
+  margin: 1.2%;
+  background: rgb(30, 93, 173);
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  text-align: left;
+}
+.v-cat li a {
+  text-decoration: none;
+}
+
+.v-cat li a:hover{
+  color: rgb(30, 93, 173);
 }

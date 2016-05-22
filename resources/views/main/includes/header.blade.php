@@ -14,5 +14,6 @@
     <link rel="stylesheet" href="{{ URL::asset('css/als_demo.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/sweetalert.css') }}">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
 </head>
 <body>
