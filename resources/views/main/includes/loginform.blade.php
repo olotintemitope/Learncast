@@ -10,13 +10,16 @@
       <input type="password" class="form-control input-lg" placeholder="Password" name="password"value="">
     </div>
     <div class="form-group">
-      <button class="btn btn-danger btn-lg btn-block">Log In</button>
+      <button class="btn btn-danger btn-block">Log In</button>
     </div>
-
     <div class="form-group">
-    <a href="/#signup" class="btn btn-md btn-success btn-block btn-social btn-facebook">
+      <a href="/#signup" class="btn btn-default custom-button-width pull-right">
        <i class="fa fa-user"></i> Signup
      </a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="clearfix"></div>
+    <div class="form-group">
       <a href="{{ url('/auth/facebook') }}" class="btn btn-md btn-primary btn-block btn-social btn-facebook">
        <i class="fa fa-facebook"></i> Facebook
      </a>
@@ -29,3 +32,4 @@
   </div>
 </form>
 </div>
+

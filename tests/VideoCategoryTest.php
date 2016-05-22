@@ -208,8 +208,7 @@ class VideoCategoryTest extends TestCase
 
         $this->visit('video/category/'.$category->name)
         ->see($category->name)
-        ->see($video->title)
-        ->see($video->description);
+        ->see($video->title);
     }
 
     public function testThatVideosHasNotBeenUploadedForACategory()

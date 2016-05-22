@@ -46,6 +46,7 @@ class HomePageController extends Controller
 
         $relatedVideos = Video::getRelatedVideo($video_id, $video->category_id, $video->title)
         ->orderBy('videos.views', 'desc')
+        ->take(5)
         ->get();
 
         return view('main.pages.single_video', compact('video', 'relatedVideos'));

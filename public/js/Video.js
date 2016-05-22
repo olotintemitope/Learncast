@@ -11,11 +11,11 @@
             video.appendCommentForm();
             video.cancelForm();
             video.updateComment();
+            video.loadMoreComment();
         });
     }
 
     function Video() {
-
         var generateEditForm  = function(id, comment) {
             var updateForm = '<form class="form-horizontal" role="form" id="form'+id+'">';
             updateForm     += '<div class="form-group"><div class="col-sm-10"><textarea class="form-control" name="coment" id="comment">'+comment+'</textarea></div>';
@@ -81,7 +81,7 @@
                  type: "warning",   showCancelButton: true,   
                  confirmButtonColor: "#DD6B55",   
                  confirmButtonText: "Yes!",   
-                 cancelButtonText: "No, cancel plx!",   
+                 cancelButtonText: "No!",   
                  closeOnConfirm: false,   
                  closeOnCancel: false 
              }, function(isConfirm) { 
@@ -136,6 +136,7 @@
                 username = $(this).data('username');
                 commentWrapper = $(".media-list");
                 counterPlaceholder = $(".fa-comment");
+                $('.dropdown-toggle').dropdown();
 
                 token = $("#comment_form").find('input[type="hidden"]').val();
                 if (comment.length == 0) {
@@ -280,7 +281,7 @@
                  type: "warning",   showCancelButton: true,   
                  confirmButtonColor: "#DD6B55",   
                  confirmButtonText: "Yes!",   
-                 cancelButtonText: "No, cancel plx!",   
+                 cancelButtonText: "No!",   
                  closeOnConfirm: false,   
                  closeOnCancel: false 
              }, function(isConfirm) { 
