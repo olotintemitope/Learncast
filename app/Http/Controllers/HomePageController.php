@@ -190,7 +190,7 @@ class HomePageController extends Controller
     }
 
     /**
-     * This method search the database by category and videos.
+     * This method search the database for videos under a category.
      *
      * @param $request
      *
@@ -198,13 +198,15 @@ class HomePageController extends Controller
      */
     public function search(Request $request)
     {
+        $searchResult = null;
+
         $decodedString = strtolower(urldecode($request->query('q')));
 
-        if (isset($decodedString)) {
+        if ($decodedString != '') {
             $searchResult = Video::getVideoLike($decodedString)
             ->paginate(10);
-
-            return view('main.pages.view_search_result', compact('searchResult', 'decodedString'));
         }
+
+        return view('main.pages.view_search_result', compact('searchResult', 'decodedString'));
     }
 }
