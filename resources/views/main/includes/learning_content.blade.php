@@ -19,10 +19,10 @@
           <div class="resent-grid-info recommended-grid-info">
             <h3><a class="" href="/view/video/{{ $video->id }}">{{ ucwords($video->title) }}</a></h3>
             <ul>
-              <li>
+              <li> <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                <p class="author author-info views">
                   <a href="#" class="author"> 
-                     <!-- <i class="glyphicon glyphicon-user" aria-hidden="true"></i> --> {{ ucwords($video->user->username) }}
+                      {{ ucwords($video->user->username) }}
                   </a>
               </p>
             </li>
