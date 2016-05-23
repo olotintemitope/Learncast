@@ -1,8 +1,9 @@
-<div class="card-panel hoverable">
  <div class="row">
+  <div class="col-md-12">
+  <h2>My favourited videos</h2>
   <div id="active_videos" class="col s12">
     @if (count($favourite) > 0)
-    <table class="bordered responsive-table">
+    <table class="table table-bordered table-hover">
       <thead>
         <tr>
           <th data-field="sn">Sn</th>

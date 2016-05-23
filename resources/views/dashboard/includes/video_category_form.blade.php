@@ -1,24 +1,19 @@
-<div class="card-panel hoverable">
+<div class="row">
+<div class="col-md-6">
+<h2>Add a new video category</h2>
   @include('dashboard.includes.error_or_success_message')
-  <form class="col s12" method="POST" action="/dashboard/category/create">
+  <form class="form" method="POST" action="/dashboard/category/create">
    {{ csrf_field() }}
-   <div class="row">
-     <div class="input-field col s12 m8">
-      <input id="name" type="text" class="validate" name="name" value="{{ old('name') }}">
-      <label for="name">Name</label>
+     <div class="form-group">
+      <input id="name" type="text" class="validate form-control" name="name" value="{{ old('name') }}" placeholder="Name">
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m8">
-      <textarea id="description" class="materialize-textarea" name="description">{{ old('description') }}</textarea>
-      <label for="description">Description</label>
+    <div class="form-group">
+      <textarea id="description" class="form-control" name="description" placeholder="Description">{{ old('description') }}</textarea>
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m8">
-      <button class="btn waves-effect waves-dark" type="submit" name="action">Create <i class="material-icons right">send</i>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" name="action">Create <i class="material-icons right">send</i>
      </button>
-   </div>
  </div>
 </form>
+</div>
 </div>

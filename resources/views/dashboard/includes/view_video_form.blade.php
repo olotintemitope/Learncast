@@ -1,10 +1,11 @@
-<div class="card-panel hoverable">
+<div class="row">
+<div class="col-md-6">
+<h2>Edit {{ ucwords($video->title) }} </h2>
  @include('dashboard.includes.error_or_success_message')
- <form class="col s12" method="POST" action="/dashboard/video/update/{{ $video->id}}">
+ <form class="form" method="POST" action="/dashboard/video/update/{{ $video->id}}">
   {{ csrf_field() }}
-  <div class="row">
-    <div class="input-field col s12 m8">
-      <select name="category" id="category">
+    <div class="form-group">
+      <select name="category" id="category" class="form-control">
         <option value="" >Video Category</option>
         @foreach($categories as $category)
            @if ($category->id === $video->category_id)
@@ -14,33 +15,21 @@
            @endif 
         @endforeach
       </select>
-      <label>Video Category</label>
-    </div>
   </div>
-  <div class="row">
-    <div class="input-field col s12 m8">
-      <input id="title" type="text" class="validate" name="title" value="{{ ucwords($video->title) }}">
-      <label for="name">Title</label>
+    <div class="form-group">
+      <input id="title" type="text" class="validate form-control" name="title" value="{{ ucwords($video->title) }}" placeholder="Title">
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m8">
-    <input id="url" type="text" class="validate" name ="url" value="https://www.youtube.com/watch?v={{ $video->url }}">
-      <label for="url">Url</label>
+    <div class="form-group">
+    <input id="url" type="text" class="validate form-control" name ="url" value="https://www.youtube.com/watch?v={{ $video->url }}" placeholder="Url">
     </div>
+    <div class="form-group">
+      <textarea id="description" class="form-control" name="description" placeholder="Description">{{ $video->description }}</textarea>
   </div>
-  <div class="row">
-    <div class="input-field col s12 m8">
-      <textarea id="description" class="materialize-textarea" name="description">{{ $video->description }}</textarea>
-      <label for="description">Description</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m8">
-      <button class="btn waves-effect waves-dark" type="submit" name="action">Update
-       <i class="material-icons right">mode_edit</i>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" name="action">Update
+       <i class="material-icons pull-right">mode_edit</i>
      </button>
-   </div>
  </div>
 </form>
+</div>
 </div>
