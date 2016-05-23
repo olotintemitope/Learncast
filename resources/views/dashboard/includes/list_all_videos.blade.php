@@ -40,7 +40,7 @@
           </span>
         </td>
         <td>
-         <select id="{{ $video->id }}" name="activate" class="activate_video">
+         <select id="{{ $video->id }}" name="activate" class="activate_video form-control">
           <option value="" selected>Select</option>
           <option value="0">De-activate</option>
         </select>
@@ -76,7 +76,7 @@
         <td>{{ $video->url }}</td>
         <td>{{ $video->category->name }}</td>
         <td>
-         <select id="{{ $video->id }}" name="activate" class="activate_video">
+         <select id="{{ $video->id }}" name="activate" class="activate_video form-control">
           <option value="" selected>Select</option>
           <option value="1">Activate</option>
         </select>

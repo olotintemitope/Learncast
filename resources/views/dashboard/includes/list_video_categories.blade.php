@@ -35,7 +35,7 @@
           </span>
         </td>
         <td>
-         <select id="{{ $category->id }}" name="activate" class="activate">
+         <select id="{{ $category->id }}" name="activate" class="activate form-control">
           <option value="" selected>Select</option>
           <option value="0">De-activate</option>
         </select>
@@ -67,7 +67,7 @@
         <td>{{ $sn }}</td>
         <td>{{ $category->name }}</td>
         <td>
-         <select id="{{ $category->id }}" name="activate" class="activate">
+         <select id="{{ $category->id }}" name="activate" class="activate form-control">
           <option value="" selected>Select</option>
           <option value="1">Activate</option>
         </select>
