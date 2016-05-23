@@ -108,6 +108,11 @@
   });
   $(document).ready(function() {
 
+    var hash = window.location.hash;
+    if (hash == "#signup") {
+     $('#myModal').modal();
+   }
+   
     $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
       $('.scroll-up').fadeIn();
@@ -122,10 +127,6 @@
     $('body').userPlugin();
     $('body').videoPlugin();
 
-    var hash = window.location.hash;
-    if (hash == "#signup") {
-     $('#myModal').modal();
-   }
  });
   var scrollToElement = function(el, ms){
     var speed = (ms) ? ms : 1000;
