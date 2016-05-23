@@ -601,7 +601,6 @@ time p {
   min-height: 280px;
 }
 .featured-videos {
-  margin: 1.2%;
   background: rgb(30, 93, 173);
   color: #fff;
   padding: 10px;
@@ -617,10 +616,20 @@ time p {
 }
 
 .pull-down {
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 .author {
   color: #337ab7;
   font-size: 14px;
+}
+
+.f-videos {
+  margin-right: 15px !important;
+  margin-left: 15px !important;
+}
+
+.border {
+  border: 1px solid #ccc !important;
+  margin-bottom: 5px;
 }

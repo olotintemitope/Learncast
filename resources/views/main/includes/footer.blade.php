@@ -39,17 +39,17 @@
 
          <div class="modal-body-right">
           <div class="modal-social-icons">
-            <a href="{{ url('/auth/facebook') }}" class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
-            <a href="{{ url('/auth/twitter') }}" class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign In with Twitter </a>
-            <a href='{{ url('/auth/github') }}' class="btn btn-default github"> <i class="fa fa-github modal-icons"></i> Sign In with GitHub </a>
+            <a href="{{ url('/auth/facebook') }}" class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign up with Facebook </a>
+            <a href="{{ url('/auth/twitter') }}" class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign up with Twitter </a>
+            <a href='{{ url('/auth/github') }}' class="btn btn-default github"> <i class="fa fa-github modal-icons"></i> Sign up with GitHub </a>
           </div> 
         </div>  
-        <div id="center-line">OR</div>
+        <!-- <div id="center-line"></div> -->
       </div>                                                        
       <div class="clearfix"></div>
 
       <div class="form-group modal-register-btn">
-        <a href="/login" class="btn btn-default custom-button-width">Log In</a>
+        <a href="/login" class="btn btn-default border custom-button-width">Log In</a>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -108,6 +108,11 @@
   });
   $(document).ready(function() {
 
+    var hash = window.location.hash;
+    if (hash == "#signup") {
+     $('#myModal').modal();
+   }
+
     $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
       $('.scroll-up').fadeIn();
@@ -122,10 +127,6 @@
     $('body').userPlugin();
     $('body').videoPlugin();
 
-    var hash = window.location.hash;
-    if (hash == "#signup") {
-     $('#myModal').modal();
-   }
  });
   var scrollToElement = function(el, ms){
     var speed = (ms) ? ms : 1000;
