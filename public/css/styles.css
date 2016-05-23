@@ -619,3 +619,7 @@ time p {
 .pull-down {
   margin-top: 150px;
 }
+
+.author {
+  color: rgb(30, 93, 173);
+}
