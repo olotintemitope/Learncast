@@ -3,6 +3,9 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
+                    @if ($searchResult == null)
+                    <h2>Please enter your search keyword</h2>
+                    @else
                     <h2>
                         {{ count($searchResult) }} results found for: <span class="text-navy">{{ $decodedString }}</span>
                     </h2>
@@ -23,6 +26,7 @@
                             {!! $searchResult->render() !!}
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
