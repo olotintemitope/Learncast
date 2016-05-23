@@ -13,7 +13,7 @@
       <button class="btn btn-danger btn-block">Log In</button>
     </div>
     <div class="form-group">
-      <a href="/#signup" class="btn btn-default custom-button-width pull-right">
+      <a href="/#signup" class="btn btn-default custom-button-width pull-right border">
        <i class="fa fa-user"></i> Signup
      </a>
     </div>

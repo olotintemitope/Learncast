@@ -631,4 +631,5 @@ time p {
 
 .border {
   border: 1px solid #ccc !important;
+  margin-bottom: 5px;
 }
