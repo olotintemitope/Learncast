@@ -17,7 +17,7 @@
       <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
+          <i class="fa fa-home"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
           <li class="active"><a href="/dashboard"><i class="fa fa-circle-o"></i> Dashboard</a></li>
@@ -27,7 +27,7 @@
       @can('has-category', session('category'))
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-pie-chart"></i>
+          <i class="fa fa-th-list"></i>
           <span>Video Category</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
@@ -39,7 +39,7 @@
       @endcan
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-edit"></i> <span>My Videos </span>
+          <i class="fa fa-video-camera"></i> <span>My Videos </span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
