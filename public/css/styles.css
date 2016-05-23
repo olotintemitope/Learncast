@@ -621,5 +621,6 @@ time p {
 }
 
 .author {
-  color: rgb(30, 93, 173);
+  color: #337ab7;
+  font-size: 14px;
 }
