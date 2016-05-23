@@ -44,12 +44,12 @@
             <a href='{{ url('/auth/github') }}' class="btn btn-default github"> <i class="fa fa-github modal-icons"></i> Sign In with GitHub </a>
           </div> 
         </div>  
-        <div id="center-line">OR</div>
+        <!-- <div id="center-line"></div> -->
       </div>                                                        
       <div class="clearfix"></div>
 
       <div class="form-group modal-register-btn">
-        <a href="/login" class="btn btn-default custom-button-width">Log In</a>
+        <a href="/login" class="btn btn-default border custom-button-width">Log In</a>
       </div>
     </div>
     <div class="clearfix"></div>
