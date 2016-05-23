@@ -24,7 +24,7 @@
             <p>Video Favourites</p>
           </div>
           <div class="icon">
-            <i class="ion ion-bag"></i>
+          <i class="ion ion-heart"></i>
           </div>
           <a href="/dashboard/video/favourites" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -38,7 +38,7 @@
             <p>Uploaded Videos</p>
           </div>
           <div class="icon">
-            <i class="ion ion-stats-bars"></i>
+            <i class="ion ion-videocamera"></i>
           </div>
           <a href="/dashboard/video/view" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -53,7 +53,7 @@
             <p>Video Catgories</p>
           </div>
           <div class="icon">
-            <i class="ion ion-person-add"></i>
+            <i class="ion ion-ios-grid-view"></i>
           </div>
           <a href="/dashboard/category/view" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
