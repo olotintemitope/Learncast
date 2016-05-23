@@ -39,9 +39,9 @@
 
          <div class="modal-body-right">
           <div class="modal-social-icons">
-            <a href="{{ url('/auth/facebook') }}" class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
-            <a href="{{ url('/auth/twitter') }}" class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign In with Twitter </a>
-            <a href='{{ url('/auth/github') }}' class="btn btn-default github"> <i class="fa fa-github modal-icons"></i> Sign In with GitHub </a>
+            <a href="{{ url('/auth/facebook') }}" class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign up with Facebook </a>
+            <a href="{{ url('/auth/twitter') }}" class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign up with Twitter </a>
+            <a href='{{ url('/auth/github') }}' class="btn btn-default github"> <i class="fa fa-github modal-icons"></i> Sign up with GitHub </a>
           </div> 
         </div>  
         <!-- <div id="center-line"></div> -->
@@ -112,7 +112,7 @@
     if (hash == "#signup") {
      $('#myModal').modal();
    }
-   
+
     $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
       $('.scroll-up').fadeIn();

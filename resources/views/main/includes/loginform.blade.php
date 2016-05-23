@@ -21,13 +21,13 @@
     <div class="clearfix"></div>
     <div class="form-group">
       <a href="{{ url('/auth/facebook') }}" class="btn btn-md btn-primary btn-block btn-social btn-facebook">
-       <i class="fa fa-facebook"></i> Facebook
+       <i class="fa fa-facebook"></i> Log in with Facebook
      </a>
      <a href="{{ url('/auth/twitter') }}" class="btn btn-md btn-primary btn-block btn-social btn-twitter">
-      <i class="fa fa-twitter"></i> Twitter
+      <i class="fa fa-twitter"></i> Log in Twitter
     </a>
     <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github" style="background: #000000; color: #ffffff;">
-      <i class="fa fa-github"></i> Github
+      <i class="fa fa-github"></i> Log in Github
     </a>
   </div>
 </form>
