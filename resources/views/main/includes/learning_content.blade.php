@@ -3,7 +3,7 @@
   @include('main.includes.video_category_slide')
   <div class="col-md-9">
     <div class="main-grids">
-      <h3 align="center" class="text-center featured-videos"> FEATURED VIDEOS</h3>
+      <h3 align="center" class="text-center featured-videos f-videos"> FEATURED VIDEOS</h3>
       @foreach ($allVideos->chunk(4) as $chunk)
       <div class="top-grids">
         @foreach ($chunk as $video)
