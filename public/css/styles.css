@@ -16,6 +16,7 @@ html {
   h1 {
     font-size:58px;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 200
   }
 }
 
@@ -141,8 +142,8 @@ a:hover {
   background-color:#fff;
 }
 
-.navbar-trans {
-  background-color: #184B94;
+.navbar-trans, btn-primary {
+  background-color: #337ab7;
   color:#ffffff;
   border-width:0;
 }
@@ -158,13 +159,13 @@ a:hover {
 }
 
 .navbar-trans li>a:hover {
-  background-color:#094291;
+  background-color:#2e6da4;
   color:#fff;
   opacity:0.5;
 }
 
 .navbar-trans a{
-  color:#cdcdcd;
+  color:#ffffff;
   letter-spacing:1px;
 }
 
@@ -378,6 +379,7 @@ section {
 
 .btn {
   border: none !important;
+  font-weight: 200;
 }
 
 .pull-right >.dropdown-menu {
@@ -601,8 +603,7 @@ time p {
   min-height: 280px;
 }
 .featured-videos {
-  background: rgb(30, 93, 173);
-  color: #fff;
+  color: #337ab7;
   padding: 10px;
   text-transform: uppercase;
   text-align: left;
@@ -617,19 +618,26 @@ time p {
 
 .pull-down {
   margin-top: 120px;
+  font-weight: 200;
 }
 
 .author {
   color: #337ab7;
   font-size: 14px;
+  font-style: italic;
 }
 
 .f-videos {
   margin-right: 15px !important;
   margin-left: 15px !important;
+  border-bottom: 1px solid #ccc;
 }
 
 .border {
   border: 1px solid #ccc !important;
   margin-bottom: 5px;
+}
+
+.lato {
+  font-weight: 200;
 }
