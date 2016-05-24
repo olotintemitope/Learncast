@@ -4,10 +4,10 @@
     @include('main.includes.error_and_success')
     {!! csrf_field() !!}
     <div class="form-group">
-      <input type="text" class="form-control input-lg" placeholder="Username" name="username" value="{{ old('username')}}">
+      <input type="text" class="form-control" placeholder="Username" name="username" value="{{ old('username')}}">
     </div>
     <div class="form-group">
-      <input type="password" class="form-control input-lg" placeholder="Password" name="password"value="">
+      <input type="password" class="form-control" placeholder="Password" name="password"value="">
     </div>
     <div class="form-group">
       <button class="btn btn-danger btn-block">Log In</button>
@@ -19,17 +19,21 @@
     </div>
     <div class="clearfix"></div>
     <div class="clearfix"></div>
-    <div class="form-group">
-      <a href="{{ url('/auth/facebook') }}" class="btn btn-md btn-primary btn-block btn-social btn-facebook">
+    <div class="row">
+  <div class="col-md-12">
+      <a href="{{ url('/auth/facebook') }}" class="btn btn-md btn-primary btn-block btn-social btn-facebook pull-left">
        <i class="fa fa-facebook"></i> Log in with Facebook
      </a>
-     <a href="{{ url('/auth/twitter') }}" class="btn btn-md btn-primary btn-block btn-social btn-twitter">
-      <i class="fa fa-twitter"></i> Log in Twitter
+     <a href="{{ url('/auth/twitter') }}" class="btn btn-md btn-primary btn-block btn-social btn-twitter pull-left">
+      <i class="fa fa-twitter" ></i> Log in Twitter
     </a>
-    <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github" style="background: #000000; color: #ffffff;">
+    <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github pull-left" style="background: #000000; color: #ffffff;">
       <i class="fa fa-github"></i> Log in Github
     </a>
+  
   </div>
+</div>
 </form>
+
 </div>
 
