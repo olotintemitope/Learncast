@@ -1,46 +1,42 @@
-<div class="card-panel hoverable">
-  <div class="row">
-   <div class="col m8">
+ <div class="row">
+   <div class="col-md-8">
+   <h2>My Profile</h2>
      <form class="form" method="POST" action="/dashboard/profile/update">
        {{ csrf_field() }}
-       <div class="input-field col s12 m10">
+       <div class="form-group">
          @include('dashboard.includes.error_or_success_message')
-         <input id="username" type="text" class="validate" value="{{ Auth::user()->username }}" name="username">
-         <label for="username">Username</label>
+         <input id="username" type="text" class="validate form-control" value="{{ Auth::user()->username }}" name="username" placeholder="Username">
        </div>
-
-       <div class="input-field col s12 m10">
-        <input id="email" type="email" class="validate" value="{{ Auth::user()->email }}" name="email">
-        <label for="email">Email</label>
+       <div class="form-group">
+        <input id="email" type="email" class="validate form-control" value="{{ Auth::user()->email }}" name="email" placeholder="Email">
       </div>
 
-      <div class="input-field col s12 m10">
-        <textarea id="description" class="materialize-textarea" name="profile_bio">{{ Auth::user()->profile_bio }}</textarea>
-        <label for="description">Background Information</label>
+      <div class="form-group">
+        <textarea id="description" class="form-control" name="profile_bio" placeholder="Background Information">{{ Auth::user()->profile_bio }}</textarea>
       </div>
 
-      <div class="input-field col s12 m10">
-        <button class="btn waves-effect waves-dark" type="submit" name="action">Update
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" name="action">Update
          <i class="material-icons right">update</i>
        </button>
      </div>
    </form>
  </div>
- <div class="col m4">
+ <div class="col-md-4">
+  <h2>Change Picture</h2>
    <form class="form" method="POST" action="/dashboard/picture/update" enctype="multipart/form-data">
      {{ csrf_field() }}
-     <div class="input-field col s12">
+     <div class="form-group">
       <img src="{{ Auth::user()->picture_url }}" title="myprofile" alt="myprofile" class="img-circle my-pix">
     </div>
-    <div class="input-field col s12">
-     <input id="picture_url" type="file" class="validate" name="picture_url">
+    <div class="form-group">
+     <input id="picture_url" type="file" class="validate form-control" name="picture_url">
    </div>
-   <div class="input-field col s12">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Upload
+   <div class="form-group">
+    <button class="btn btn-primary" type="submit" name="action">Upload
      <i class="material-icons right">offline_pin</i>
    </button>
  </div>
 </form>
-</div>
 </div>
 </div>

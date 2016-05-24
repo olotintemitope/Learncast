@@ -4,7 +4,6 @@
             video = new Video();
             video.makeAjaxRequest();
             video.deActivateVideo();
-            video.switchTabs();
             video.processVideoFavourite();
             video.addComment();
             video.deleteComment();
@@ -247,26 +246,7 @@
                 }
             });
         }
-
-        this.switchTabs = function() {
-            tabHead = $(".vtabs a");
-            $("#pending_videos").fadeOut('fast');
-            tabHead.on("click", function() {
-               if (! $(this).hasClass('active')) {
-                $(this).addClass('active');
-                currentTab = $(this).attr('href').split('#');
-
-                nextTab = $(".vtabs").find('a').not($(this));
-                blindTab = nextTab.attr('href').split('#');
-                nextTab.removeClass('active');
-
-                $("#"+blindTab[1]).fadeOut('fast');
-                $("#"+currentTab[1]).fadeIn('fast');
-            } 
-        });
-
-        }
-
+        
         this.deActivateVideo = function() {
             video = new Video();
             handle = $(".activate_video");

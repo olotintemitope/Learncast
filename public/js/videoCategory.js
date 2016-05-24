@@ -4,7 +4,6 @@
             category = new Category();
             category.makeAjaxRequest();
             category.deActivateCategory();
-            category.switchTabs();
         });
     }
 
@@ -21,26 +20,7 @@
                 }
             });
         }
-
-        this.switchTabs = function() {
-            tabHead = $(".tabs a");
-            $("#pending_categories").fadeOut('fast');
-            tabHead.on("click", function() {
-                 if (! $(this).hasClass('active')) {
-                    $(this).addClass('active');
-                    currentTab = $(this).attr('href').split('#');
-
-                    nextTab = $(".tabs").find('a').not($(this));
-                    blindTab = nextTab.attr('href').split('#');
-                    nextTab.removeClass('active');
-
-                    $("#"+blindTab[1]).fadeOut('fast');
-                    $("#"+currentTab[1]).fadeIn('fast');
-                 } 
-            });
-
-        }
-
+        
         this.deActivateCategory = function() {
             category = new Category();
             handle = $(".activate");

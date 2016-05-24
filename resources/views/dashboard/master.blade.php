@@ -4,12 +4,16 @@
  @include('dashboard.includes.links_and_metadata')
  <title>@yield('title')</title>
 </head>
-<body>
-    @include('dashboard.includes.side_nav')
-    <main>
-        @include('dashboard.includes.top_nav')
-        @yield('content')
-    </main>
-    @include('dashboard.includes.footer')
-</body>
-</html>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+   @include('dashboard.includes.top_nav')
+   @include('dashboard.includes.side_nav')
+   <!-- Content Wrapper. Contains page content -->
+   <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+     @yield('content')
+   </section>
+ </div>
+</div>
+@include('dashboard.includes.footer')

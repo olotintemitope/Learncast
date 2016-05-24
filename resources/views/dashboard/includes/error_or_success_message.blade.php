@@ -1,53 +1,53 @@
 <div class="row">
- <div class="input-field col s12 m8">
+ <div class="col-md-6">
   @if (session('status') == 'Oops! unauthorized access to video!')
-   <div class="card-panel deep-orange accent-4 danger">
+   <div class="text-danger">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
  @if (session('status') == 'Invalid url')
-   <div class="card-panel deep-orange accent-4 danger">
+   <div class="text-danger">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
   @if (session('status') == 'Video url already exists')
-   <div class="card-panel deep-orange accent-4 danger">
+   <div class="text-danger">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
    @if (session('status') == 'Category already exists!')
-   <div class="card-panel deep-orange accent-4 danger">
+   <div class="text-danger">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
   @if (session('status') == 'Oops! unauthorized access to video category!')
-   <div class="card-panel deep-orange accent-4 danger">
+   <div class="text-danger">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
   @if (session('status') == 'File accepted must be a jpg and not more 10MB!')
-   <div class="card-panel deep-orange accent-4 danger">
+   <div class="text-danger">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
   @if (session('status') == 'Sucessfully created!') 
-  <div class="card-panel teal darken-4 success">
+  <div class="text-success">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
   @if (session('status') == 'Profile picture update successfully!') 
-  <div class="card-panel teal darken-4 success">
+  <div class="text-success">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
   @if (session('status') == 'Sucessfully updated!') 
-  <div class="card-panel teal darken-4 success">
+  <div class="text-success">
     <strong> {{ session('status') }}</strong>
   </div>
   @endif
   @if (count($errors) > 0)
   <!-- Form Error List -->
-  <div class="card-panel deep-orange accent-4 danger">
+  <div class="text-danger">
     <strong>Whoops! Something went wrong!</strong>
     <br>
     <ul>

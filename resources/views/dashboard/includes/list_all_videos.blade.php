@@ -1,14 +1,19 @@
-<div class="card-panel hoverable">
  <div class="row">
-  <div class="col s12">
-    <ul class="tabs">
-      <li class="tabs vtabs col s3"><a class="active" href="#active_videos">Active Videos</a></li>
-      <li class="tabs vtabs col s3"><a class="" href="#pending_videos">Pending Videos</a></li>
-    </ul>
-  </div>
-  <div id="active_videos" class="col s12">
-  @if (count($videos) > 0)
-    <table class="bordered responsive-table">
+  <div class="col-md-12">
+  <h2>View Uploaded Videos</h2>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+       <a data-toggle="tab" href="#active_videos">Active Videos</a>
+     </li>
+     <li role="presentation">
+       <a data-toggle="tab"  href="#pending_videos">Pending Videos</a>
+     </li>
+   </ul>
+ </div>
+ <div class="tab-content">
+ <div id="active_videos" class="col-md-12 tab-pane active">
+    @if (count($videos) > 0)
+    <table class="table table-bordered table-hover">
       <thead>
         <tr>
           <th data-field="sn">Sn</th>
@@ -35,7 +40,7 @@
           </span>
         </td>
         <td>
-         <select id="{{ $video->id }}" name="activate" class="activate_video">
+         <select id="{{ $video->id }}" name="activate" class="activate_video form-control">
           <option value="" selected>Select</option>
           <option value="0">De-activate</option>
         </select>
@@ -50,10 +55,10 @@
 @else 
 <h5>Video are not available for display</h5>
 @endif
-<div id="pending_videos" class="col s12">
-@if (count($pendingVideos) > 0)
-<?php $sn = 1; ?>
-  <table class="bordered responsive-table">
+<div id="pending_videos" class="col-md-12 tab-pane fade">
+  @if (count($pendingVideos) > 0)
+  <?php $sn = 1; ?>
+  <table class="table table-bordered table-hover">
     <thead>
       <tr>
         <th data-field="sn">Sn</th>
@@ -71,7 +76,7 @@
         <td>{{ $video->url }}</td>
         <td>{{ $video->category->name }}</td>
         <td>
-         <select id="{{ $video->id }}" name="activate" class="activate_video">
+         <select id="{{ $video->id }}" name="activate" class="activate_video form-control">
           <option value="" selected>Select</option>
           <option value="1">Activate</option>
         </select>
@@ -85,6 +90,7 @@
 @else 
 <h5>Video are not available for display</h5>
 @endif
+</div>
 </div>
 </div>
 </div>

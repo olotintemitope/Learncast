@@ -4,16 +4,9 @@ body {
   flex-direction: column;
 }
 
-main {
-  flex: 1 0 auto;
-}
-
-header, main, footer {
-  padding-left: 240px;
-}
-
 .danger, .success {
     color:white;
+    padding: 5%;
 }
 
 .tabs li .active {
@@ -27,7 +20,7 @@ header, main, footer {
 }
 .brand-logo img, .my-pix {
   width: 70%;
-  height: 120px;
+  height: auto;
   border-radius: 50%;
 }
 
@@ -39,13 +32,6 @@ header, main, footer {
   background: rgba(63,60,65,.9);
 }
 
-.nav {
-  background: #ffffff;
-} 
-
-.nav ul li a {
-  color: #000000;
-}
 
 .collapsible-accordion {
   margin-top: 30% !important;
@@ -86,8 +72,3 @@ body {
   min-height: 300px;
 }
 
-@media only screen and (max-width : 992px) {
-  header, main, footer {
-    padding-left: 0;
-  }
-}

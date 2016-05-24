@@ -1,14 +1,19 @@
-<div class="card-panel hoverable">
  <div class="row">
-  <div class="col s12">
-    <ul class="tabs">
-      <li class="tabs col s3"><a class="active" href="#active_categories">Active Categories</a></li>
-      <li class="tabs col s3"><a class="" href="#pending_categories">Pending Categories</a></li>
+  <div class="col-md-12">
+  <h2>View Uploaded Video Categories</h2>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active">
+          <a data-toggle="tab" href="#active_categories">Active Categories</a>
+      </li>
+      <li class="tabs col s3">
+         <a data-toggle="tab" href="#pending_categories">Pending Categories</a>
+      </li>
     </ul>
   </div>
-  <div id="active_categories" class="col s12">
+  <div class="tab-content">
+  <div id="active_categories" class="col-md-12 tab-pane active">
   @if (count($categories) > 0)
-    <table class="bordered responsive-table">
+    <table class="table table-bordered table-hover">
       <thead>
         <tr>
           <th data-field="id">Sn</th>
@@ -30,7 +35,7 @@
           </span>
         </td>
         <td>
-         <select id="{{ $category->id }}" name="activate" class="activate">
+         <select id="{{ $category->id }}" name="activate" class="activate form-control">
           <option value="" selected>Select</option>
           <option value="0">De-activate</option>
         </select>
@@ -45,9 +50,9 @@
 @endif
 {!! $categories->render() !!}
 </div>
-<div id="pending_categories" class="col s12">
+<div id="pending_categories" class="col-md-12 tab-pane fade">
 @if (count($pendingCategories) > 0)
-  <table class="bordered responsive-table">
+  <table class="table table-bordered table-hover">
     <thead>
       <tr>
         <th data-field="id">Sn</th>
@@ -62,7 +67,7 @@
         <td>{{ $sn }}</td>
         <td>{{ $category->name }}</td>
         <td>
-         <select id="{{ $category->id }}" name="activate" class="activate">
+         <select id="{{ $category->id }}" name="activate" class="activate form-control">
           <option value="" selected>Select</option>
           <option value="1">Activate</option>
         </select>
@@ -76,6 +81,7 @@
 <h5>Video are not available for display</h5>
 @endif
 {!! $pendingCategories->render() !!}
+</div>
 </div>
 </div>
 </div>
