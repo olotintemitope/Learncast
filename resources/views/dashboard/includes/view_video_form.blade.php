@@ -26,7 +26,7 @@
       <textarea id="description" class="form-control" name="description" placeholder="Description">{{ $video->description }}</textarea>
   </div>
     <div class="form-group">
-      <button class="btn btn-primary" type="submit" name="action">Update
+      <button class="btn btn-lg btn-primary" type="submit" name="action">Update
        <i class="material-icons pull-right">mode_edit</i>
      </button>
  </div>

@@ -290,7 +290,7 @@ class VideoController extends Controller
             return false;
         }
 
-        if ($this->checkDuplicateYoutubeVideoId($youTubeVideoId)) {
+        if ($this->checkDuplicateYoutubeVideo($youTubeVideoId, $id)) {
             return 'true';
         }
 
@@ -354,5 +354,25 @@ class VideoController extends Controller
         }
 
         return false;
+    }
+
+    /**
+     * This method checks for duplicate youtube video id.
+     *
+     * @param $url
+     *
+     * @return bool
+     */
+    public function checkDuplicateYoutubeVideo($url, $id)
+    {
+        $video = Video::where('url', $url)
+        ->whereNotIn('id', [$id])
+        ->get()
+        ->first();
+        if (is_null($video)) {
+            return false;
+        }
+
+        return true;
     }
 }
