@@ -1,7 +1,7 @@
 <section class="container-fluid" id="section1">
     <div class="v-center pull-down">
         <h1 class="text-center">Learning Made Easy</h1>
-        <h2 class="text-center lato animate slideInDown">Learn <b>Anytime,</b> Anywhere 24/7</h2>
+        <h2 class="text-center lato animate slideInDown">Learn Anytime, Anywhere 24/7</h2>
         <p class="text-center">
             <br>
             @if(Auth::check())
