@@ -7,7 +7,7 @@
       @foreach ($chunk as $video)
       <div class="col-md-4 resent-grid recommended-grid slider-top-grids">
         <div class="resent-grid-img recommended-grid-img">
-          <a class=" btn btn-primary" href="/view/video/{{ $video->id }}"><img src="http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg" class="img-responsive youtube-thumbnails" alt="{{ $video->title}}"></a>
+          <a class=" btn btn-primary" href="/view/video/{{ $video->id }}" style="height:150px; background:url('http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg'); background-size:cover;"></a>
           <div class="time">
             <p></p>
           </div>
