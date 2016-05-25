@@ -250,7 +250,7 @@ section {
       width: 100%;
       /* Set the fixed height of the footer here */
       height: 60px;
-      background-color: #f5f5f5;
+      background-color: #e6e6e6;
     }
 
     body > .container {
@@ -290,14 +290,11 @@ section {
       padding-right: 5%;
     }
     .list_videos {
-      border-bottom:1px dashed #f5f5f5;
       width: 100%;
-      background: #fffff;
-      padding: 2%;
+      background: #ffffff;
+      padding: 1%;
       clear: both;
-      -webkit-box-shadow: 0px 6px 21px 0px rgba(204,204,204,1);
-      -moz-box-shadow: 0px 6px 21px 0px rgba(204,204,204,1);
-      box-shadow: 0px 6px 21px 0px rgba(204,204,204,1);
+      margin-bottom: 2%;
     }
 
     .list_videos .video_info {
@@ -370,6 +367,7 @@ section {
 .video_category {
   padding: 2%;
   border-bottom: 1px dotted #777;
+  font-weight: 200;
 }
 
 .caption-text h3 {
@@ -640,4 +638,9 @@ time p {
 
 .lato {
   font-weight: 200;
+}
+
+.panel-primary {
+  border: none;
+  padding-left: none;
 }
