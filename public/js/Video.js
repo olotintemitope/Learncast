@@ -10,7 +10,7 @@
             video.appendCommentForm();
             video.cancelForm();
             video.updateComment();
-            video.loadMoreComment();
+            video.closeContextMenu();
         });
     }
 
@@ -23,6 +23,13 @@
             updateForm     += '</div></div></form>';
 
             return updateForm;
+        }
+
+        this.closeContextMenu  = function() {
+            $(document).delegate(".closey", "click", function() {
+                var  menu = $(this).siblings(".t-menu").toggle('slow');
+                return false;
+            });
         }
 
         this.updateComment  = function() {
@@ -107,9 +114,7 @@
         this.deleteComment = function() {
             videoObject = new Video();
             $(document).delegate(".delete-comment", "click", function() {
-
                 commentId = $(this).attr('id');
-
                 swalAlert(videoObject, '/video/comment/delete/'+commentId, $(this), {});
 
                 return false;
@@ -135,9 +140,8 @@
                 username = $(this).data('username');
                 commentWrapper = $(".media-list");
                 counterPlaceholder = $(".fa-comment");
-                $('.dropdown-toggle').dropdown();
-
                 token = $("#comment_form").find('input[type="hidden"]').val();
+
                 if (comment.length == 0) {
                     loader
                     .html('<strong>*</strong> Did you forget to enter your comment')
@@ -178,7 +182,7 @@
                 liComment += "<a class='pull-left' href='#'>";
                 liComment += "<img class='media-object img-circle' src="+avatar+"></a>";
                 liComment += "<div class='media-body'>";
-                liComment += "<div class='btn-group pull-right'><button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown aria-haspopup='true' aria-expanded='false'><i class='glyphicon glyphicon-option-vertical'></i></button>";
+                liComment += "<div class='btn-group pull-right'><button type='button' class='btn btn-default closey' data-toggle='dropdown aria-haspopup='true' aria-expanded='false'><i class='glyphicon glyphicon-option-vertical'></i></button>";
                 liComment += "<ul class='dropdown-menu t-menu'><li  class='edit-comment' id="+id+"><a href='#'><i class='glyphicon glyphicon-pencil'></i> Edit</a></li>";
                 liComment += "<li role='separator' class='divider'></li><li class='delete-comment' id="+id+"><a href='#'><i class='glyphicon glyphicon-trash'></i> Delete</a></li></ul></div>";
                 liComment += "<div class='comment' id=comment"+id+">"+comment+"</div><div class='comment_form'></div><br><br><small class='text-muted'>"+ username + " | posted " + jQuery.timeago(new Date()); + "</small>";
@@ -188,13 +192,13 @@
         }
 
         this.processVideoFavourite = function() {
-            video = new Video();
             favBtn = $(".favourites");
-            favPlaceholder = $(".fa-thumbs-up");
+            favPlaceholder = $(".fa-heart");
             nOfFavourites = 0;
             flag = 0;
 
             favBtn.on("click", function() {
+                video = new Video();
                 currentObj = $(this);
                 videoId = currentObj.attr('id');
                 userId  = currentObj.data('user');
@@ -205,9 +209,10 @@
 
                 flag = toggleFavourite($(this), flag);
 
-                video.makeAjaxRequest('/favourite/video/'+videoId, 
-                {'user' : userId,'flag' : flag }, '')
-                .done(function(response) {
+                video.makeAjaxRequest('/favourite/video/'+videoId, {
+                    'user' : userId,
+                    'flag' : flag 
+                }, '').done(function(response) {
                     if (response.statuscode == 200) {
                         favPlaceholder.html(response.favourites);
                     } else if (response.statuscode == 201){
