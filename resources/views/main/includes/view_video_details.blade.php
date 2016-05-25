@@ -19,7 +19,7 @@
       <form>
         @if (Auth::check())
         <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}"> 
-         <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i> 
+         <i class="fa fa-heart"> {{ $video->favourites }} </i> 
        </button>
        @else
        <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="" data-fav="{{ $video->favourites }}"> 
