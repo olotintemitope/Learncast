@@ -16,8 +16,6 @@
  */
 Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], function () {
 
-    Route::auth();
-
     Route::get('/', 'CategoryController@index');
 
     Route::get('/logout', 'Auth\AuthController@logUserOut');
@@ -121,14 +119,18 @@ Route::group(['prefix' => '/auth/{provider}', 'middleware' => ['web']], function
 });
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/login', function () {
+    Route::get('/user/login', function () {
         return view('main.pages.auth.userlogin_form');
     });
+
     Route::get('/', 'HomePageController@index');
     Route::get('/search', 'HomePageController@search');
     Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
     Route::get('/load/video/comments', 'HomePageController@loadMoreComments');
+    Route::auth();
+
+    //Route::post('/password/email', 'UserController@sendPasswordLink');
 });
 
 /* This route belongs to a group of video  */
@@ -138,3 +140,5 @@ Route::group(['prefix' => '/video', 'middleware' => ['web']], function () {
     Route::get('/comment/delete/{id}', 'CommentController@softDeleteComment');
     Route::get('/comment/update/{id}', 'CommentController@updateComment');
 });
+
+
