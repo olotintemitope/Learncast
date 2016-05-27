@@ -644,3 +644,33 @@ time p {
   border: none;
   padding-left: none;
 }
+
+.video-description {
+  background: #ffffff;
+  min-height: 200px;
+  padding: 2%;
+  line-height: 30px;
+}
+.video-description h3 {
+  font-family: bold;
+  color: #000000;
+  font-size: 20px;
+}
+
+.video-author img {
+  height:50px; 
+  width:50px;  
+  margin-right:5px;
+}
+
+.video-author a {
+  display: inline-block;
+  height: 22px;
+  color: #333;
+  font-weight: 500;
+  max-width: 315px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  margin-top: 5px;
+}
