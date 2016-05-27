@@ -230,7 +230,7 @@ class VideoController extends Controller
             $categoryName = $name;
             $myVideos = [];
 
-            return view('main.pages.video_category', compact('myVideos', 'categoryName'));
+            return view('main.pages.video_category', compact('myVideos', 'categoryName', 'allCategories'));
         }
 
         $categoryName = ucwords($category->name);
