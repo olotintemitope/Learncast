@@ -223,8 +223,8 @@ class VideoController extends Controller
     {
         $videos = null;
 
-        $category = Category::getCategoryByName($name)
-        ->first();
+        $category = Category::getCategoryByName($name)->first();
+        $allCategories = Category::all();
 
         if (is_null($category)) {
             $categoryName = $name;
@@ -237,7 +237,7 @@ class VideoController extends Controller
         $myVideos = Video::where('category_id', '=', $category->id)
         ->paginate(12);
 
-        return view('main.pages.video_category', compact('myVideos', 'categoryName'));
+        return view('main.pages.video_category', compact('myVideos', 'categoryName', 'allCategories'));
     }
 
     /**
