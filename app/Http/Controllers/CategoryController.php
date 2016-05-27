@@ -26,8 +26,7 @@ class CategoryController extends Controller
         ->getVideoFavouritedByUser(Auth::user()->id)
         ->count();
 
-        $videos = Video::where('user_id', Auth::user()->id)
-        ->count();
+        $videos = Video::where('user_id', Auth::user()->id)->count();
 
         return view('dashboard.index', compact('favourite', 'videos', 'category'));
     }
@@ -149,11 +148,9 @@ class CategoryController extends Controller
         $category = null;
 
         if ($request->input('status') == 0) {
-            $category = Category::setCategoryStatus($id)
-            ->delete();
+            $category = Category::setCategoryStatus($id)->delete();
         } else {
-            $category = Category::setCategoryStatus($id)
-            ->restore();
+            $category = Category::setCategoryStatus($id)->restore();
         }
 
         if (!is_null($category)) {
