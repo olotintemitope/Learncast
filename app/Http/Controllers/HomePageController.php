@@ -183,7 +183,9 @@ class HomePageController extends Controller
      */
     public function getVideoFavourites($video_id)
     {
-        return Video::getVideoById($video_id)->get()->first()->favourites;
+        return Video::getVideoById($video_id)
+        ->first()
+        ->favourites;
     }
 
     /**
@@ -200,8 +202,7 @@ class HomePageController extends Controller
         $decodedString = strtolower(urldecode($request->query('q')));
 
         if ($decodedString != '') {
-            $searchResult = Video::getVideoLike($decodedString)
-            ->paginate(10);
+            $searchResult = Video::getVideoLike($decodedString)->paginate(10);
         }
 
         return view('main.pages.view_search_result', compact('searchResult', 'decodedString'));
