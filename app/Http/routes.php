@@ -129,8 +129,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
     Route::get('/load/video/comments', 'HomePageController@loadMoreComments');
     Route::auth();
-
-    //Route::post('/password/email', 'UserController@sendPasswordLink');
 });
 
 /* This route belongs to a group of video  */
@@ -140,5 +138,3 @@ Route::group(['prefix' => '/video', 'middleware' => ['web']], function () {
     Route::get('/comment/delete/{id}', 'CommentController@softDeleteComment');
     Route::get('/comment/update/{id}', 'CommentController@updateComment');
 });
-
-
