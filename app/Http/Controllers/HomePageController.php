@@ -36,9 +36,7 @@ class HomePageController extends Controller
         // Update the number of views on this page
         Video::where('id', '=', $video_id)->increment('views');
 
-        $video = Video::getVideoById($video_id)
-        ->get()
-        ->first();
+        $video = Video::getVideoById($video_id)->first();
 
         if (is_null($video)) {
             return abort(404, 'Page not found.');
@@ -167,7 +165,6 @@ class HomePageController extends Controller
     {
         $favourite = Favourite::where('user_id', '=', $user_id)
         ->where('video_id', '=', $video_id)
-        ->get()
         ->first();
 
         if (!is_null($favourite)) {

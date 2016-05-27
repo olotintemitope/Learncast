@@ -347,8 +347,8 @@ class VideoController extends Controller
     public function checkDuplicateYoutubeVideoId($url)
     {
         $video = Video::where('url', $url)
-        ->get()
         ->first();
+
         if (!is_null($video)) {
             return true;
         }
@@ -367,8 +367,8 @@ class VideoController extends Controller
     {
         $video = Video::where('url', $url)
         ->whereNotIn('id', [$id])
-        ->get()
         ->first();
+        
         if (is_null($video)) {
             return false;
         }
