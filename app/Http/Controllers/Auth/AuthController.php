@@ -114,7 +114,7 @@ class AuthController extends Controller
         $status = Auth::attempt($request->only(['username', 'password']));
 
         if (!$status) {
-            return redirect('/login')->with(
+            return redirect('/user/login')->with(
                 'status',
                 'Oops! Login attempt failed!'
             );

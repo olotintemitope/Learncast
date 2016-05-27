@@ -16,6 +16,9 @@
       <a href="/#signup" class="btn btn-default custom-button-width pull-right border">
        <i class="fa fa-user"></i> Signup
      </a>
+     <a href="/password/reset" class="btn btn-default custom-button-width pull-left border">
+       <i class="fa fa-lock"></i> Password reset
+     </a>
     </div>
     <div class="clearfix"></div>
     <div class="clearfix"></div>
