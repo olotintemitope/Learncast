@@ -232,8 +232,7 @@ class VideoController extends Controller
         }
 
         $categoryName = ucwords($category->name);
-        $myVideos = Video::where('category_id', '=', $category->id)
-        ->paginate(12);
+        $myVideos = Video::where('category_id', '=', $category->id)->paginate(12);
 
         return view('main.pages.video_category', compact('myVideos', 'categoryName', 'allCategories'));
     }
