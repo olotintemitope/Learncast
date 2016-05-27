@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.sendgrid.net'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,8 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
-
+    'from' => ['address' => env('SENDER_ADDRESS', ''), 'name' => env('SENDER_NAME', '')],
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
