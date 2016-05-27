@@ -364,7 +364,7 @@ class VideoController extends Controller
         $video = Video::where('url', $url)
         ->whereNotIn('id', [$id])
         ->first();
-        
+
         if (is_null($video)) {
             return false;
         }
