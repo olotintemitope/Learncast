@@ -162,11 +162,9 @@ class VideoController extends Controller
         $video = null;
 
         if ($request->input('status') == 0) {
-            $video = Video::setVideoStatus($id)
-            ->delete();
+            $video = Video::setVideoStatus($id)->delete();
         } else {
-            $video = Video::setVideoStatus($id)
-            ->restore();
+            $video = Video::setVideoStatus($id)->restore();
         }
 
         return $this->returnChangeVideoStatus($video);
@@ -346,8 +344,7 @@ class VideoController extends Controller
      */
     public function checkDuplicateYoutubeVideoId($url)
     {
-        $video = Video::where('url', $url)
-        ->first();
+        $video = Video::where('url', $url)->first();
 
         if (!is_null($video)) {
             return true;
