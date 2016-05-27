@@ -162,11 +162,9 @@ class VideoController extends Controller
         $video = null;
 
         if ($request->input('status') == 0) {
-            $video = Video::setVideoStatus($id)
-            ->delete();
+            $video = Video::setVideoStatus($id)->delete();
         } else {
-            $video = Video::setVideoStatus($id)
-            ->restore();
+            $video = Video::setVideoStatus($id)->restore();
         }
 
         return $this->returnChangeVideoStatus($video);
@@ -234,8 +232,7 @@ class VideoController extends Controller
         }
 
         $categoryName = ucwords($category->name);
-        $myVideos = Video::where('category_id', '=', $category->id)
-        ->paginate(12);
+        $myVideos = Video::where('category_id', '=', $category->id)->paginate(12);
 
         return view('main.pages.video_category', compact('myVideos', 'categoryName', 'allCategories'));
     }
@@ -346,9 +343,8 @@ class VideoController extends Controller
      */
     public function checkDuplicateYoutubeVideoId($url)
     {
-        $video = Video::where('url', $url)
-        ->get()
-        ->first();
+        $video = Video::where('url', $url)->first();
+
         if (!is_null($video)) {
             return true;
         }
@@ -367,8 +363,8 @@ class VideoController extends Controller
     {
         $video = Video::where('url', $url)
         ->whereNotIn('id', [$id])
-        ->get()
         ->first();
+
         if (is_null($video)) {
             return false;
         }

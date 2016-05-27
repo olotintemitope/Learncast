@@ -80,8 +80,7 @@ class CommentController extends Controller
      */
     public function softDeleteComment($id)
     {
-        $deletedComment = Comment::removeComment($id)
-        ->delete();
+        $deletedComment = Comment::removeComment($id)->delete();
 
         if ($deletedComment) {
             return [
