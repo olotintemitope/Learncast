@@ -119,16 +119,15 @@ Route::group(['prefix' => '/auth/{provider}', 'middleware' => ['web']], function
 });
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/user/login', function () {
-        return view('main.pages.auth.userlogin_form');
-    });
-
     Route::get('/', 'HomePageController@index');
     Route::get('/search', 'HomePageController@search');
     Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
     Route::get('/favourite/video/{video_id}', 'HomePageController@favouriteVideo');
     Route::get('/load/video/comments', 'HomePageController@loadMoreComments');
     Route::auth();
+    Route::get('/login', function () {
+        return view('main.pages.auth.userlogin_form');
+    });
 });
 
 /* This route belongs to a group of video  */
