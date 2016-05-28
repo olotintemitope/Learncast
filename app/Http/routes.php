@@ -119,8 +119,6 @@ Route::group(['prefix' => '/auth/{provider}', 'middleware' => ['web']], function
 });
 
 Route::group(['middleware' => ['web']], function () {
-    
-
     Route::get('/', 'HomePageController@index');
     Route::get('/search', 'HomePageController@search');
     Route::get('/view/video/{video_id}', 'HomePageController@viewCurrentVideo');
