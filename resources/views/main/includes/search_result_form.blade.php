@@ -7,7 +7,7 @@
                     <h2>Please enter your search keyword</h2>
                     @else
                     <h2>
-                        {{ count($searchResult) }} results found for: <span class="text-navy">{{ $decodedString }}</span>
+                    {{ count($searchResult) }} results found for: <span class="text-navy">{{ $decodedString }}</span>
                     </h2>
                     @foreach($searchResult as $video)
                     <div class="hr-line-dashed"></div>
@@ -32,4 +32,3 @@
         </div>
     </div>
 </div>
-                    

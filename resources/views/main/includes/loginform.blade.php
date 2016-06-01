@@ -14,29 +14,27 @@
     </div>
     <div class="form-group">
       <a href="/#signup" class="btn btn-default custom-button-width pull-right border">
-       <i class="fa fa-user"></i> Signup
-     </a>
-     <a href="/password/reset" class="btn btn-default custom-button-width pull-left border">
-       <i class="fa fa-lock"></i> Password reset
-     </a>
+        <i class="fa fa-user"></i> Signup
+      </a>
+      <a href="/password/reset" class="btn btn-default custom-button-width pull-left border">
+        <i class="fa fa-lock"></i> Password reset
+      </a>
     </div>
     <div class="clearfix"></div>
     <div class="clearfix"></div>
     <div class="row">
-  <div class="col-md-12">
-      <a href="{{ url('/auth/facebook') }}" class="btn btn-md btn-primary btn-block btn-social btn-facebook pull-left">
-       <i class="fa fa-facebook"></i> Log in with Facebook
-     </a>
-     <a href="{{ url('/auth/twitter') }}" class="btn btn-md btn-primary btn-block btn-social btn-twitter pull-left">
-      <i class="fa fa-twitter" ></i> Log in Twitter
-    </a>
-    <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github pull-left" style="background: #000000; color: #ffffff;">
-      <i class="fa fa-github"></i> Log in Github
-    </a>
-  
-  </div>
+      <div class="col-md-12">
+        <a href="{{ url('/auth/facebook') }}" class="btn btn-md btn-primary btn-block btn-social btn-facebook pull-left">
+          <i class="fa fa-facebook"></i> Log in with Facebook
+        </a>
+        <a href="{{ url('/auth/twitter') }}" class="btn btn-md btn-primary btn-block btn-social btn-twitter pull-left">
+          <i class="fa fa-twitter" ></i> Log in Twitter
+        </a>
+        <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github pull-left" style="background: #000000; color: #ffffff;">
+          <i class="fa fa-github"></i> Log in Github
+        </a>
+        
+      </div>
+    </div>
+  </form>
 </div>
-</form>
-
-</div>
-

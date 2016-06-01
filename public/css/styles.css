@@ -683,4 +683,7 @@ time p {
   margin-bottom: 40px; 
 }
 
-.
+.no-cursor {
+  cursor:none;
+  border: none !important;
+}

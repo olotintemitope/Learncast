@@ -56,7 +56,6 @@ $factory->define(LearnCast\Comment::class, function (Faker\Generator $faker) {
         'video_id' => 1,
         'user_id'  => 1,
     ];
-
 });
 
 $factory->define(LearnCast\Favourite::class, function (Faker\Generator $faker) {
@@ -64,5 +63,4 @@ $factory->define(LearnCast\Favourite::class, function (Faker\Generator $faker) {
         'video_id' => 1,
         'user_id'  => 1,
     ];
-
 });

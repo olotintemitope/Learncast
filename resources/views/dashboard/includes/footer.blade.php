@@ -14,19 +14,17 @@
 <script src="{{ URL::asset('js/videoCategory.js') }}"></script>
 <script src="{{ URL::asset('js/Video.js') }}"></script>
 <script src="{{ URL::asset('js/sweetalert.min.js') }}"></script>
-
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ URL::asset('js/app.min.js') }}"></script>
-
 <script>
-  $(function() {
-    // More code using $ as alias to jQuery
-    $("body").videoCategoryPlugin();
-    $("body").videoPlugin();
-    //$.widget.bridge('uibutton', $.ui.button);
-  });
+$(function() {
+// More code using $ as alias to jQuery
+$("body").videoCategoryPlugin();
+$("body").videoPlugin();
+//$.widget.bridge('uibutton', $.ui.button);
+});
 </script>
 </body>
 </html>

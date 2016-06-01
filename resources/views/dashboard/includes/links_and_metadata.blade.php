@@ -17,16 +17,6 @@ that will help you to grow faster in your career.">
   <link rel="stylesheet" href="{{ URL::asset('css/skins/_all-skins.min.css') }}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ URL::asset('plugins/iCheck/flat/blue.css') }}">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ URL::asset('plugins/morris/morris.css') }}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{ URL::asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="{{ URL::asset('plugins/datepicker/datepicker3.css') }}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{ URL::asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
 <link rel="icon" href="{{ URL::asset('images/favicon.ico') }}">
 <link rel="apple-touch-icon-precomposed" href="{{ URL::asset('images/favicon.ico') }}">
 

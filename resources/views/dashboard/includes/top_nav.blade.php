@@ -11,7 +11,7 @@
     <!-- Sidebar toggle button-->
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only">Toggle navigation</span>
-      </a>
+    </a>
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <!-- User Account: style can be found in dropdown.less -->
@@ -25,7 +25,7 @@
             <li class="user-header">
               <img src="{{ Auth::user()->picture_url }}" title="{{ ucwords(Auth::user()->username) }}" alt="{{ ucwords(Auth::user()->username) }}" class="img-circle">
               <p>
-                {{ ucwords(Auth::user()->username) }} 
+                {{ ucwords(Auth::user()->username) }}
                 <!-- <small>Member since Nov. 2012</small> -->
               </p>
             </li>

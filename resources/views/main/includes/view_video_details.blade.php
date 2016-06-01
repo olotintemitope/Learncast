@@ -16,16 +16,19 @@
             <div class="video_details">
               <ul class="list-inline">
                 <li>
-                  <button type="button" class="btn btn-primary btn-sm views">
+                  <button type="button" class="btn btn-primary btn-md views no-cursor">
                   <i class="fa fa-eye"> {{ $video->views }}  </i>
                   </button>
                 </li>
-                <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> {{ count($video->comments) }}</i>
+                <li>
+                  <button type="button" class="btn btn-primary btn-md comments no-cursor">
+                  <i class="fa fa-comment"> {{ count($video->comments) }}</i>
+                  </button>
                 </li>
                 <li>
                   <form>
                     @if (Auth::check())
-                    <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}">
+                    <button type="button" class="btn btn-primary btn-md favourites" id="{{ $video->id }}" data-user="{{ Auth::user()->id }}" data-fav="{{ $video->favourites }}">
                     <i class="fa fa-heart"> {{ $video->favourites }} </i>
                     </button>
                     @else

@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
     $.fn.userPlugin = function() {
         return $(this).each(function() {
             user = new User()
@@ -8,15 +8,13 @@
 
     function User() {
 
-        this.makeAjaxRequest  = function(url, parameters, request) {
+        this.makeAjaxRequest = function(url, parameters, request) {
             return $.ajax({
-                url:url,
-                data:parameters,
+                url: url,
+                data: parameters,
                 type: request == '' ? 'GET' : 'POST',
-                beforeSend:function() {
-                },
-                error:function() {
-                }
+                beforeSend: function() {},
+                error: function() {}
             });
         }
 
@@ -36,36 +34,36 @@
 
             signUpBtn.on("click", function() {
                 var error = 0
-                password  = $("#password").val();
+                password = $("#password").val();
                 cpassword = $("#cpassword").val();
 
                 formFields = formWrapper.find("input")
                 $.each(formFields, function(key, val) {
                     if ($(this).val() == '') {
-                        $("#"+$(this).attr('id')).addClass('error')
+                        $("#" + $(this).attr('id')).addClass('error')
                         error++
                     } else {
-                        $("#"+$(this).attr('id')).addClass('noerror')
+                        $("#" + $(this).attr('id')).addClass('noerror')
                     }
                 });
                 if (error <= 0) {
                     if (password !== cpassword) {
                         reporter.html('Password mismatch!, please correct it')
-                        .css('color', 'red')
+                            .css('color', 'red')
                     } else if (!validateEmail($('#email').val())) {
                         reporter.html('Please provide a valid email address!').css('color', 'red')
                     } else {
                         $(".preloader-wrapper").show();
                         user.makeAjaxRequest('auth/register', formFields, 'POST')
-                        .done(function(response) {
-                            $(".preloader-wrapper").hide();
-                            if (response.statuscode === 201) {
-                                reporter.html(response.message).css('color', 'green')
-                                window.location.href = '/'
-                            } else {
-                                reporter.html(response.message).css('color', 'red')
-                            }
-                        });
+                            .done(function(response) {
+                                $(".preloader-wrapper").hide();
+                                if (response.statuscode === 201) {
+                                    reporter.html(response.message).css('color', 'green')
+                                    window.location.href = '/'
+                                } else {
+                                    reporter.html(response.message).css('color', 'red')
+                                }
+                            });
                     }
                 } else {
                     reporter.html("Fill the fields highlighted in reds").css('color', '#A00')
@@ -74,4 +72,4 @@
             });
         }
     }
-}) (jQuery)
+})(jQuery)
