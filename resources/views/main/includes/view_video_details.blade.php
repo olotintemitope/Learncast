@@ -20,7 +20,10 @@
                   <i class="fa fa-eye"> {{ $video->views }}  </i>
                   </button>
                 </li>
-                <li><button type="button" class="btn btn-primary btn-sm comments"> <i class="fa fa-comment"> {{ count($video->comments) }}</i>
+                <li>
+                  <button type="button" class="btn btn-primary btn-sm comments">
+                  <i class="fa fa-comment"> {{ count($video->comments) }}</i>
+                  </button>
                 </li>
                 <li>
                   <form>
