@@ -26,7 +26,6 @@ class AddUserIdToVideoCategory extends Migration
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-
         });
     }
 }

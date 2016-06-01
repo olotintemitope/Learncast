@@ -15,7 +15,6 @@
  * This route belongs to dashboard
  */
 Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], function () {
-
     Route::get('/', 'CategoryController@index');
 
     Route::get('/logout', 'Auth\AuthController@logUserOut');
@@ -59,7 +58,6 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth']], functi
     Route::get('/video/favourites', [
         'uses' => 'VideoController@myFavouriteVideos',
     ]);
-
 });
 
 /*
