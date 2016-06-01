@@ -685,4 +685,5 @@ time p {
 
 .no-cursor {
   cursor:none;
+  border: none !important;
 }
