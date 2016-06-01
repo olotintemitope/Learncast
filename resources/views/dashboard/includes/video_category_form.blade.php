@@ -11,8 +11,7 @@
         <textarea id="description" class="form-control" name="description" placeholder="Description">{{ old('description') }}</textarea>
       </div>
       <div class="form-group">
-        <button class="btn btn-lg btn-primary" type="submit" name="action">Create <i class="material-icons right">send</i>
-        </button>
+        <button class="btn btn-lg btn-primary" type="submit" name="action">Create</button>
       </div>
     </form>
   </div>

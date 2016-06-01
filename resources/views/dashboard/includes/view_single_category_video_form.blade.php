@@ -11,9 +11,7 @@
         <textarea id="description" class="form-control" name="description" placeholder="Description">{{ $category->description }}</textarea>
       </div>
       <div class="form-group">
-        <button class="btn btn-lg btn-primary" type="submit" name="action">Update
-        <i class="material-icons right">mode_edit</i>
-        </button>
+        <button class="btn btn-lg btn-primary" type="submit" name="action">Update</button>
       </div>
     </form>
   </div>
