@@ -29,7 +29,7 @@
             <td>{{ $index + 1 }}</td>
             <td>{{ ucwords($video->title) }}</td>
             <td>{{ $video->category->name }}</td>
-            <td><a href ="/view/video/{{ $video->id }}" title="{{ $video->title }}" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> View</a></td>
+            <td><a href ="/video/{{ $video->id }}" title="{{ $video->title }}" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> View</a></td>
             <td>
               <span>
                 <a href="/dashboard/video/edit/{{ $video->id }}" title="{{ $video->title }}" id="{{ $video->id }}">Edit <i class="fa fa-pencil" aria-hidden="true"></i>
