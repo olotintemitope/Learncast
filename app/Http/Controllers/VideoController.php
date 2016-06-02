@@ -38,18 +38,18 @@ class VideoController extends Controller
         $video = $this->createVideo($request, Auth::user()->id);
 
         if (!$video) {
-            return redirect('/dashboard/video/add')->with('status','Invalid url');
+            return redirect('/dashboard/video/add')->with('status', 'Invalid url');
         }
 
         if ($video == 'true') {
-            return redirect('/dashboard/video/add')->with('status','Video url already exists');
+            return redirect('/dashboard/video/add')->with('status', 'Video url already exists');
         }
 
         if (!is_null($video)) {
-            return redirect('/dashboard/video/add')->with('status','Sucessfully created!');
+            return redirect('/dashboard/video/add')->with('status', 'Sucessfully created!');
         }
 
-        return redirect('/dashboard/video/add')->with('status','Oops! Something went wrong!');
+        return redirect('/dashboard/video/add')->with('status', 'Oops! Something went wrong!');
     }
 
     /**
@@ -114,18 +114,18 @@ class VideoController extends Controller
         $video = $this->assistUpdateVideo($request, $id);
 
         if (!$video) {
-            return redirect('/dashboard/video/edit/'.$id)->with('status','Invalid url');
+            return redirect('/dashboard/video/edit/'.$id)->with('status', 'Invalid url');
         }
 
         if ($video == 'true') {
-            return redirect('/dashboard/video/add')->with('status','Video url already exists');
+            return redirect('/dashboard/video/add')->with('status', 'Video url already exists');
         }
 
         if (!is_null($video)) {
             return redirect('/dashboard/video/view');
         }
 
-        return redirect('/dashboard/video/edit/'.$id)->with('status','Oops! Something went wrong!');
+        return redirect('/dashboard/video/edit/'.$id)->with('status', 'Oops! Something went wrong!');
     }
 
     /**

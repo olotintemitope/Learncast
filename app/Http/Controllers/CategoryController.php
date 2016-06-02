@@ -75,7 +75,7 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::getCategoryById($id)
-        ->update([  
+        ->update([
             'name'        => $request->input('name'),
             'description' => $request->input('description'),
         ]);
