@@ -61,7 +61,7 @@ you have to set your environments variables, the required ones for the applicati
 
 Clone this repository by typing this on your command line 
 
-` git clone https://github.com/andela-tolotin/Learncast.git `
+` git clone https://github.com/andela-tolotin/Learncast.git  and run composer install `
 
 
 ```
