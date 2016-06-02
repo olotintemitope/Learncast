@@ -301,7 +301,6 @@ class VideoTest extends TestCase
 
         $this->actingAs($user)->visit('/dashboard/video/view')
         ->see($video->title)
-        ->see($video->url)
         ->see($video->category->name);
     }
 
@@ -380,6 +379,6 @@ class VideoTest extends TestCase
 
         $this->visit('/')
         ->click($video->title)
-        ->seePageIs('/view/video/'.$video->id);
+        ->seePageIs('/video/'.$video->id);
     }
 }
