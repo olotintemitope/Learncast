@@ -120,13 +120,13 @@ class CategoryController extends Controller
      */
     public function viewAllCategories()
     {
-        $user_id = Auth::user()->id;
+        $userId = Auth::user()->id;
 
-        $categories = Category::getCategoriesByUserId($user_id)
+        $categories = Category::getCategoriesByUserId($userId)
         ->orderBy('id', 'asc')
         ->paginate(10);
 
-        $pendingCategories = Category::allTrashedCategories($user_id)
+        $pendingCategories = Category::allTrashedCategories($userId)
         ->paginate(10);
 
         return view('dashboard.pages.list_video_categories', compact(

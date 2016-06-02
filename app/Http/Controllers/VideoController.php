@@ -61,16 +61,16 @@ class VideoController extends Controller
      */
     public function viewAllVideos()
     {
-        $user_id = $user_id = Auth::user()->id;
+        $userId = Auth::user()->id;
 
         $videos = Video::with('category')
         ->orderBy('videos.id', 'desc')
-        ->getVideosByUserId($user_id)
+        ->getVideosByUserId($userId)
         ->paginate(10);
 
         $pendingVideos = Video::with('category')
         ->orderBy('videos.id', 'desc')
-        ->allTrashedVideos($user_id)
+        ->allTrashedVideos($userId)
         ->paginate(10);
 
         return view('dashboard.pages.list_all_videos', compact('videos', 'pendingVideos'));
@@ -285,11 +285,11 @@ class VideoController extends Controller
      * This method creates video and return the video object.
      *
      * @param  $request
-     * @param  $user_id
+     * @param  $userId
      *
      * @return $video
      */
-    public function createVideo($request, $user_id)
+    public function createVideo($request, $userId)
     {
         $youTubeVideoId = $this->parseYoutubeUrl($request->input('url'));
         if (!$youTubeVideoId) {
@@ -300,17 +300,15 @@ class VideoController extends Controller
             return 'true';
         }
 
-        $video = Video::create([
+        return Video::create([
             'title'        => strtolower($request->input('title')),
             'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
-            'user_id'      => $user_id,
+            'user_id'      => $userId,
             'description'  => $request->input('description'),
             'views'        => 0,
             'favourites'   => 0,
         ]);
-
-        return $video;
     }
 
     /**
