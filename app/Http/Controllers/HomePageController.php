@@ -27,22 +27,22 @@ class HomePageController extends Controller
     /**
      * This method gets video by id.
      *
-     * @param $video_id
+     * @param $videoId
      *
      * @return view
      */
-    public function viewCurrentVideo($video_id)
+    public function viewCurrentVideo($videoId)
     {
         // Update the number of views on this page
-        Video::where('id', '=', $video_id)->increment('views');
+        Video::where('id', $videoId)->increment('views');
 
-        $video = Video::getVideoById($video_id)->first();
+        $video = Video::getVideoById($videoId)->first();
 
         if (is_null($video)) {
             return abort(404, 'Page not found.');
         }
 
-        $relatedVideos = Video::getRelatedVideo($video_id, $video->category_id, $video->title)
+        $relatedVideos = Video::getRelatedVideo($videoId, $video->category_id, $video->title)
         ->orderBy('videos.views', 'desc')
         ->take(5)
         ->get();
@@ -54,33 +54,33 @@ class HomePageController extends Controller
      * This function store the users favourite video and also
      * increase the number of favourites on a video.
      *
-     * @param $video_id
+     * @param $videoId
      *
      * @return json response
      */
-    public function favouriteVideo(Request $request, $video_id)
+    public function favouriteVideo(Request $request, $videoId)
     {
-        if ($this->verifyVideoFavourite($request->input('user'), $video_id)) {
-            if ($this->removeVideoFavourite($video_id) && $this->removeVideoFromMyFavourites($request, $video_id)) {
+        if ($this->verifyVideoFavourite($request->input('user'), $videoId)) {
+            if ($this->removeVideoFavourite($videoId) && $this->removeVideoFromMyFavourites($request, $videoId)) {
                 return [
                     'statuscode'  => 200,
                     'message'     => 'Successful',
-                    'favourites'  => $this->getVideoFavourites($video_id),
+                    'favourites'  => $this->getVideoFavourites($videoId),
                 ];
             }
         }
 
-        if ($this->addToVideoFavourite($video_id) && $this->addToMyVideoFavourites($request, $video_id)) {
+        if ($this->addToVideoFavourite($videoId) && $this->addToMyVideoFavourites($request, $videoId)) {
             return [
                 'statuscode'  => 201,
                 'message'     => 'Successful',
-                'favourites'  => $this->getVideoFavourites($video_id),
+                'favourites'  => $this->getVideoFavourites($videoId),
             ];
         }
 
         return [
                'statuscode' => 400,
-               'message'    => 'Oop! something went wrong',
+               'message'    => 'Oops! something went wrong',
             ];
     }
 
@@ -88,30 +88,28 @@ class HomePageController extends Controller
      * This method increases the number of favourites on a video.
      *
      * @param $request
-     * @param $video_id
+     * @param $videoId
      *
      * @return bool
      */
-    public function addToVideoFavourite($video_id)
+    public function addToVideoFavourite($videoId)
     {
-        $video = Video::where('id', '=', $video_id)->increment('favourites');
-
-        return $video;
+        return Video::where('id', $videoId)->increment('favourites');
     }
 
     /**
      * This method add a video to the user favourites table.
      *
      * @param $request
-     * @param $video_id
+     * @param $videoId
      *
      * @return bool
      */
-    public function addToMyVideoFavourites($request, $video_id)
+    public function addToMyVideoFavourites($request, $videoId)
     {
         $favourites = Favourite::create([
             'user_id'  => $request->input('user'),
-            'video_id' => $video_id,
+            'video_id' => $videoId,
         ]);
 
         if (!is_null($favourites)) {
@@ -125,46 +123,42 @@ class HomePageController extends Controller
      * This method decrements the counter of favourites on a video.
      *
      * @param $request
-     * @param $video_id
+     * @param $videoId
      *
      * @return bool
      */
-    public function removeVideoFavourite($video_id)
+    public function removeVideoFavourite($videoId)
     {
-        $video = Video::where('id', '=', $video_id)->decrement('favourites');
-
-        return $video;
+        return Video::where('id', $videoId)->decrement('favourites');
     }
 
     /**
      * This method remove a video from the user favourites table.
      *
      * @param $request
-     * @param $video_id
+     * @param $videoId
      *
      * @return bool
      */
-    public function removeVideoFromMyFavourites($request, $video_id)
+    public function removeVideoFromMyFavourites($request, $videoId)
     {
-        $favourite = Favourite::where('video_id', '=', $video_id)
+        return Favourite::where('video_id', $videoId)
         ->where('user_id', '=', $request->input('user'))
         ->delete();
-
-        return $favourite;
     }
 
     /**
      * This method checks if the user has favourited a particular video before.
      *
      * @param $user_id
-     * @param $video_id
+     * @param $videoId
      *
      * @return bool
      */
-    public function verifyVideoFavourite($user_id, $video_id)
+    public function verifyVideoFavourite($userId, $videoId)
     {
-        $favourite = Favourite::where('user_id', '=', $user_id)
-        ->where('video_id', '=', $video_id)
+        $favourite = Favourite::where('user_id', $userId)
+        ->where('video_id', $videoId)
         ->first();
 
         if (!is_null($favourite)) {
@@ -177,13 +171,13 @@ class HomePageController extends Controller
     /**
      * This method gets the total number of video favourites.
      *
-     * @param $video_id
+     * @param $videoId
      *
      * @return favourites
      */
-    public function getVideoFavourites($video_id)
+    public function getVideoFavourites($videoId)
     {
-        return Video::getVideoById($video_id)
+        return Video::getVideoById($videoId)
         ->first()
         ->favourites;
     }
