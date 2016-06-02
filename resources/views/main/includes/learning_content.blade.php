@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="resent-grid-info recommended-grid-info">
-              <h3><a class="" href="/view/video/{{ $video->id }}">{{ ucwords($video->title) }}</a></h3>
+              <h3><a class="" href="/video/{{ $video->id }}">{{ ucwords($video->title) }}</a></h3>
               <ul>
                 <li> <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                   <p class="author author-info views">

@@ -128,12 +128,12 @@
         @foreach($relatedVideos as $video)
         <div class="list_videos">
           <div class="video_thumbnail">
-            <a class="" href="#">
+            <a class="" href="/video/{{ $video->id }}">
               <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
             </a>
           </div>
           <div class="video_info bg-white">
-            <h5><a href="/view/video/{{ $video->id }}"  title="{{ $video->title }}">{{ ucwords($video->title) }}</a></h5>
+            <h5><a href="/video/{{ $video->id }}"  title="{{ $video->title }}">{{ ucwords($video->title) }}</a></h5>
             <span>{{ $video->category->name}}</span><br>
             <span>{{ $video->views }} views</span>
           </div>

@@ -181,14 +181,14 @@ class VideoController extends Controller
     {
         if (!is_null($classObject)) {
             return [
-            'statuscode' => 200,
-            'message'    => 'Operation Successfully',
+                'statuscode' => 200,
+                'message'    => 'Operation Successfully',
             ];
         }
 
         return [
-        'statuscode' => 404,
-        'message'    => 'Invalid Video ID!',
+            'statuscode' => 404,
+            'message'    => 'Invalid Video ID!',
         ];
     }
 
