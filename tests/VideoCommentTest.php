@@ -52,7 +52,7 @@ class VideoCommentTest extends TestCase
 
         $video = $this->createVideo($user, $category);
 
-        $this->visit('/view/video/'.$video->id)
+        $this->visit('/video/'.$video->id)
         ->dontSee('<form method="POST" id="comment_form">')
         ->dontSee('textarea');
     }

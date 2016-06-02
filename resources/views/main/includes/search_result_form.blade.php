@@ -12,8 +12,8 @@
                     @foreach($searchResult as $video)
                     <div class="hr-line-dashed"></div>
                     <div class="search-result">
-                        <h3><a href="{{ URL::to('/') }}/view/video/{{ $video->id}}">{{ ucwords($video->title) }}</a></h3>
-                        <a href="/view/video/{{ $video->id}}" class="search-link">
+                        <h3><a href="{{ URL::to('/') }}/video/{{ $video->id}}">{{ ucwords($video->title) }}</a></h3>
+                        <a href="/video/{{ $video->id}}" class="search-link">
                         {{ URL::to('/') }}/view/video/{{ $video->id}}</a>
                         <p>{{  $video->description }}</p>
                     </div>

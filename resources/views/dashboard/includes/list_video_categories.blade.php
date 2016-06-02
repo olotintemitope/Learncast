@@ -12,7 +12,7 @@
   </div>
   <div class="tab-content">
     <div id="active_categories" class="col-md-12 tab-pane active">
-      @if (count($categories) > 0)
+      @if ($categories->count() > 0)
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
@@ -20,13 +20,12 @@
             <th data-field="id">Name</th>
             <th data-field="name">Edit</th>
             <th data-field="price">Status</th>
-          </tr>
+          </tr>g
         </thead>
         <tbody>
-          <?php $sn = 1; ?>
-          @foreach($categories as $category)
+          @foreach($categories as $index => $category)
           <tr>
-            <td>{{ $sn }}</td>
+            <td>{{ $index + 1 }}</td>
             <td>{{ $category->name }}</td>
             <td>
               <span>
@@ -41,17 +40,16 @@
               </select>
             </td>
           </tr>
-          <?php $sn++; ?>
           @endforeach
         </tbody>
       </table>
       @else
-      <h5>Video are not available for display</h5>
+      <h5>You do not have any active video category</h5>
       @endif
       {!! $categories->render() !!}
     </div>
     <div id="pending_categories" class="col-md-12 tab-pane fade">
-      @if (count($pendingCategories) > 0)
+      @if ($pendingCategories->count() > 0)
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
@@ -61,10 +59,9 @@
           </tr>
         </thead>
         <tbody>
-          <?php $sn = 1; ?>
-          @foreach($pendingCategories as $category)
+          @foreach($pendingCategories as $index => $category)
           <tr>
-            <td>{{ $sn }}</td>
+            <td>{{ $index + 1 }}</td>
             <td>{{ $category->name }}</td>
             <td>
               <select id="{{ $category->id }}" name="activate" class="activate form-control">
@@ -73,12 +70,11 @@
               </select>
             </td>
           </tr>
-          <?php $sn++; ?>
           @endforeach
         </tbody>
       </table>
       @else
-      <h5>Video are not available for display</h5>
+      <h5>You do not have any pending video category</h5>
       @endif
       {!! $pendingCategories->render() !!}
     </div>

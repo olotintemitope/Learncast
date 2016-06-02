@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function updateProfile(UserSignupRequest $request)
     {
-        $user = User::where('id', '=', Auth::user()->id)
+        $user = User::where('id', Auth::user()->id)
         ->update([
             'username'    => $request->input('username'),
             'email'       => $request->input('email'),

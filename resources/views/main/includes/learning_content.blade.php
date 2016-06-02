@@ -9,7 +9,7 @@
           @foreach ($chunk as $video)
           <div class="col-md-4 resent-grid recommended-grid slider-top-grids">
             <div class="resent-grid-img recommended-grid-img">
-              <a class=" btn btn-primary" href="/view/video/{{ $video->id }}" style="height:150px; background:url('http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg'); background-size:cover;"></a>
+              <a class=" btn btn-primary" href="/video/{{ $video->id }}" style="height:150px; background:url('http://img.youtube.com/vi/{{ $video->url }}/mqdefault.jpg'); background-size:cover;"></a>
               <div class="time">
                 <p></p>
               </div>
@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="resent-grid-info recommended-grid-info">
-              <h3><a class="" href="/view/video/{{ $video->id }}">{{ ucwords($video->title) }}</a></h3>
+              <h3><a class="" href="/video/{{ $video->id }}">{{ ucwords($video->title) }}</a></h3>
               <ul>
                 <li> <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                   <p class="author author-info views">

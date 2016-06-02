@@ -34,7 +34,7 @@ class VideoFavouriteTest extends TestCase
 
         $output = json_decode($response->getContent());
 
-        $this->assertEquals($output->message, 'Oop! something went wrong');
+        $this->assertEquals($output->message, 'Oops! something went wrong');
         $this->assertEquals($output->statuscode, 400);
     }
 
@@ -50,7 +50,7 @@ class VideoFavouriteTest extends TestCase
 
         $output = json_decode($response->getContent());
 
-        $this->assertEquals($output->message, 'Oop! something went wrong');
+        $this->assertEquals($output->message, 'Oops! something went wrong');
         $this->assertEquals($output->statuscode, 400);
     }
 
@@ -74,7 +74,6 @@ class VideoFavouriteTest extends TestCase
         $response = $this->actingAs($user)
         ->visit('/dashboard/video/favourites')
         ->see($favourites->video->title)
-        ->see($favourites->video->url)
         ->see($favourites->video->category->name);
     }
 
@@ -92,6 +91,6 @@ class VideoFavouriteTest extends TestCase
 
         $this->actingAs($user)
         ->visit('/dashboard/video/favourites')
-        ->see('Video are not available for display');
+        ->see('You do not have any favourite video(s) for display');
     }
 }

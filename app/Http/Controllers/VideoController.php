@@ -37,31 +37,19 @@ class VideoController extends Controller
     {
         $video = $this->createVideo($request, Auth::user()->id);
 
-        if ($video === false) {
-            return redirect('/dashboard/video/add')->with(
-                'status',
-                'Invalid url'
-            );
+        if (!$video) {
+            return redirect('/dashboard/video/add')->with('status', 'Invalid url');
         }
 
         if ($video == 'true') {
-            return redirect('/dashboard/video/add')->with(
-                'status',
-                'Video url already exists'
-            );
+            return redirect('/dashboard/video/add')->with('status', 'Video url already exists');
         }
 
         if (!is_null($video)) {
-            return redirect('/dashboard/video/add')->with(
-                'status',
-                'Sucessfully created!'
-            );
+            return redirect('/dashboard/video/add')->with('status', 'Sucessfully created!');
         }
 
-        return redirect('/dashboard/video/add')->with(
-            'status',
-            'Oops! Something went wrong!'
-        );
+        return redirect('/dashboard/video/add')->with('status', 'Oops! Something went wrong!');
     }
 
     /**
@@ -73,16 +61,16 @@ class VideoController extends Controller
      */
     public function viewAllVideos()
     {
-        $user_id = $user_id = Auth::user()->id;
+        $userId = Auth::user()->id;
 
         $videos = Video::with('category')
         ->orderBy('videos.id', 'desc')
-        ->getVideosByUserId($user_id)
+        ->getVideosByUserId($userId)
         ->paginate(10);
 
         $pendingVideos = Video::with('category')
         ->orderBy('videos.id', 'desc')
-        ->allTrashedVideos($user_id)
+        ->allTrashedVideos($userId)
         ->paginate(10);
 
         return view('dashboard.pages.list_all_videos', compact('videos', 'pendingVideos'));
@@ -125,28 +113,19 @@ class VideoController extends Controller
 
         $video = $this->assistUpdateVideo($request, $id);
 
-        if ($video === false) {
-            return redirect('/dashboard/video/edit/'.$id)->with(
-                'status',
-                'Invalid url'
-            );
+        if (!$video) {
+            return redirect('/dashboard/video/edit/'.$id)->with('status', 'Invalid url');
         }
 
         if ($video == 'true') {
-            return redirect('/dashboard/video/add')->with(
-                'status',
-                'Video url already exists'
-            );
+            return redirect('/dashboard/video/add')->with('status', 'Video url already exists');
         }
 
         if (!is_null($video)) {
             return redirect('/dashboard/video/view');
         }
 
-        return redirect('/dashboard/video/edit/'.$id)->with(
-            'status',
-            'Oops! Something went wrong!'
-        );
+        return redirect('/dashboard/video/edit/'.$id)->with('status', 'Oops! Something went wrong!');
     }
 
     /**
@@ -167,7 +146,7 @@ class VideoController extends Controller
             $video = Video::setVideoStatus($id)->restore();
         }
 
-        return $this->returnChangeVideoStatus($video);
+        return $this->getVideoStatus($video);
     }
 
     /**
@@ -177,18 +156,18 @@ class VideoController extends Controller
      *
      * @return $response
      */
-    public function returnChangeVideoStatus($classObject)
+    public function getVideoStatus($classObject)
     {
         if (!is_null($classObject)) {
             return [
-            'statuscode' => 200,
-            'message'    => 'Operation Successfully',
+                'statuscode' => 200,
+                'message'    => 'Operation Successfully',
             ];
         }
 
         return [
-        'statuscode' => 404,
-        'message'    => 'Invalid Video ID!',
+            'statuscode' => 404,
+            'message'    => 'Invalid Video ID!',
         ];
     }
 
@@ -232,7 +211,7 @@ class VideoController extends Controller
         }
 
         $categoryName = ucwords($category->name);
-        $myVideos = Video::where('category_id', '=', $category->id)->paginate(12);
+        $myVideos = Video::where('category_id', $category->id)->paginate(12);
 
         return view('main.pages.video_category', compact('myVideos', 'categoryName', 'allCategories'));
     }
@@ -283,7 +262,7 @@ class VideoController extends Controller
     public function assistUpdateVideo($request, $id)
     {
         $youTubeVideoId = $this->parseYoutubeUrl($request->input('url'));
-        if ($youTubeVideoId === false) {
+        if (!$youTubeVideoId) {
             return false;
         }
 
@@ -306,14 +285,14 @@ class VideoController extends Controller
      * This method creates video and return the video object.
      *
      * @param  $request
-     * @param  $user_id
+     * @param  $userId
      *
      * @return $video
      */
-    public function createVideo($request, $user_id)
+    public function createVideo($request, $userId)
     {
         $youTubeVideoId = $this->parseYoutubeUrl($request->input('url'));
-        if ($youTubeVideoId === false) {
+        if (!$youTubeVideoId) {
             return false;
         }
 
@@ -321,17 +300,15 @@ class VideoController extends Controller
             return 'true';
         }
 
-        $video = Video::create([
+        return Video::create([
             'title'        => strtolower($request->input('title')),
             'url'          => $this->parseYoutubeUrl($request->input('url')),
             'category_id'  => $request->input('category'),
-            'user_id'      => $user_id,
+            'user_id'      => $userId,
             'description'  => $request->input('description'),
             'views'        => 0,
             'favourites'   => 0,
         ]);
-
-        return $video;
     }
 
     /**
