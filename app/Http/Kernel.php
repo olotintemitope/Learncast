@@ -48,6 +48,6 @@ class Kernel extends HttpKernel
         'auth.basic'     => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest'          => \LearnCast\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle'       => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'auth.notadmin'  => \LearnCast\Http\Middleware\AuthVideoCategory::class,
+        'auth.notadmin'  => \LearnCast\Http\Middleware\AuthNonAdmin::class,
     ];
 }
