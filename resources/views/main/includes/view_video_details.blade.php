@@ -122,7 +122,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-     <!--  <div class="related_videos_wrapper" style="margin-bottom: 50px;" > -->
+      <div class="related_videos_wrapper" style="margin-bottom: 50px;" >
         <h3> Related Videos </h3>
         @if (count($relatedVideos))
         @foreach($relatedVideos as $video)
@@ -144,7 +144,7 @@
         </div>
         @endforeach
         @endif
-      <!-- </div> -->
+      </div>
     </div>
     
     @else
