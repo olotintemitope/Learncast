@@ -10,7 +10,7 @@
       <input type="password" class="form-control" placeholder="Password" name="password"value="">
     </div>
     <div class="form-group">
-      <button class="btn btn-danger btn-block">Log In</button>
+      <button class="btn btn-primary btn-block">Log In</button>
     </div>
     <div class="form-group">
       <a href="/#signup" class="btn btn-default custom-button-width pull-right border">
@@ -28,10 +28,10 @@
           <i class="fa fa-facebook"></i> Log in with Facebook
         </a>
         <a href="{{ url('/auth/twitter') }}" class="btn btn-md btn-primary btn-block btn-social btn-twitter pull-left">
-          <i class="fa fa-twitter" ></i> Log in Twitter
+          <i class="fa fa-twitter" ></i> Log in with Twitter
         </a>
         <a href="{{ url('/auth/github') }}" class="btn btn-md btn-default btn-block btn-social btn-github pull-left" style="background: #000000; color: #ffffff;">
-          <i class="fa fa-github"></i> Log in Github
+          <i class="fa fa-github"></i> Log in with Github
         </a>
         
       </div>
