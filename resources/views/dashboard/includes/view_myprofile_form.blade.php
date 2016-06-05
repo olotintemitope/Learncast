@@ -14,9 +14,7 @@
         <textarea id="description" class="form-control" name="profile_bio" placeholder="Background Information">{{ Auth::user()->profile_bio }}</textarea>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit" name="action">Update
-        <i class="material-icons right">update</i>
-        </button>
+        <button class="btn btn-primary" type="submit" name="action">Update</button>
       </div>
     </form>
   </div>
@@ -27,13 +25,11 @@
       <div class="form-group">
         <img src="{{ Auth::user()->picture_url }}" title="myprofile" alt="myprofile" class="img-circle my-pix">
       </div>
-      <div class="form-group">
+      <div class="input-group">
         <input id="picture_url" type="file" class="validate form-control" name="picture_url">
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit" name="action">Upload
-        <i class="material-icons right">offline_pin</i>
-        </button>
+        <button class="btn btn-primary" type="submit" name="action">Upload</button>
       </div>
     </form>
   </div>
