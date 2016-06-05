@@ -687,3 +687,102 @@ time p {
   cursor:none;
   border: none !important;
 }
+
+/* Video Log */
+.vdo-log{
+  background:#ffffff;
+  -moz-box-shadow:0 0 10px #eeeeee;
+  -webkit-box-shadow:0 0 10px #eeeeee;
+  box-shadow:0 0 10px #eeeeee;
+  padding:10px;
+  min-height: 120px;
+}
+.vdo-list{
+  font-size:12px;
+  width:360px;
+  //padding:10px;
+}
+.vdo-list a{
+  text-decoration:none;
+}
+.vdo-thumb{
+  float:left;
+  color:#ffffff;
+}
+.vdo-thumb a{
+  display:inline-block;
+  padding:5px;
+  width:125px;
+  height:100px;
+  position:relative;
+  color:#ffffff;
+  background-position:5px;
+  background-repeat:no-repeat;
+}
+.vdo-thumb span{
+  float:left;
+  font-weight:bold;
+  background:rgba(0,0,0,.6);
+  -moz-border-top-right-radius:.3em;
+  -webkit-border-top-right-radius:.3em;
+  border-top-right-radius:.3em;
+  font-size:10px;
+  padding:2px 3px;
+  position:absolute;
+  bottom:5px;
+}
+.vdo-info{
+  width:200px;
+  float:left;
+  padding:0 0 0 10px;
+}
+.vdo-title{
+  display:block;
+  margin:5px 0;
+}
+.vdo-title{
+  font-size:16px;
+  font-weight:bold;
+  line-height:1.4em;
+}
+.vdo-title a{
+  text-transform:capitalize;
+  color:#3698d4;
+  text-decoration:none;
+}
+.vdo-title a:hover{
+  color:#565656;
+  text-decoration:none;
+}
+.vdo-title span{
+  font-size:12px;
+  color:#767676;
+}
+.vdo-desc{
+  float:left;
+  color:#565656;
+}
+.vdo-detail,
+.vdo-desc{
+  line-height:1.4em;
+}
+
+.vdo-detail{
+  float:left;
+  color:#aaaaaa;
+  margin:5px 0 0 0;
+}
+.vdo-detail a{
+  color:#3698d4;
+  text-decoration:none;
+}
+.vdo-detail a:hover{
+  color:#565656;
+  text-decoration:none;
+}
+.vdo-detail span{
+  color:#aaaaaa;
+}
+.vdo-title h3 {
+  overflow: hidden;
+}
