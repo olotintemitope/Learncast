@@ -28,6 +28,7 @@
       <div class="input-group">
         <input id="picture_url" type="file" class="validate form-control" name="picture_url">
       </div>
+      <br/>
       <div class="form-group">
         <button class="btn btn-primary" type="submit" name="action">Upload</button>
       </div>
