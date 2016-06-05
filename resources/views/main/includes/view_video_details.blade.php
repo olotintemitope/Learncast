@@ -32,8 +32,8 @@
                     <i class="fa fa-heart"> {{ $video->favourites }} </i>
                     </button>
                     @else
-                    <button type="button" class="btn btn-primary btn-sm favourites" id="{{ $video->id }}" data-user="" data-fav="{{ $video->favourites }}">
-                    <i class="fa fa-thumbs-up"> {{ $video->favourites }} </i>
+                    <button type="button" class="btn btn-primary btn-md favourites" id="{{ $video->id }}" data-user="" data-fav="{{ $video->favourites }}">
+                    <i class="fa fa-heart"> {{ $video->favourites }} </i>
                     </button>
                     @endif
                   </form>
@@ -122,28 +122,31 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="related_videos_wrapper" style="margin-bottom: 50px;">
+     <!--  <div class="related_videos_wrapper" style="margin-bottom: 50px;" > -->
         <h3> Related Videos </h3>
         @if (count($relatedVideos))
         @foreach($relatedVideos as $video)
-        <div class="list_videos">
-          <div class="video_thumbnail">
-            <a class="" href="/video/{{ $video->id }}">
-              <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
-            </a>
-          </div>
-          <div class="video_info bg-white">
-            <h5><a href="/video/{{ $video->id }}"  title="{{ $video->title }}">{{ ucwords($video->title) }}</a></h5>
-            <span>{{ $video->category->name}}</span><br>
-            <span>{{ $video->views }} views</span>
+        <div class="vdo-log" >
+          <div class="vdo-list">
+            <div class="vdo-thumb">
+              <a class="" href="/video/{{ $video->id }}">
+                <img  class="media-object" height="90" style="top: 8px" src="https://i.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg?custom=true&amp;w=120&amp;h=90&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=pjnaiMZbwUI1NflYEgDNZhtOcTI" alt="" aria-hidden="true" width="120">
+              </a>
+            </div>
+            <div class="vdo-info">
+              <div class="vdo-title"><a href="/video/{{ $video->id }}" title="{{ $video->title }}"><h3>{{ ucwords($video->title) }}</h3></a></div>
+              <div class="vdo-desc"></div>
+              <div class="vdo-detail">{{ Carbon\Carbon::createFromTimeStamp(strtotime($video->created_at))->diffForHumans() }} <span>|</span>
+              <a href="/video/category/{{ $video->category->name }}" title="{{ $video->category->name }}">{{ $video->category->name}}</a> <span>|</span> {{ $video->views }} view(s)</div>
+            </div>
+            <div class="clear"></div>
           </div>
         </div>
         @endforeach
-        @else
-        <h5>This video does not have related videos yet</h5>
         @endif
-      </div>
+      <!-- </div> -->
     </div>
+    
     @else
     <h4 align="center" class="text-danger">Video you requested for cannot be found</h4>
     @endif
