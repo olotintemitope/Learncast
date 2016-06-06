@@ -20,7 +20,7 @@
             <td>{{ $favourites->video->category->name }}</td>
             <td>
               <span>
-                <a href ="/view/video/{{ $favourites->video->id }}" title="{{ $favourites->video->title }}" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> View</a>
+                <a href ="/video/{{ $favourites->video->id }}" title="{{ $favourites->video->title }}" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> View</a>
               </span>
             </td>
           </tr>
