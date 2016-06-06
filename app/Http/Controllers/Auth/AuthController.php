@@ -82,11 +82,8 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
-        $username = $request->input('username');
-        $email = $request->input('email');
-
-        $user = User::where('username', '=', strtolower($username))
-        ->orWhere('email', '=', strtolower($email))
+        $user = User::where('username', '=', strtolower($request->input('username')))
+        ->orWhere('email', '=', strtolower($request->input('email')))
         ->first();
 
         if (!is_null($user)) {
