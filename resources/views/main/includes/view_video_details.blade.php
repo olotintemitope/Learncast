@@ -1,4 +1,4 @@
-<div class="container v-center">
+<div class="container v-center" style="margin-bottom:60px;">
   <div class="row">
     @if (count($video) > 0)
     <div class="col-lg-12 bg-white video_frame">
