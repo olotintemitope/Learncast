@@ -248,8 +248,7 @@ section {
       position: absolute;
       bottom: 0;
       width: 100%;
-      /* Set the fixed height of the footer here */
-      height: 60px;
+      height: 76px;
       background-color: #e6e6e6;
     }
 
@@ -785,4 +784,9 @@ time p {
 }
 .vdo-title h3 {
   overflow: hidden;
+}
+
+.text-left {
+  text-align: center;
+  vertical-align: middle;
 }
