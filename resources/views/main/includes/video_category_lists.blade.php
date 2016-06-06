@@ -1,4 +1,4 @@
-<div class="bounceInDown container v-center animated bg-white">
+<div class="bounceInDown container v-center animated bg-white" style="margin-bottom:60px;">
   <div class="row">
     @include('main.includes.video_category_slide')
     <div class="col-md-9">
